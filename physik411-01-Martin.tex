@@ -1,0 +1,79 @@
+% Copyright © 2012-2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2}
+\newcommand{\theuebung}{1}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung \\ \vspace{0.5cm} \large{\thegruppe}}
+
+\author{
+	Martin Ueding \\ \small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& \ref 4
+		& \ref 5
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 8
+		& \punkte / 12
+		& \punkte / 5
+		& \punkte / 9
+		& \punkte / 9
+		& \punkte / 43
+	\end{tabular}
+\end{table}
+
+
+\section{Moleküle zählen}
+\label 1
+
+\section{Flugzeit-Massenspektrometer}
+\label 2
+
+\section{Mittlere freie Weglänge}
+\label 3
+
+\section{De Broglie-Wellenlängen}
+\label 4
+
+\section{Kastenpotential}
+\label 5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\IfFileExists{\bibliographyfile}{
+	%\bibliography{\bibliographyfile}
+	%\bibliographystyle{plain}
+%}{}
+
+\end{document}
+
+% vim: spell spelllang=de
