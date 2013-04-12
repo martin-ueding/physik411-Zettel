@@ -156,6 +156,40 @@ möglich ist, wenn auch knapp.
 \section{Mittlere freie Weglänge}
 \label 3
 
+\subsection{Energie \SI{10}{eV}}
+
+Das Elektron hat eine Ruhemasse von $m = c^{-2} \cdot \SI{511}{keV}$. Daher
+kann ich an dieser Stelle klassisch rechnen:
+\[
+	E = \half m v^2
+	\iff
+	v = \sqrt{2 \frac E m}
+	= c \sqrt{2 \cdot \frac{\SI{10}{eV}}{\SI{511}{keV}}}
+	= \SI{1.88e6}{m/s}
+\]
+
+\subsection{Energie \SI{20}{keV}}
+
+Für \SI{20}{keV} könne man schon relativistisch rechnen. Ich wiederhole die Rechnung zuerst klassisch und erhalte als Geschwindigkeit $v = \SI{8.39e7}{m/s}$. Das ist mehr als ein Zehntel der Lichtgeschwindigkeit, ich rechne dann doch lieber relativistisch:
+\[
+	v
+	= c \sqrt{1 - \del{\frac{E_0}{E}}^2}
+	= c \sqrt{1 - \del{\frac{\SI{511}{keV}}{\SI{531}{keV}}}^2}
+	= \SI{8.16e7}{m/s}
+\]
+
+Das Ergebnis weicht schon signifikant ab, so dass relativistisch gerechnet
+werden muss.
+
+\subsection{$\alpha$-Teilchen}
+
+Die Ruhemasse eines $\alpha$-Teilchens ist $m_\alpha = c^{-2} \cdot
+\SI{3727}{MeV}$. Ich bestimme die Geschwindigkeit mit der relativistischen
+Formel:
+\[
+	v = \SI{1.70e7}{m/s}
+\]
+
 \section{De Broglie-Wellenlängen}
 \label 4
 
