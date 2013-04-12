@@ -156,30 +156,25 @@ möglich ist, wenn auch knapp.
 \section{Mittlere freie Weglänge}
 \label 3
 
+\section{De Broglie-Wellenlängen}
+\label 4
+
 \subsection{Energie \SI{10}{eV}}
 
-Das Elektron hat eine Ruhemasse von $m = c^{-2} \cdot \SI{511}{keV}$. Daher
-kann ich an dieser Stelle klassisch rechnen:
+Die Energie-Impuls-Relation besagt mit Gesamtenergie $E$, Ruheenergie $E_0$ und
+Impuls $p$: $E^2 = E_0^2 + (cp)^2$. Die de Broglie-Wellenlänge eines Teilchens
+ist $\lambda = h/p$. Damit errechne ich:
 \[
-	E = \half m v^2
-	\iff
-	v = \sqrt{2 \frac E m}
-	= c \sqrt{2 \cdot \frac{\SI{10}{eV}}{\SI{511}{keV}}}
-	= \SI{1.88e6}{m/s}
+	\lambda = \frac{ch}{\sqrt{\del{E_0 + \Deltaup E}^2 - E_0^2}}
 \]
+
+Dort setze ich $\Deltaup E = \SI{10}{eV}$ und $E_0 = \SI{511}{keV}$ ein und
+erhalte $\lambda = \SI{3.86e-10}m$.
 
 \subsection{Energie \SI{20}{keV}}
 
-Für \SI{20}{keV} könne man schon relativistisch rechnen. Ich wiederhole die Rechnung zuerst klassisch und erhalte als Geschwindigkeit $v = \SI{8.39e7}{m/s}$. Das ist mehr als ein Zehntel der Lichtgeschwindigkeit, ich rechne dann doch lieber relativistisch:
-\[
-	v
-	= c \sqrt{1 - \del{\frac{E_0}{E}}^2}
-	= c \sqrt{1 - \del{\frac{\SI{511}{keV}}{\SI{531}{keV}}}^2}
-	= \SI{8.16e7}{m/s}
-\]
-
-Das Ergebnis weicht schon signifikant ab, so dass relativistisch gerechnet
-werden muss.
+Gleiche Rechnung, nur mit anderer $\Deltaup E = \SI{20}{keV}$. Das Ergebnis ist
+$\lambda = \SI{8.56}m$.
 
 \subsection{$\alpha$-Teilchen}
 
@@ -190,20 +185,127 @@ Formel:
 	v = \SI{1.70e7}{m/s}
 \]
 
-\section{De Broglie-Wellenlängen}
-\label 4
+\subsection{Stickstoffmolekül bei Zimmertemperatur}
+
+Die Masse von $\mathrm{^{14}N_2}$ ist \SI{28}{amu}. Bei Zimmertemperatur $T = \SI{290}{K}$ ist die kinetische Energie pro Freiheitsgrad $E = kT/2$. Die mittlere Geschwindigkeit ist somit:
+\[
+	v
+	= \sqrt{2 \frac Em}
+	= \sqrt{\frac{kT}m}
+	= \SI{293}{m/s}
+\]
+
+Der Impuls ist $p = \SI{1.37e-23}{kg.m/s}$, die de Broglie-Wellenlänge dazu ist
+$\lambda = \SI{4.84e-11}{m}$.
+
+Der Ablenkwinkel $\alpha$ für das erste Maximum ist mit der Formel aus der Optik:
+\[
+	\sin\del\alpha = \frac{\lambda}{a}
+	\implies
+	\alpha = \SI{484}{\micro rad}
+\]
+
+\subsection{Schnecke}
+
+Das Gewicht einer Schnecke ist vielleicht $m = \SI{30}{g}$. Die
+Kriechgeschwindigkeit ist vielleicht $v = \SI{1}{mm/s}$. Dann ist der Impuls $p
+= mv = \SI{3.0e-5}{kg.m/s}$. Der Streuwinkel am Gitter mit $a = \SI{10}{cm}$
+ist $\alpha = \SI{2.21e-28}{rad}$, also nicht zu beobachten.
+
+Damit es aber überhaupt wirklich zur Interferenz kommen kann, darf der Ort der
+Schnecke nicht mehr gemessen werden, bis sie durch den Gartenzaun ist. Dies ist
+allerdings schwer möglich, da sie den Boden (der sie misst) zur Fortbewegung
+braucht. Ohne Luft und Licht hat es die Schnecke noch schwerer.
+
+\subsection{Photon}
+
+Die Energie des Photons ist $E = ch/\lambda$. Sein Impuls ist $p = h/\lambda $.
+Die de Broglie-Wellenlänge $\lambda_\text{dB}$ ist dann $\lambda$.
 
 \section{Kastenpotential}
 \label 5
+
+Ich beginne mit der gegebenen Schrödingergleichung.
+\begin{align*}
+	\ii \hbar \partial_t \psi(x, t) &= \hamilton \psi(x, t) \\
+	\ii \hbar \partial_t \psi(x, t) &= \del{\frac{p^2}{2m} + U(x)} \psi(x, t) \\
+	\intertext{%
+		Der Impulsoperator $\hat p$ ist nach dem, was ich in \cite[Seite
+		496]{penrose-road_to_reality} gelesen habe $\hat p = \ii \hbar
+		\partial_x$ und nicht proportional zu $\partial_x^2$. So kann ich die
+		Schrödingergleichung schreiben als:
+	}
+	\ii \hbar \partial_t \psi(x, t) &= \del{- \frac{\hbar^2}{2m} \partial_x^2 + U(x)} \psi(x, t) \\
+	\intertext{%
+		Das Potential $U(x)$ ist innerhalb des kompakten Intervals identisch
+		null, so dass ich diesen Summanden weglassen kann, wenn ich das Problem
+		nur auf diesem Interval betrachte.
+	}
+	\ii \hbar \partial_t \psi(x, t) &= -\frac{\hbar^2 }{2m} \partial_x^2 \psi(x, t) &x \in \intcc{-\frac a2, \frac a2} \\
+	\ii \partial_t \psi(x, t) &= -\frac\hbar{2m} \partial_x^2 \psi(x, t) &x \in \intcc{-\frac a2, \frac a2} \\
+\end{align*}
+
+Diese parabolische partielle Differentialgleichung auf einem kompakten Interval
+löse ich mit einem Separationsansatz. Mein Ansatz ist: $\psi(x, t) = \phi(x)
+\theta(t)$. Damit wird die Gleichung zu:
+\begin{align*}
+	\ii \phi(x) \dot \theta(t) &= -\frac{\hbar^2}{2m} \phi''(x) \theta(t) &x \in \intcc{-\frac a2, \frac a2} \\
+	\ii \frac{\dot \theta}\theta &= -\frac{\hbar^2}{2m} \frac{\phi''}\phi = \alpha^2 &x \in \intcc{-\frac a2, \frac a2} \\
+\end{align*}
+
+Die Integralbasis für $\phi$ besteht aus folgenden Elementen:
+\[
+	\set{
+		\cos\del{\frac\hbar{\sqrt{2m}}\alpha x},
+		\sin\del{\frac\hbar{\sqrt{2m}}\alpha x}
+	}
+\]
+
+Die Integralbasis für $\theta$ dagegen ist:
+\[
+	\set{
+		\exp\del{
+			- \ii \alpha^2
+		}
+	}
+\]
+
+Das Teilchen darf sich außerhalb des Intervalls nicht aufhalten, da es dafür
+dann eine unendliche Energie bräuchte. Daher muss die Wellenfunktion dort null
+sein. Wegen der geforderten Stetigkeit von $\psi$ muss an den Randpunkten
+$\psi\del{\pm a/2} = 0$ gelten.
+
+Mit dieser Randbedingung kann ich nun $\alpha$ näher bestimmen. Es muss für den
+Kosinus gelten:
+\[
+	\frac\hbar{\sqrt{2m}}\alpha \frac a2 = \del{n + \half} \piup
+	\iff
+	\alpha = \frac{(2n+1)\piup \sqrt{2m}}{a\hbar}
+\]
+
+Für den Sinus:
+\[
+	\frac\hbar{\sqrt{2m}}\alpha \frac a2 = n\piup
+	\iff
+	\alpha = \frac{2n\piup \sqrt{2m}}{a\hbar}
+\]
+
+Somit wird die Integralbasis für $\phi$ zu:
+\[
+	\set{
+		\cos\del{\frac{(2n+1)\pi}{a} x},
+		\sin\del{\frac{2n\pi}{a} x},
+	}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\IfFileExists{\bibliographyfile}{
-	%\bibliography{\bibliographyfile}
-	%\bibliographystyle{plain}
-%}{}
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+	\bibliographystyle{apalike2}
+}{}
 
 \end{document}
 
