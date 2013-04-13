@@ -156,6 +156,42 @@ möglich ist, wenn auch knapp.
 \section{Mittlere freie Weglänge}
 \label 3
 
+\subsection{Zimmerumgebung}
+
+Gesucht ist die mittlere freie Weglänge $l$. Dazu stelle ich die Gasgleichung um:
+\[
+	pV = N k_\text{B}  T
+	\iff
+	p = n k_\text{B}  T
+	\iff
+	n = \frac p{k_\text{B} T}
+\]
+
+Die mittlere freie Weglänge $l$ ist:
+\[
+	l = \frac 1{n\sigma}
+	\iff
+	l = \frac{k_\text{B} T}{p\sigma}
+	\implies
+	l = \SI{1.00e-7}m
+\]
+
+Die Teilchendichte ist $n = \SI{2.50e25}{m^{-3}}$. Der mittlere Abstand $a$ zwischen den Teilchen ist dann:
+\[
+	a = \sqrt[3]{\frac 1n} = \SI{3.42e-9}m
+\]
+
+Dieser Abstand ist um zwei Größenordnungen kleiner als die mittlere freie
+Weglänge. Dies liegt daran, dass der Wirkungsquerschnitt bei diesem Abstand
+einen kleinen Raumwinkel einnimmt.
+
+\subsection{Evakuieren}
+
+Die gesuchte Teilchendichte ist $n = 1/l\sigma$. Nach der Gasgleichung ist dies auch gleich $p/k_\text{B} T$. Nach $p$ aufgelöst:
+\[
+	p = \frac{k_\text{B} T}{l \sigma} = \SI{10}{mPa}
+\]
+
 \section{De Broglie-Wellenlängen}
 \label 4
 
@@ -227,22 +263,22 @@ Die de Broglie-Wellenlänge $\lambda_\text{dB}$ ist dann $\lambda$.
 
 Ich beginne mit der gegebenen Schrödingergleichung.
 \begin{align*}
-	\ii \hbar \partial_t \psi(x, t) &= \hamilton \psi(x, t) \\
-	\ii \hbar \partial_t \psi(x, t) &= \del{\frac{p^2}{2m} + U(x)} \psi(x, t) \\
+	\ii \hbar \partial_t \ket{\psi(x, t)} &= \hamilton \ket{\psi(x, t)} \\
+	\ii \hbar \partial_t \ket{\psi(x, t)} &= \del{\frac{p^2}{2m} + U(x)} \ket{\psi(x, t)} \\
 	\intertext{%
 		Der Impulsoperator $\hat p$ ist nach dem, was ich in \cite[Seite
 		496]{penrose-road_to_reality} gelesen habe $\hat p = \ii \hbar
-		\partial_x$ und nicht proportional zu $\partial_x^2$. So kann ich die
+		\partial_x$ und nicht proportional zu $\partial_t^2$. So kann ich die
 		Schrödingergleichung schreiben als:
 	}
-	\ii \hbar \partial_t \psi(x, t) &= \del{- \frac{\hbar^2}{2m} \partial_x^2 + U(x)} \psi(x, t) \\
+	\ii \hbar \partial_t \ket{\psi(x, t)} &= \del{- \frac{\hbar^2}{2m} \partial_x^2 + U(x)} \ket{\psi(x, t)} \\
 	\intertext{%
 		Das Potential $U(x)$ ist innerhalb des kompakten Intervals identisch
 		null, so dass ich diesen Summanden weglassen kann, wenn ich das Problem
 		nur auf diesem Interval betrachte.
 	}
-	\ii \hbar \partial_t \psi(x, t) &= -\frac{\hbar^2 }{2m} \partial_x^2 \psi(x, t) &x \in \intcc{-\frac a2, \frac a2} \\
-	\ii \partial_t \psi(x, t) &= -\frac\hbar{2m} \partial_x^2 \psi(x, t) &x \in \intcc{-\frac a2, \frac a2} \\
+	\ii \hbar \partial_t \ket{\psi(x, t)} &= -\frac{\hbar^2 }{2m} \partial_x^2 \ket{\psi(x, t)} &x \in \intcc{-\frac a2, \frac a2} \\
+	\ii \partial_t \ket{\psi(x, t)} &= -\frac\hbar{2m} \partial_x^2 \ket{\psi(x, t)} &x \in \intcc{-\frac a2, \frac a2}
 \end{align*}
 
 Diese parabolische partielle Differentialgleichung auf einem kompakten Interval
@@ -250,7 +286,7 @@ löse ich mit einem Separationsansatz. Mein Ansatz ist: $\psi(x, t) = \phi(x)
 \theta(t)$. Damit wird die Gleichung zu:
 \begin{align*}
 	\ii \phi(x) \dot \theta(t) &= -\frac{\hbar^2}{2m} \phi''(x) \theta(t) &x \in \intcc{-\frac a2, \frac a2} \\
-	\ii \frac{\dot \theta}\theta &= -\frac{\hbar^2}{2m} \frac{\phi''}\phi = \alpha^2 &x \in \intcc{-\frac a2, \frac a2} \\
+	\ii \frac{\dot \theta}\theta &= -\frac{\hbar^2}{2m} \frac{\phi''}\phi = \alpha^2 &x \in \intcc{-\frac a2, \frac a2}
 \end{align*}
 
 Die Integralbasis für $\phi$ besteht aus folgenden Elementen:
@@ -293,10 +329,39 @@ Für den Sinus:
 Somit wird die Integralbasis für $\phi$ zu:
 \[
 	\set{
-		\cos\del{\frac{(2n+1)\pi}{a} x},
-		\sin\del{\frac{2n\pi}{a} x},
+		\cos\del{\frac{(2n+1)\piup}{a} x},
+		\sin\del{\frac{2n\piup}{a} x},
 	}
 \]
+
+\subsection{Mögliche Impulse}
+
+Die Wellenzahlen $k$, die die Welle annehmen darf sind dann $n\piup/a$, je nach dem, ob es eine Sinus- oder Kosinuswelle ist.
+
+\subsection{Energie der Welle}
+
+Die Energie $E$ ist ein Eigenwert des Energieoperators $\iup \hbar \partial_t$. Ich nehme mir den entsprechenden Teil aus der Schrödingergleichung:
+\begin{align*}
+	E \ket\psi &= \iup \hbar \partial_t \ket\psi \\
+	\del{E - \ii \hbar \partial_t} \ket\psi &= 0 \\
+	\del{E - \ii \hbar \partial_t} \cos(kx) \exp\del{\ii \frac{(2n+1)\piup}{\sqrt{2m}\hbar} t} &= 0
+\end{align*}
+
+Beim Ableiten nach der Zeit $t$ erhalte ich die innere Ableitung der Exponentialfunktion. Multipliziert mit dem Vorfaktor erhalte ich:
+\[
+	E = - \frac{(2n+1)\piup}{\sqrt{2m}a}
+\]
+
+Der Betrag der Energie $\abs E$ wird mit steigender Bauchzahl $n$ größer, allerdings sollte die Energie größer und nicht kleiner werden.
+
+\textcolor{darkred}{%
+	In dieser Teilaufgabe habe ich noch den älteren Wert für $\alpha$, so dass
+	diese Aufgabe eigentlich komplett neu gerechnet werden müsste.
+}
+
+\subsection{Normierung}
+
+\fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
