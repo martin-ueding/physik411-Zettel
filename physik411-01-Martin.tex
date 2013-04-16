@@ -55,7 +55,12 @@
 	\end{tabular}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                              Moleküle zählen                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Moleküle zählen}
+
 \label 1
 
 \subsection{Wasserglas}
@@ -82,7 +87,12 @@ Im Meer ist jetzt ein Anteil von \num{3.89e-22} Markiert. Wenn ich jetzt wieder
 \num{6.69e24} Moleküle auswähle, dann ist der Erwartungswert \num{2600}
 markierte Moleküle im Glas.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Flugzeit-Massenspektrometer                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Flugzeit-Massenspektrometer}
+
 \label 2
 
 \subsection{Skizze}
@@ -101,13 +111,13 @@ markierte Moleküle im Glas.
 
 \subsection{Flugzeit für $\mathrm{^{14}N^{16}O}$}
 
-Die Masse des Isotops ist $\SI{30}{amu} = \SI{4.98e-23}{kg}$. Das Ion legt eine
-Potentialdifferenz von \SI{500}{V} zurück (mittig im Kondensator), es bekommt
-also $\SI{500}{eV} = \SI{8.05e-17}{J}$ Energie. Mit $E_\text{kin} = mv^2/2$
-erhalte ich eine Geschwindigkeit von $v = \SI{56800}{m/s}$. Da die Ruhemasse im
-Bereich von \si{MeV} liegt, darf ich an dieser Stelle klassisch rechnen. Mit
-dieser Geschwindigkeit $v$ legen die Ionen die Strecke von $L = \SI1m$ in
-$t = \SI{1.76e-5}s$ zurück.
+Die Masse des Isotops ist $\SI{30}{\atomicmassunit} = \SI{4.98e-26}{kg}$. Das
+Ion legt eine Potentialdifferenz von \SI{500}{V} zurück (mittig im
+Kondensator), es bekommt also $\SI{500}{eV} = \SI{8.05e-17}{J}$ Energie. Mit
+$E_\text{kin} = mv^2/2$ erhalte ich eine Geschwindigkeit von $v =
+\SI{56800}{m/s}$. Da die Ruhemasse im Bereich von \si{MeV} liegt, darf ich an
+dieser Stelle klassisch rechnen. Mit dieser Geschwindigkeit $v$ legen die Ionen
+die Strecke von $L = \SI1m$ in $t = \SI{1.76e-5}s$ zurück.
 
 Dabei habe ich die Beschleunigungszeit nicht berücksichtigt. Das Ion
 beschleunigt innerhalb von $d/2 = \SI5{mm}$ auf die Geschwindigkeit $v$. Mit
@@ -142,7 +152,7 @@ Wechselwirkungsgebietes berücksichtigt wird. Nun berechne ich die Flugzeit für
 die verschiedenen Isotope, wenn sie aus der Mitte des Kondensators starten:
 \begin{center}
 	\begin{tabular}{lSSS}
-		Isotop & {Masse / \si{amu}} & {Flugzeit $t$ / \si s} \\
+		Isotop & {Masse / \si{\atomicmassunit}} & {Flugzeit $t$ / \si s} \\
 		\hline
 		$\mathrm{^{14}N^{16}O}$ & 30 & 1.75929e-5 \\
 		$\mathrm{^{15}N^{16}O}$ & 31 & 1.78837e-5 \\
@@ -153,7 +163,12 @@ die verschiedenen Isotope, wenn sie aus der Mitte des Kondensators starten:
 Die Werte unterschieden sich mehr als \SI{2e-7}s, so dass eine Unterscheidung
 möglich ist, wenn auch knapp.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          Mittlere freie Weglänge                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Mittlere freie Weglänge}
+
 \label 3
 
 \subsection{Zimmerumgebung}
@@ -192,7 +207,12 @@ Die gesuchte Teilchendichte ist $n = 1/l\sigma$. Nach der Gasgleichung ist dies 
 	p = \frac{k_\text{B} T}{l \sigma} = \SI{10}{mPa}
 \]
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                          De Broglie-Wellenlängen                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{De Broglie-Wellenlängen}
+
 \label 4
 
 \subsection{Energie \SI{10}{eV}}
@@ -223,7 +243,9 @@ Formel:
 
 \subsection{Stickstoffmolekül bei Zimmertemperatur}
 
-Die Masse von $\mathrm{^{14}N_2}$ ist \SI{28}{amu}. Bei Zimmertemperatur $T = \SI{290}{K}$ ist die kinetische Energie pro Freiheitsgrad $E = kT/2$. Die mittlere Geschwindigkeit ist somit:
+Die Masse von $\mathrm{^{14}N_2}$ ist \SI{28}{\atomicmassunit}. Bei
+Zimmertemperatur $T = \SI{290}{K}$ ist die kinetische Energie pro Freiheitsgrad
+$E = kT/2$. Die mittlere Geschwindigkeit ist somit:
 \[
 	v
 	= \sqrt{2 \frac Em}
@@ -258,32 +280,37 @@ braucht. Ohne Luft und Licht hat es die Schnecke noch schwerer.
 Die Energie des Photons ist $E = ch/\lambda$. Sein Impuls ist $p = h/\lambda $.
 Die de Broglie-Wellenlänge $\lambda_\text{dB}$ ist dann $\lambda$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               Kastenpotential                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Kastenpotential}
+
 \label 5
 
 Ich beginne mit der gegebenen Schrödingergleichung.
 \begin{align*}
 	\ii \hbar \partial_t \ket{\psi(x, t)} &= \hamilton \ket{\psi(x, t)} \\
-	\ii \hbar \partial_t \ket{\psi(x, t)} &= \del{\frac{p^2}{2m} + U(x)} \ket{\psi(x, t)} \\
+	\ii \hbar \partial_t \ket{\psi(x, t)} &= \del{\frac{\hat p^2}{2m} + U(x)} \ket{\psi(x, t)} \\
 	\intertext{%
 		Der Impulsoperator $\hat p$ ist nach dem, was ich in \cite[Seite
-		496]{penrose-road_to_reality} gelesen habe $\hat p = \ii \hbar
-		\partial_x$ und nicht proportional zu $\partial_t^2$. So kann ich die
+		496]{penrose-road_to_reality} gelesen habe, $\hat p = \ii \hbar
+		\partial_x$ und nicht proportional zu $\partial_t$. So kann ich die
 		Schrödingergleichung schreiben als:
 	}
 	\ii \hbar \partial_t \ket{\psi(x, t)} &= \del{- \frac{\hbar^2}{2m} \partial_x^2 + U(x)} \ket{\psi(x, t)} \\
 	\intertext{%
-		Das Potential $U(x)$ ist innerhalb des kompakten Intervals identisch
+		Das Potential $U(x)$ ist innerhalb des kompakten Intervalls identisch
 		null, so dass ich diesen Summanden weglassen kann, wenn ich das Problem
-		nur auf diesem Interval betrachte.
+		nur auf diesem Intervall betrachte.
 	}
 	\ii \hbar \partial_t \ket{\psi(x, t)} &= -\frac{\hbar^2 }{2m} \partial_x^2 \ket{\psi(x, t)} &x \in \intcc{-\frac a2, \frac a2} \\
 	\ii \partial_t \ket{\psi(x, t)} &= -\frac\hbar{2m} \partial_x^2 \ket{\psi(x, t)} &x \in \intcc{-\frac a2, \frac a2}
 \end{align*}
 
-Diese parabolische partielle Differentialgleichung auf einem kompakten Interval
-löse ich mit einem Separationsansatz. Mein Ansatz ist: $\psi(x, t) = \phi(x)
-\theta(t)$. Damit wird die Gleichung zu:
+Diese parabolische partielle Differentialgleichung auf einem kompakten
+Intervall löse ich mit einem Separationsansatz. Mein Ansatz ist: $\psi(x, t) =
+\phi(x) \theta(t)$. Damit wird die Gleichung zu:
 \begin{align*}
 	\ii \phi(x) \dot \theta(t) &= -\frac{\hbar^2}{2m} \phi''(x) \theta(t) &x \in \intcc{-\frac a2, \frac a2} \\
 	\ii \frac{\dot \theta}\theta &= -\frac{\hbar^2}{2m} \frac{\phi''}\phi = \alpha^2 &x \in \intcc{-\frac a2, \frac a2}
@@ -334,34 +361,95 @@ Somit wird die Integralbasis für $\phi$ zu:
 	}
 \]
 
+Das $\alpha$ für den Kosinus eingesetzt in die Integralbasis für $\theta$
+liefert:
+\[
+	\set{
+		\exp\del{
+			- 2 \ii \frac{(2n+1)^2\piup^2 m}{a^2\hbar^2} t
+		}
+	}
+\]
+
+Für den Sinus geht dies analog.
+
 \subsection{Mögliche Impulse}
 
-Die Wellenzahlen $k$, die die Welle annehmen darf sind dann $n\piup/a$, je nach dem, ob es eine Sinus- oder Kosinuswelle ist.
+Die Wellenzahlen $k$, die die Welle annehmen darf sind dann $n\piup/a$. Je nach
+dem, ob es eine Sinus- oder Kosinuswelle ist, muss $n$ gerade beziehungsweise
+ungerade sein.
 
 \subsection{Energie der Welle}
 
-Die Energie $E$ ist ein Eigenwert des Energieoperators $\iup \hbar \partial_t$. Ich nehme mir den entsprechenden Teil aus der Schrödingergleichung:
+Die Energie $E$ ist ein Eigenwert des Energieoperators $\iup \hbar \partial_t$.
+Ich nehme mir den entsprechenden Teil aus der Schrödingergleichung:
 \begin{align*}
 	E \ket\psi &= \iup \hbar \partial_t \ket\psi \\
 	\del{E - \ii \hbar \partial_t} \ket\psi &= 0 \\
-	\del{E - \ii \hbar \partial_t} \cos(kx) \exp\del{\ii \frac{(2n+1)\piup}{\sqrt{2m}\hbar} t} &= 0
+	\del{E - \ii \hbar \partial_t} \cos(kx) \exp\del{- 2 \ii \frac{(2n+1)^2\piup^2 m}{a^2\hbar^2} t} &= 0
 \end{align*}
 
 Beim Ableiten nach der Zeit $t$ erhalte ich die innere Ableitung der Exponentialfunktion. Multipliziert mit dem Vorfaktor erhalte ich:
 \[
-	E = - \frac{(2n+1)\piup}{\sqrt{2m}a}
+	E = 2 \frac{(2n+1)^2\piup^2 m}{a^2\hbar}
 \]
 
-Der Betrag der Energie $\abs E$ wird mit steigender Bauchzahl $n$ größer, allerdings sollte die Energie größer und nicht kleiner werden.
+Von den Einheiten:
+\[
+	\si[per-mode=fraction]{\kilo\gram\per\meter\squared\per\joule\per\second}
+	= \si[per-mode=fraction]{\kilo\gram\per\meter\squared\per\newton\per\meter\per\second}
+	= \si[per-mode=fraction]{\kilo\gram\per\meter\cubed\per\newton\per\second}
+	= \si[per-mode=fraction]{\kilo\gram\second\squared\per\meter\cubed\per\kilo\gram\per\meter\per\second}
+	= \si[per-mode=fraction]{\second\per\meter\tothe 4}
+\]
 
-\textcolor{darkred}{%
-	In dieser Teilaufgabe habe ich noch den älteren Wert für $\alpha$, so dass
-	diese Aufgabe eigentlich komplett neu gerechnet werden müsste.
-}
+Da stimmt also etwas nicht, es sollte \si{N.m} herauskommen.
+
+Jedenfalls lässt sich diese Rechnung noch für den Sinus wiederholen, die Energie ist dann für Bauchzahl $n$:
+\[
+	E = 2 \frac{n^2\piup^2 m}{a^2\hbar}
+\]
 
 \subsection{Normierung}
 
-\fehlt
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=.5\textwidth]{complex_conjugate.png}
+	\caption{Bild aus \cite{xkcd-complex_conjugate}}
+	\label{fig:}
+\end{figure}
+
+Die Normierung verlangt, dass gilt:
+\begin{align*}
+	\int_{-a/2}^{a/2} \dif x \, \braket{\phi(x, t)}{\phi(x, t)} &= 1 \\
+	\intertext{%
+		Das Argument der Exponentialfunktion in $\psi$ ist rein imaginär, so
+		dass der Betrag gerade 1 ist. Diese kann ich hier weglassen.
+	}
+	\int_{-a/2}^{a/2} \dif x \, \psi_0^2 \cos^2\del{kx} &= 1 \\
+	\intertext{%
+		Ich wende die Potenzformel für den Kosinus an.
+	}
+	\int_{-a/2}^{a/2} \dif x \, \psi_0^2 \frac{1 + \cos\del{2kx}}{2} &= 1 \\
+	\psi_0^2 \del{\frac a2 + \eval{\frac{1}{2k} \sin(2kx)}_{-a/2}^{a/2}} &= 1 \\
+	\psi_0^2 \del{\frac a2 + \eval{\frac{1}{2k} \sin\del{\frac{2n\piup}{a}x}}_{-a/2}^{a/2}} &= 1 \\
+	\psi_0^2 \del{\frac a2 + \frac{a}{(2+1)n\piup} \sin\del{\frac{(2n+1)\piup}2}} &= 1 \\
+	\psi_0^2 \del{\frac a2 + \frac{a}{(2+1)n\piup}} &= 1 \\
+	\psi_0^2 &= \del{\frac a2 + \frac{a}{(2+1)n\piup}}^{-1/2}  \\
+\end{align*}
+
+Somit ist die, für den Kosinus normierte, Wellenfunktion:
+\[
+	\psi(x, t) =
+	\sum_n \beta_n
+	\del{\frac a2 + \frac{a}{(2+1)n\piup}}^{-1/2}
+	\cos\del{\frac{(2n+1)\piup}{a} x}
+	\exp\del{- 2 \ii \frac{(2n+1)^2\piup^2 m}{a^2\hbar^2} t}
+\]
+
+Analog kann eine weitere Wellenfunktion mit dem Sinus aufgestellt werden.
+Zusammen sind sie dann eine Fourierreihe der allgemeinen Lösung, die von den
+Anfangsbedingungen abhängt.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
