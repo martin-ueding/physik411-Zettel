@@ -97,7 +97,110 @@ Also \SI{90.4}{\percent} der eintreffenden Photonen lösen ein Elektron aus.
 \section{Quasiklassische Zustände im harmonischen Oszillator}
 \label 3
 
+\subsection{Aufenthaltswahrscheinlichkeit}
+
+Die Aufenthaltswahrscheinlichkeit ist:
+\begin{align*}
+	\abs{\Psi(x, t)}^2 &= \frac{1}{x_0 2^n n!} \frac{1}{\sqrt \piup} H_n\del{\frac x{x_0}} \exp\del{-\frac{x^2}{x_0^2}}
+\end{align*}
+
+Allerdings hängt dies nicht mehr von der Zeit $t$ sondern nur noch vom Ort $x$
+ab. Somit ist die Aufenthaltswahrscheinlichkeit als Funktion der Zeit $t$ nur
+eine konstante Funktion. Und dies kann es wohl nicht sein, oder?
+
+\punktevon 1
+
+\subsection{Überlagerungszustand}
+
+Zuerst schaue ich, ob die Wellenfunktion $\Psi_0$ schon normiert ist:
+\begin{align*}
+	\braket{\Psi_0}{\Psi_0}
+	&= \int_{-\infty}^\infty \dif x \, \frac{1}{x_0} \frac{1}{\sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \frac{1}{x_0} \frac{1}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \frac{1}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, \exp\del{-x'^2} \\
+	&= 1
+\end{align*}
+
+$\Psi_0$ ist also schon normiert. Ich gehe davon aus, das die restlichen
+$\Psi_n$ auch schon normiert sind.
+
+Nun betrachte ich die Überlagerung:
+\[
+	\ket{\Phi} = \ket{\Psi_0} + \epsilon \ket{\Psi_1}
+\]
+
+Für den Zustand $\ket\Phi$ bestimme ich nun die Wahrscheinlichkeitsdichte:
+\begin{align*}
+	\abs{\Phi(x, t)}^2
+	&= \Phi^*(x, t) \Phi(x, t) \\
+	&= \del{\Psi_0^* + \epsilon \Psi_1^*} \del{\Psi_0 + \epsilon \Psi_1} \\
+	&= \Psi_0^* \Psi_0 + \epsilon \Psi_0^* \Psi_0 + \epsilon \Psi_1^* \Psi_1 + \mathcal O\del{\epsilon^2} \\
+	&= \Psi_0^* \Psi_0 + 2 \epsilon \Psi_0^* \Psi_0 + \mathcal O\del{\epsilon^2} \\
+	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \\
+	\bracket x
+	&= \int_{-\infty}^\infty \dif x \, x \del{\frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}}} \\
+	\intertext{%
+		Der erste Summand ist einer ungerade Funktion, somit verschwindet das
+		Integral. Es bleibt der zweite Summand.
+	}
+	&= \int_{-\infty}^\infty \dif x \, x \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \frac{2\epsilon}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \frac{x^2}{x_0^2} \exp\del{-\frac{x^2}{x_0^2}} \\
+	\intertext{%
+		Substituiere $x' := x/x_0$.
+	}
+	&= \frac{2\epsilon x_0}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, x'^2 \exp\del{-x'^2} \\
+	\intertext{%
+		Wende das gegebene Integral an.
+	}
+	&= \epsilon x_0
+\end{align*}
+
+Die Teilchenposition verschiebt sich nun etwas zur Seite, wie auch in Abbildung
+\ref{fig:1} zu sehen ist.
+
+\textcolor{darkred}{
+	Hier muss allerdings noch die Zeitabhängigkeit beachtet werden, weil die
+	komplexen Exponentialfunktionen sich bei verschiedenen $n$ durch das
+	komplexe Konjugieren nicht wegheben.
+}
+
+\punktevon 5
+
+\subsection{Plot}
+
+In den Abbildungen \ref{fig:0}, \ref{fig:1} und \ref{fig:3} ist die
+Zeitentwicklung von $\rho_i(x, t) := \abs{\Phi_i(x, t)}^2$ geplottet, auf der
+horizontalen Achse $x$ und auf der vertikalen Achse $t$. Die Farbe gibt $\rho$
+an.
+
+In Abbildung \ref{fig:0} ist $\ket{\Phi_0} = \ket{\Psi_0}$, in Abbildung
+\ref{fig:1} ist $\ket{\Phi_1} = \ket{\Psi_0} + \num{0.1} \ket{\Psi_1}$
+geplottet. Und in Abbildung \ref{fig:3} $\ket{\Psi_3} := \ket{\Psi_0} +
+\num{0.1} \ket{\Psi_1} + \num{0.1} \ket{\Psi_2} + \num{0.1} \ket{\Psi_3}$.
+
+\begin{figure}
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-0.pdf}
+		\caption{Dichte $\rho_0$}
+		\label{fig:0}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-1.pdf}
+		\caption{Dichte $\rho_1$}
+		\label{fig:1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-3.pdf}
+		\caption{Dichte $\rho_3$}
+		\label{fig:3}
+	\end{minipage}
+\end{figure}
+
 \fehlt
+
+\punktevon 5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  Das Wasserstoffatom, klassisch betrachtet                  %
@@ -108,7 +211,8 @@ Also \SI{90.4}{\percent} der eintreffenden Photonen lösen ein Elektron aus.
 
 \subsection{kinetische, potentielle und gesamte Energie}
 
-Vom statischen Bezugssystem aus gesehen muss für eine Kreisbahn die benötigte Zentripetalkraft durch die elektrische Anziehung geliefert werden:
+Vom statischen Bezugssystem aus gesehen muss für eine Kreisbahn die benötigte
+Zentripetalkraft durch die elektrische Anziehung geliefert werden:
 \begin{align*}
 	\frac{1}{4 \piup \varepsilon_0} \frac{e^2}{r^2} &= m_e \frac{v^2}{r} \\
 	\half m_e v^2
@@ -178,6 +282,14 @@ Beobachtung überein.
 \punktevon 3
 
 \subsection{Dilemma}
+
+Die Lösung, die zur Quantenmechanik geführt hat, ist der Vorschlag, dass
+Elektronen auf ihren Bahnen um das Atom einfach keine Bremsstrahlung abgeben.
+
+Es könnte auch sein, dass die Elektronen im thermischen Gleichgewicht mit allen
+anderen Atomen stehen und sich so der Strahlungsverlust ausgleicht. Allerdings
+sind wohl im Universum auch einzelne Atome, so dass diese vielleicht
+kollabieren. Keine wirkliche Lösung.
 
 \punktevon 2
 
