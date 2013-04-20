@@ -97,6 +97,8 @@ Also \SI{90.4}{\percent} der eintreffenden Photonen lösen ein Elektron aus.
 \section{Quasiklassische Zustände im harmonischen Oszillator}
 \label 3
 
+\fehlt
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                  Das Wasserstoffatom, klassisch betrachtet                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,12 +106,49 @@ Also \SI{90.4}{\percent} der eintreffenden Photonen lösen ein Elektron aus.
 \section{Das Wasserstoffatom, klassisch betrachtet}
 \label 4
 
+\subsection{kinetische, potentielle und gesamte Energie}
+
+Vom statischen Bezugssystem aus gesehen muss für eine Kreisbahn die benötigte Zentripetalkraft durch die elektrische Anziehung geliefert werden:
+\begin{align*}
+	\frac{1}{4 \piup \varepsilon_0} \frac{e^2}{r^2} &= m_e \frac{v^2}{r} \\
+	\half m_e v^2
+	&= \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{kin}(r)
+	&= \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{kin}(r)
+	&= \SI{1.154e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+Die potentielle Energie ist für $\lim_{r \to \infty} E_\text{pot}(r) = 0$:
+\begin{align*}
+	E_\text{pot}(r) &= - \frac{1}{4 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{pot}(r) &= \SI{-2.307e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+Zusammen ist die Energie:
+\begin{align*}
+	E(r) &= - \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E(r) &= \SI{-1.154e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+\punktevon{3}
+
+\subsection{Umlaufradius und Bahngeschwindigkeit}
+
+\[
+	E(r) = \SI{-13.6}{\electronvolt}
+	\implies
+	r = \SI{5.29e-11}{\meter}
+\]
+
+\punktevon{2}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \IfFileExists{\bibliographyfile}{
-	\bibliography{\bibliographyfile}
+	%\bibliography{\bibliographyfile}
 }{}
 
 \end{document}
