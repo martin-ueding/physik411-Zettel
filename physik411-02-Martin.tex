@@ -110,6 +110,7 @@ eine konstante Funktion. Und dies kann es wohl nicht sein, oder?
 
 Für verschiedene $n$ ist $\abs{\Psi(x,t)}^2$ in Abbildung \ref{fig:n}
 geplottet.
+\punktevon 1
 
 \begin{figure}
 	\centering
@@ -117,8 +118,6 @@ geplottet.
 	\caption{Plot von $\abs{\Psi_n(x,t)}^2$ für $n = 0, \ldots, 3$. Horizontale Achse ist $x$, vertikale Achse ist die Wahrscheinlichkeitsdichte.}
 	\label{fig:n}
 \end{figure}
-
-\punktevon 1
 
 \subsection{Überlagerungszustand}
 
@@ -143,36 +142,31 @@ Für den Zustand $\ket\Phi$ bestimme ich nun die Wahrscheinlichkeitsdichte:
 \begin{align*}
 	\abs{\Phi(x, t)}^2
 	&= \Phi^*(x, t) \Phi(x, t) \\
-	&= \del{\Psi_0^* + \epsilon \Psi_1^*} \del{\Psi_0 + \epsilon \Psi_1} \\
-	&= \Psi_0^* \Psi_0 + \epsilon \Psi_0^* \Psi_0 + \epsilon \Psi_1^* \Psi_1 + \mathcal O\del{\epsilon^2} \\
-	&= \Psi_0^* \Psi_0 + 2 \epsilon \Psi_0^* \Psi_0 + \mathcal O\del{\epsilon^2} \\
-	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \del{\Psi_0^*(x, t) + \epsilon \Psi_1^*(x, t)} \del{\Psi_0(x, t) + \epsilon \Psi_1(x, t)} \\
+	&= \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_1^*(x, t) \Psi_1(x, t) + \mathcal O\del{\epsilon^2} \\
+	&= \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_1^*(x, t) \Psi_0(x, t) + \epsilon \Psi_0^*(x, t) \Psi_1(x, t) + \mathcal O\del{\epsilon^2} \\
+	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \del{\exp\del{-\ii (0-1)\omega t} + \exp\del{-\ii (1-0)\omega t}} \\
+	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
 	\bracket x
-	&= \int_{-\infty}^\infty \dif x \, x \del{\frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}}} \\
+	&= \int_{-\infty}^\infty \dif x \, x \del{\frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}}} \cos\del{\omega t} \\
 	\intertext{%
 		Der erste Summand ist einer ungerade Funktion, somit verschwindet das
 		Integral. Es bleibt der zweite Summand.
 	}
-	&= \int_{-\infty}^\infty \dif x \, x \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \\
-	&= \frac{2\epsilon}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \frac{x^2}{x_0^2} \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \int_{-\infty}^\infty \dif x \, x \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
+	&= \frac{4\epsilon}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \frac{x^2}{x_0^2} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
 	\intertext{%
 		Substituiere $x' := x/x_0$.
 	}
-	&= \frac{2\epsilon x_0}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, x'^2 \exp\del{-x'^2} \\
+	&= \frac{4\epsilon x_0}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, x'^2 \exp\del{-x'^2} \cos\del{\omega t} \\
 	\intertext{%
 		Wende das gegebene Integral an.
 	}
-	&= \epsilon x_0
+	&= 2 \epsilon x_0 \cos\del{\omega t}
 \end{align*}
 
-Die Teilchenposition verschiebt sich nun etwas zur Seite, wie auch in Abbildung
-\ref{fig:1} zu sehen ist.
-
-\textcolor{darkred}{
-	Hier muss allerdings noch die Zeitabhängigkeit beachtet werden, weil die
-	komplexen Exponentialfunktionen sich bei verschiedenen $n$ durch das
-	komplexe Konjugieren nicht wegheben.
-}
+Die Teilchenposition verschiebt sich nun periodisch etwas zur Seite, wie auch
+in Abbildung \ref{fig:1} zu sehen ist.
 
 \punktevon 5
 
@@ -209,7 +203,6 @@ geplottet. Und in Abbildung \ref{fig:3} $\ket{\Psi_3} := \ket{\Psi_0} +
 \end{figure}
 
 \fehlt
-
 \punktevon 5
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -244,7 +237,6 @@ Zusammen ist die Energie:
 	E(r) &= - \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
 	E(r) &= \SI{-1.154e-28}{\joule\meter} \cdot \frac 1r
 \end{align*}
-
 \punktevon 3
 
 \subsection{Umlaufradius und Bahngeschwindigkeit}
@@ -263,7 +255,6 @@ Die Bahngeschwindigkeit erhalte ich mit:
 	\implies
 	v = \SI{2.19e6}{\meter\per\second}
 \]
-
 \punktevon 2
 
 \subsection{Abgestrahlte Energie}
@@ -288,7 +279,6 @@ die Elektronen ihre komplette Energie abstrahlen und auf den Kern fallen. Die
 Atome würden dann eventuell zu puren Neutronen fusionieren und die Erde würde
 erstmal zu einem Neutronenstern. Jedenfalls stimmt dies absolut nicht mit der
 Beobachtung überein.
-
 \punktevon 3
 
 \subsection{Dilemma}
@@ -300,7 +290,6 @@ Es könnte auch sein, dass die Elektronen im thermischen Gleichgewicht mit allen
 anderen Atomen stehen und sich so der Strahlungsverlust ausgleicht. Allerdings
 sind wohl im Universum auch einzelne Atome, so dass diese vielleicht
 kollabieren. Keine wirkliche Lösung.
-
 \punktevon 2
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
