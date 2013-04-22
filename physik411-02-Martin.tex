@@ -218,7 +218,7 @@ psi[x_, t_, n_] := 1/Sqrt[x0 2^n Factorial[n]] Pi^(-1/4) HermiteH[n, x/x0]
 Plot[Evaluate[Table[Abs[psi[x, 0, n]]^2, {n, 0, 4}]], {x, -2 x0, 2 x0},
 	Filling -> Axis]
 
-Manipulate[ DensityPlot[ Abs[psi[x, t, 0] + eps1 psi[x, t, 1]
+Manipulate[DensityPlot[Abs[psi[x, t, 0] + eps1 psi[x, t, 1]
 	+ eps2 psi[x, t, 2] + eps3 psi[x, t, 3]]^2, {x, -2 x0, 2 x0}, {t, 0, 10},
 	AxesLabel -> {"x", "t", "rho"}, PerformanceGoal -> Quality],
 	{eps1, 0, 0.1}, {eps2, 0, 0.1}, {eps3, 0, 0.1}]
