@@ -2,7 +2,7 @@
 %
 \input{header.tex}
 
-\usepackage{tikz}
+\usepackage{listings}
 
 \newcommand{\themodul}{physik411}
 \newcommand{\thegruppe}{Gruppe 2 -- Steffen Urban}
@@ -19,7 +19,7 @@
 \author{
 	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
 }
-\publishers{Lizenz: \href{http://creativecommons.org/licenses/by-sa/3.0/deed.de}{CC-BY-SA 3.0 \ccbysa}}
+\publishers{\ccbysatitle}
 
 \hypersetup{
 	pdftitle={\themodul {} - Übung \theuebung},
@@ -200,6 +200,27 @@ geplottet. Und in Abbildung \ref{fig:3} $\ket{\Psi_3} := \ket{\Psi_0} +
 		\label{fig:3}
 	\end{minipage}
 \end{figure}
+
+Die Plots habe ich mit folgendem Mathematica Code erzeugt:
+
+\begin{verbatim}
+x0 := Sqrt[h/(m omega)]
+m := 1
+h := 1
+omega := 1
+
+psi[x_, t_, n_] := 1/Sqrt[x0 2^n Factorial[n]] Pi^(-1/4) HermiteH[n, x/x0]
+	Exp[-x^2/(2 x0^2)] Exp[-I (n + 1/2) omega t] Plot[Abs[psi[x, 0, 0]]^2,
+	{x, -2 x0, 2 x0}]
+
+Plot[Evaluate[Table[Abs[psi[x, 0, n]]^2, {n, 0, 4}]], {x, -2 x0, 2 x0},
+	Filling -> Axis]
+
+Manipulate[ DensityPlot[ Abs[psi[x, t, 0] + eps1 psi[x, t, 1]
+	+ eps2 psi[x, t, 2] + eps3 psi[x, t, 3]]^2, {x, -2 x0, 2 x0}, {t, 0, 10},
+	AxesLabel -> {"x", "t", "rho"}, PerformanceGoal -> Quality],
+	{eps1, 0, 0.1}, {eps2, 0, 0.1}, {eps3, 0, 0.1}]
+\end{verbatim}
 
 Dieses Teilchen verhält sich wie mehrere Teilchen, die zusammen eine Schwebung
 erzeugen. Das Maximum wandert schon fast chaotisch in Abbildung \ref{fig:3}.
