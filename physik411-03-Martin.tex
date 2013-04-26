@@ -162,6 +162,99 @@ eingefügt wird. Sie sollte aber bei \num{.56} liegen.
 \section{Atomares Magnetfeld, Kernmoment und Hyperfeinstruktur}
 \label 3
 
+\subsection{Magnetfeld am Ort des Protons}
+
+Das Gesetz von Biot-Savart ist:
+\begin{equation}
+	\label{eq:biot-savart}
+	\vec B\del{\vec x}
+	= \frac{\mu_0}{4\piup} \int \dif{^3x'} \,
+	\vec j\del{\vec x'} \times \frac{\vec x - \vec x'}{\abs{\vec x - \vec x'}}
+\end{equation}
+
+Ich nehme an, dass das Elektron wie eine Ringladung um das Proton verteilt ist,
+damit ich ein zeitlich konstantes Magnetfeld erhalte.
+\[
+	\varrho(r, \phi, z)
+	= \frac{e}{2\piup a_0} \delta(r - a_0) \delta(z)
+\]
+
+Mit dem Ansatz „Coulomb-Anziehung wirkt als Zentripetalkraft“ erhalte ich die
+Geschwindigkeit:
+\[
+	\frac{1}{4\piup\varepsilon_0} \frac{e^2}{a_0^2} = m_e \frac{v_0^2}{a_0}
+	\iff
+	v_0 = \sqrt{\frac{1}{4\piup\varepsilon_0} \frac{e^2}{a_0 m_e}}
+\]
+
+Das Geschwindigkeitsfeld ist:
+\[
+	\vec v\del{\vec x} = v_0 \ev_\phi
+\]
+
+Somit ist die Stromdichte:
+\[
+	\vec j\del{r, \phi, z} = \varrho(r, \phi, z) \vec v\del{\vec x}
+\]
+
+Dies setze ich in \eqref{eq:biot-savart} ein:
+\begin{align*}
+	\vec B\del{\vec 0}
+	&= \frac{\mu_0}{4\piup}
+	\int_{-\infty}^\infty \dif z
+	\int_0^{2\piup} \dif \phi'
+	\int_0^\infty \dif r' \, r'
+	\vec j\del{\vec x'} \times \frac{\vec 0 - \vec x'}{\abs{\vec 0 - \vec x'}} \\
+	\intertext{%
+		Das Integral über $r'$ führe ich aus. Dadurch werden nur alle $r'$ auf
+		$a_0$ gesetzt. Außerdem schreibe ich die Vektoren aus.
+	}
+	&= - \frac{\mu_0}{4\piup}
+	\int_{-\infty}^\infty \dif z
+	\int_0^{2\piup} \dif \phi' \,
+	a_0
+	\frac{e}{2\piup a_0} \delta(z) v_0 \ev_\phi
+	\times \frac{\vec x'}{a_0} \\
+	&= - \frac{\mu_0}{4\piup} \frac{e}{2\piup a_0} v_0
+	\int_0^{2\piup} \dif \phi' \,
+	\ev_{\phi'}
+	\times \begin{pmatrix}
+		a_0 \cos\del{\phi'} \\
+		a_0 \sin\del{\phi'} \\
+		0
+	\end{pmatrix} \\
+	\intertext{%
+		Das Kreuzprodukt liefert gerade $-1$.
+	}
+	&= \frac{\mu_0}{4\piup} \frac{e}{2\piup} v_0
+	\int_0^{2\piup} \dif \phi' \,
+	\ev_z \\
+	\intertext{%
+		Da nichts mehr von $\phi'$ abhängt, liefert diese Integration nur noch
+		einen Faktor $2\piup$.
+	}
+	&= \frac{\mu_0}{4\piup} e v_0 \ev_z \\
+	&= \frac{\mu_0}{4\piup} e^2 \sqrt{\frac{1}{4\piup\varepsilon_0} \frac{1}{a_0 m_e}} \ev_z
+\end{align*}
+
+Das Magnetfeld zeigt also – wie mit der rechten-Hand-Regel auch anschaulich zu
+sehen – senkrecht zur Rotationsebene nach oben.
+
+Von den Einheiten haut dies allerdings nicht hin, ich muss noch mit $a_0^{-2}$
+multiplizieren, damit als Einheit Tesla herauskommt. Dann ist der Wert:
+\[
+	\vec B\del{\vec 0} = \SI{12.5}\tesla
+\]
+
+Wenn die Coulomb-Kraft zwischen zwei Nukleonen $\SI{150}\newton$ ist, dann ist
+ein derart starkes Magnetfeld nicht weiter verwunderlich.
+
+\subsection{Magnetisches Dipolmoment}
+
+\fehlt
+
+\subsection{Hyperfeinstruktur}
+
 \fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
