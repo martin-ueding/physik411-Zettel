@@ -333,18 +333,63 @@ Der Versuchsaufbau ist in Abbildung \ref{fig:stern-gerlach-skizze} gezeigt.
 \end{figure}
 
 Man wählt eine derartige Feldkonfiguration, damit es ein inhomogenes Feld und
-somit ein $\pd Bz \neq 0$ gibt. Ein homogenes Magnetfeld übt auf einen Dipol
+somit ein $\od Bz \neq 0$ gibt. Ein homogenes Magnetfeld übt auf einen Dipol
 ausschließlich ein Drehmoment aus. Für die Beobachtbarkeit ist es allerdings
 wichtig, dass auch eine Kraft auf den Schwerpunkt ausgeübt wird, dies geht nur
 mit einem inhomogenen Magnetfeld.
 
 \subsection{Ablenkende Kraft}
 
-\fehlt
+Die potentielle Energie ist $V = - \inner{\vec \mu}{\vec B}$. Der negative Gradient gibt die Kraft:
+\[
+	\vec F
+	= - \vnabla V
+	= \vnabla \inner{\vec \mu}{\vec B}
+\]
+
+Unter der Annahme, dass das Magnetfeld nur entlang der $z$-Richtung variiert und $\vec \mu$ konstant ist, erhalte ich:
+\[
+	F_z = \inner{\vec \mu}{\dod{\vec B}z}
+\]
+
+Nach der klassischen Physik wäre zu erwarten, dass die magnetischen Momente
+$\vec \mu$ thermisch verteilt sind, also im Mittel $\vec 0$ und isotrop. Daher
+sollte die Ablenkung, die proportional zu $\mu$ ist, im Mittel null sein. Auf
+dem Schirm ist ein (eventuell Gaußscher) Peak zu erwarten.
+
+Im Experiment zeigen sich allerdings zwei Peaks. Daher gibt es für das
+magnetische Moment nur zwei mögliche Zustände: $\mu = \pm \abs{\tilde\mu}$.
+Diese können allerdings isotrop im Raum verteilt sein. Damit wird das
+Vorzeichen eigentlich auch nicht gebraucht, weil es nur einer Rotation um
+$\SI\pi\radian$ entspricht.
 
 \subsection{Magnetisches Moment der Atome}
 
-\fehlt
+Die Kraft $F_z$ wirkt für die Zeit, die das Teilchen braucht, um den Magnet zu passieren:
+\[
+	t = \frac{l_1}{v_x}
+\]
+
+In dieser Zeit wirkt die Beschleunigung $a_y = F_z/M$. Somit ist die Auslenkung
+direkt hinter dem Magneten:
+\[
+	d_z = \half a_z t^2
+\]
+
+Danach fliegt das Atom noch eine Zeit $t_2 = l_2/v_x$ mit der Geschwindigkeit
+$v_z = a_z t_2$. Das gemessene $\delta_z$ ist die Kombination aus diesen beiden
+Termen.
+
+Zusammen mit der Kraft also:
+\[
+	\delta_z = \frac{\inner{\vec \mu}{\dod{\vec B}z}}{M} \del{\half \del{\frac{v_x}{l_1}}^2 + \frac{l_1l_2}{v_x^2}}
+\]
+
+Umgeformt:
+\[
+	\mu_z = \frac{d_z M}{\dod{B}z} \del{\half \del{\frac{v_x}{l_1}}^2 + \frac{l_1l_2}{v_x^2}}^{-1}
+	= \SI{3.73e-22}{\ampere\meter\squared}
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
