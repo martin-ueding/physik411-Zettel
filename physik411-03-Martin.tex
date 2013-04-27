@@ -276,8 +276,9 @@ Das magnetische Moment ist:
 \[
 	\vec m
 	= \half I \oint_0^{2\piup} \vec x \times \vec{\dif l}
-	= \half e \frac{\omega}{2\piup} \oint_0^{2\piup} \dif \phi \, \ev_z
-	= \half e \omega \ev_z
+	= \half I \oint_0^{2\piup r_\text{p}} \dif \phi \, r_\text{p} \ev_z
+	= \half e \frac{\omega}{2\piup} r_\text{p}^2 \oint_0^{2\piup} \dif \phi \, \ev_z
+	= \half e \omega r_\text{p}^2 \ev_z
 \]
 
 Nun soll gerade $\vec L = \hbar \ev_z /2$ sein. Daher:
@@ -287,14 +288,31 @@ Nun soll gerade $\vec L = \hbar \ev_z /2$ sein. Daher:
 
 Somit ist das magnetische Moment:
 \[
-	\vec m = \frac{e \hbar}{4 m_\text{p}^{} r_\text{p}^2} \ev_z
+	\vec m = \frac{e \hbar}{4 m_\text{p}} \ev_z
 \]
 
-In der Notation der Aufgabenstelltung ist $\vec \mu_\text{p} = \vec m$.
+In der Notation der Aufgabenstellung ist $\vec \mu_\text{p} = \vec m$.
+
+Nun noch einen Zahlenwert:
+\[
+	\vec m \approx \SI{2.9e-10}{\ampere\meter\squared}
+\]
 
 \subsection{Hyperfeinstruktur}
 
-\fehlt
+Die Energiedifferenz ist:
+\[
+	\Deltaup E = 2 B m = \SI{6.32e-26}\joule
+\]
+
+Die Frequenz dazu ist:
+\[
+	\nu_\text{HFS} = \frac{\Deltaup E}{h} = \SI{9.54e7}\hertz
+\]
+
+Mit einem Faktor \num{5.6} multipliziert ergibt dies gerade mal
+\SI{530}{\mega\hertz}, und nicht die benötigten \SI{1.4}{\giga\hertz}. Da fehlt
+also noch gut ein Faktor \num{2.5} irgendwo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                            Stern-Gerlach-Versuch                            %
