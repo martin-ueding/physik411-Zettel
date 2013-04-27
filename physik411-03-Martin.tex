@@ -251,7 +251,46 @@ ein derart starkes Magnetfeld nicht weiter verwunderlich.
 
 \subsection{Magnetisches Dipolmoment}
 
-\fehlt
+Für den Drehimpuls gilt:
+\[
+	\vec L
+	= \vec r \times \vec p
+	= m_\text{p} r_\text{p} v_\text{p} \ev_z
+	= \underbrace{m_\text{p}^{} r_\text{p}^2}_{\Theta_\text{p}} \vec \omega
+	\overset != \frac\hbar2 \ev_z
+\]
+
+Ich gehe davon aus, dass die Ladungsdichte ein dünner Ring um das Zentrum ist.
+Der Strom durch eine $\ev_z \wedge \ev_\rho$ Ebene ist:
+\[
+	\vec I = e \frac{\omega}{2\piup} \ev_\phi
+\]
+
+Dies muss der Fall sein, weil die Integration nach der Zeit $t$ um eine ganze
+Periode gerade die Ladung $e$ geben muss:
+\[
+	Q = \int_0^{\frac\omega{2\piup}} \dif t \, I = e
+\]
+
+Das magnetische Moment ist:
+\[
+	\vec m
+	= \half I \oint_0^{2\piup} \vec x \times \vec{\dif l}
+	= \half e \frac{\omega}{2\piup} \oint_0^{2\piup} \dif \phi \, \ev_z
+	= \half e \omega \ev_z
+\]
+
+Nun soll gerade $\vec L = \hbar \ev_z /2$ sein. Daher:
+\[
+	\vec \omega = \frac{\hbar}{2 m_\text{p}^{} r_\text{p}^2} \ev_z
+\]
+
+Somit ist das magnetische Moment:
+\[
+	\vec m = \frac{e \hbar}{4 m_\text{p}^{} r_\text{p}^2} \ev_z
+\]
+
+In der Notation der Aufgabenstelltung ist $\vec \mu_\text{p} = \vec m$.
 
 \subsection{Hyperfeinstruktur}
 
