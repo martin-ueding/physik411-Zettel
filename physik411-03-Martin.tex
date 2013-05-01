@@ -377,21 +377,21 @@ direkt hinter dem Magneten:
 \]
 
 Danach fliegt das Atom noch eine Zeit $t_2 = l_2/v_x$ mit der Geschwindigkeit
-$v_z = a_z t_2$. Das gemessene $\delta_z$ ist die Kombination aus diesen beiden
-Termen.
+$v_z = a_z t_2$. Das gemessene $\delta_z$ ist das Doppelte der Kombination aus
+diesen beiden Termen.
 
 Zusammen mit der Kraft also:
 \[
-	\delta_z = \frac{\inner{\vec \mu}{\dod{\vec B}z}}{M} \del{\half \del{\frac{v_x}{l_1}}^2 + \frac{l_1l_2}{v_x^2}}
+	\frac{\delta_z}2 = \frac{\inner{\vec \mu}{\dod{\vec B}z}}{M} \del{\half \del{\frac{l_1}{v_x}}^2 + \frac{l_1l_2}{v_x^2}}
 \]
 
 Umgeformt:
 \[
-	\mu_z = \frac{d_z M}{\dod{B}z} \del{\half \del{\frac{v_x}{l_1}}^2 + \frac{l_1l_2}{v_x^2}}^{-1}
-	= \SI{3.73e-22}{\ampere\meter\squared}
+	\mu_z = \frac{\delta_z M}{2 \dod{B}z} \del{\half \del{\frac{l_1}{v_x}}^2 + \frac{l_1l_2}{v_x^2}}^{-1}
+	= \SI{9.323e-23}{\ampere\meter\squared}
 \]
 
-Von den Einheiten her stimmt dies, allerdings ist dies deutlich kleiner als das
+Von den Einheiten her stimmt dies, allerdings ist dies deutlich größer als das
 magnetische Moment des Protons, das in Aufgabe \ref 3 bestimmt worden ist.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
