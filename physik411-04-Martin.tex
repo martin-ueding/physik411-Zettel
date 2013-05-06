@@ -150,6 +150,8 @@ geplottet.
 	\label{fig:2}
 \end{figure}
 
+\subsection{Große $n$}
+
 Mit $l = n - 1$ ergibt sich $l(l+1) \approx n^2$. Der Radius ist also $n^2 a_0$, wie schon oben hergeleitet.
 
 Die Energie ist dann:
@@ -158,7 +160,57 @@ Die Energie ist dann:
 	\approx - E_\text{Ryd} \del{\half \frac1{n^2} - \frac1{n^2}}
 	= - \half E_\text{Ryd} \frac1{n^2}
 \]
-	
+
+\subsection{Überlagerung}
+
+Für die Überlagerung betrachte ich zwei Zustände mit einer relativen Amplitude
+von $1/\sqrt2$. Die Energie im Zustand $n$, $E_n$, war in der Vorlesung
+angegeben mit $-E_\text{Ryd}/n^2$. Die Zeitabhängigkeit ist gerade
+$\exp\del{-\ii Et/\hbar}$, durch die Separation der Zeit mit Eigenwert $E$.
+\[
+	\frac1{\sqrt2} \exp\del{\ii (n-1) \phi} \exp\del{\ii \frac{E_\text{Ryd}}{\hbar n^2} t}
+	+
+	\frac1{\sqrt2} \exp\del{\ii (n-2) \phi} \exp\del{\ii \frac{E_\text{Ryd}}{\hbar (n-1)^2} t}
+\]
+
+Die Wahrscheinlichkeitsdichte dazu ist:
+\[
+	\varrho(\phi, t)
+	= 1 + \cos\del{\phi + \frac{E}\hbar \del{\frac1{n^2} - \frac1{(n-1)^2}}t}
+\]
+
+Diese hat die Wellenzahl $k = 1$ und hat somit genau eine Mode. Da dieser
+Zustand dadurch entstanden sind, dass zwei Wellen, die sich durch eine Periode
+mehr unterschieden haben, überlagert worden ist, entsteht eine Schwebung mit
+der Differenz der Frequenzen. Diese Differenz ist allerdings gerade eine
+Periode.
+
+Die Kreisfrequenz ist:
+\begin{align*}
+	\omega
+	&= - \frac{E_\text{Ryd}}\hbar \del{\frac1{n^2} - \frac1{(n-1)^2}} \\
+	&= - \frac{E_\text{Ryd}}\hbar \del{\frac1{n^2} - \frac1{n^2 - 2n + 1}} \\
+	&= - \frac{E_\text{Ryd}}\hbar \frac{-2n + 1}{n^2 \del{n^2 - 2n + 1}} \\
+	&\approx \frac{2E_\text{Ryd}}\hbar {n^3} \\
+\end{align*}
+
+Klassisch wende ich wieder „Coulombanziehung wirkt als Zentripetalkraft“ an:
+\begin{align*}
+	\frac{1}{4\piup \varepsilon_0} \frac{r^2}{r^2} &= m \omega^2 r \\
+	\intertext{%
+		Mit $r = a_0 n^2$:
+	}
+	\omega &= \sqrt{\frac{1}{4\piup \varepsilon_0} \frac{e^2}{a_0^3 n^6 m}} \\
+					   &= \sqrt{\frac{E_\text{Ryd}}{2a_0^2m}} \frac{1}{n^3}
+\end{align*}
+
+Es kommt also die gleiche Abhängigkeit von $n$ heraus, allerdings ist der
+Vorfaktor ein anderer. Von den Einheiten kommt allerdings in beiden Fällen
+\si{\radian\per\second} heraus.
+
+\fehlt
+
+\subsection{Empfindlichkeit}
 
 \fehlt
 
