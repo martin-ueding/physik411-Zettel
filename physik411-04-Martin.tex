@@ -58,7 +58,30 @@
 \section{Separation von Koordinaten}
 \label 1
 
-\fehlt
+Zeitunabhängige Schrödingergleichung:
+\[
+	E \ket\psi = \hat H \ket \psi
+	\eqnsep
+	\hat H = \frac{\hat p^2}{2m} + \frac\kappa r
+	\eqnsep
+	\hat p^2 = - \hbar^2 \laplace
+\]
+
+In Kugelkoordinaten:
+\[
+	\laplace = \frac1{r^2} \dpd{}r r^2 \dpd{}r + \frac{1}{r^2 \sin\del\theta} \dpd{}\theta \sin\del\theta \dpd{}\theta + \frac1{r^2\sin^2\del\theta} \dpd[2]{}\phi
+\]
+
+Mit dem Separationsansatz $\psi(\vec x) = R(r) \Theta(\theta) \Phi(\phi)$ kann
+ich die Variable $r$ separieren:
+\[
+	r^2 E - \kappa r - \dpd{}r r^2 R'(r) = \frac1{\sin\del\theta} \dpd{}\theta \sin\del\theta \Theta'(\theta) + \frac1{\sin^2\del\theta} \Phi''(\phi)
+\]
+
+Und als letzten Schritt noch $\theta$ und $\phi$:
+\[
+	\sin\del\theta \dpd{}\theta \sin\del\theta \Theta'(\theta) = - \Phi''(\phi)
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           Kugelflächenfunktionen                           %
