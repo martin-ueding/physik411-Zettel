@@ -1,0 +1,65 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{4}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{Form}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \TextField[name=aufgabe1, width=1cm]{} / 4
+		& \TextField[name=aufgabe2, width=1cm]{} / 8
+		& \TextField[name=aufgabe3, width=1cm]{} / 8
+		& \TextField[name=ergebnis, width=1cm]{} / 28
+	\end{tabular}
+\end{table}
+\end{Form}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	%\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
