@@ -99,6 +99,67 @@ Und als letzten Schritt noch $\theta$ und $\phi$:
 \section{Zirkulare Rydberg-Atome}
 \label 3
 
+\subsection{Effektives Potential und Kreisbahn}
+
+In der Vorlesung wurde folgende Formel gegeben:
+\[
+	V_\text{eff}(r, l) = \frac{\hbar^2 l(l+1)}{2mr^2} + V_\text{Coul}(r)
+\]
+
+Dies setze ich ein:
+\[
+	V_\text{eff}(r, l) = \frac{\hbar^2 l(l+1)}{2m} \frac1{r^2} - \frac{e^2}{4\piup\varepsilon_0} \frac 1r
+\]
+
+Mit $E_\text{Ryd} = e^2 / (8 \piup \varepsilon_0 a_0)$ vereinfacht sich dies
+zu:
+\[
+	V_\text{eff}(r, l) = E_\text{Ryd} \del{l(l+1) \frac{a_0^2}{r^2} - 2 \frac{a_0}r}
+\]
+
+Für einige $l$ ist dies in Abbildung \ref{fig:1} dargestellt. Für $r \to 0$
+divergiert das Potential gegen $\infty$, für $r \to \infty$ konvergiert das
+Potential von unten gegen 0.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{3-Potential.pdf}
+	\caption{$V_\text{eff}(r, l)$ für $n = 1, \ldots, 10$ und $l = n - 1$}
+	\label{fig:1}
+\end{figure}
+
+Eine Kreisbahn ist dann erreicht, wenn das Gesamtenergie (im Diagramm eine
+horizontale Linie) sich nur einmal mit dem Potential schneidet, also das
+Teilchen nur die minimale Energie hat. Dazu bestimme ich das Minimum des
+Potentials:
+\[
+	r = l(l+1) a_0
+\]
+
+Dies löse ich nach $l$ auf und setze es in $V_\text{eff}(r, l)$ ein, um die
+Ortskurve der Minima zu erhalten. Diese Ortskurve ist in Abbildung \ref{fig:2}
+geplottet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{3-Ortskurve.pdf}
+	\caption{%
+		In blau: $V_\text{eff}(r)$ für $n = 1, \ldots, 5$ und $l = n - 1$. In
+		violett: Ortskurve der Minima.
+	}
+	\label{fig:2}
+\end{figure}
+
+Mit $l = n - 1$ ergibt sich $l(l+1) \approx n^2$. Der Radius ist also $n^2 a_0$, wie schon oben hergeleitet.
+
+Die Energie ist dann:
+\[
+	V_\text{eff}\del{r_\text{zirk}(n)}
+	\approx - E_\text{Ryd} \del{\half \frac1{n^2} - \frac1{n^2}}
+	= - \half E_\text{Ryd} \frac1{n^2}
+\]
+	
+
 \fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
