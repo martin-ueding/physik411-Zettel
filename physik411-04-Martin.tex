@@ -90,7 +90,7 @@ Und als letzten Schritt noch $\theta$ und $\phi$:
 \section{Kugelflächenfunktionen}
 \label 2
 
-\fehlt
+Diese Aufgabe lasse ich aus.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                           Zirkulare Rydberg-Atome                           %
@@ -239,6 +239,39 @@ geben. Ich betrachte also das Potential:
 Als nächstes würde ich die Nullstellen der Ableitung bestimmen. Wenn es für $r
 < 0$ keine Nullstellen mehr gibt, gibt es dort auch keine lokalen Minima mehr,
 das Elektron fällt also aus seiner Bahn heraus. Ich erhalte allerdings ein Polynom dritter Ordnung, bei dem die Nullstellenbestimmung nicht so einfach ist.
+
+Diese Indikatorfunktion, bei deren Nullstellen lokale Extremstellen im Potential aufstreten, habe ich für mehrere $l$ pro Bild und für drei Verschiedene Feldstärken in Abbildungen \ref{fig:5}, \ref{fig:6} und \ref{fig:7} geplottet. Es ist zu sehen, dass ein starkes externen Feld diese Indikatorfunktion so weit herunterziehen kann, dass keine Nullstelle mehr auftaucht. Somit 
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-000.pdf}
+		\caption{$E_\text{Feld} = 0$}
+		\label{fig:5}
+\end{figure}
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-018.pdf}
+		\caption{$E_\text{Feld} = 18$}
+		\label{fig:6}
+\end{figure}
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-058.pdf}
+		\caption{$E_\text{Feld} = 58$}
+		\label{fig:7}
+\end{figure}
+
+Der Quelltext für diese Plots:
+\begin{verbatim}
+	gradient[r_, l_, a0_, eryd_, efeld_, e_] := 
+		eryd (-2 l (l + 1) a0^2 + 2 a0 Abs[r]) + efeld e r^3
+
+	Manipulate[Plot[Evaluate[Table[gradient[r, n - 1, 1, 13.6, efeld, 1],
+		{n, 1, 5}]], {r, -30, 10},
+		AxesLabel -> {"Radius in a_0", "Indikatorfunktion"}], {efeld, 0, 1}]
+\end{verbatim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
