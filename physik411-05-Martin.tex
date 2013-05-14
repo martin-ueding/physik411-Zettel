@@ -62,7 +62,89 @@
 \section{Wasserstoffähnliche Systeme}
 \label 1
 
-\fehlt
+Der Bohr-Radius ist gegeben als:
+\[
+	a_0 = \frac{4 \piup \varepsilon_0 \hbar^2}{m_\text e e^2}
+\]
+
+Daraus folgt, dass:
+\[
+	a_0 \propto \frac{1}{m_\text{e} Z}
+\]
+
+\subsection{Positronium}
+
+Für das Positronium benutze ich die Lösung des Keplerproblems mit
+dem Hamilton-Jakobi-Formalismus. Dort wird das Problem im Schwerpunktsystem
+betrachtet, wobei eine reduzierte Masse $m'$ um den dann fixen Kern kreist. Die
+Zentralkraft zwischen den beiden Massen bleibt erhalten, der Abstand auch.
+Diese reduzierte Masse ist, aus den Massen $m$ des Satelliten und $M$ des
+Kerns:
+\[
+	m' = \frac{m M}{m + M}
+\]
+
+In diesem Problem ist:
+\[
+	m' = \half m_\text e
+\]
+
+Somit wächst der Radius auf $2a_0$. Die Energie ist gegeben durch:
+\[
+	E\del{a_0} = -\half \frac{e^2}{4\piup\varepsilon_0 a_0}
+\]
+
+Mit dem Radius $2a_0$ erhalte ich die Hälfte der Rydbergenergie,
+$\SI{-6.8}\electronvolt$.
+
+\subsection{Myonischer Wasserstoff}
+
+Beim myonischen Wasserstoff benutze ich den gleichen Ansatz, hier ist die reduzierte Masse:
+\[
+	m' = \frac{m_\text p m_\muup}{m_\text p + m_\muup} = \frac{\num{1836} \cdot 200}{\num{1836} + 200} m_\text e
+	= 180 m_\text e
+\]
+
+Jetzt ist die Masse also deutlich größer, so dass der Radius kleiner wird:
+$a_0 / 180$. Die Energie wächst um den Faktor \num{180} an, also
+$\SI{-2448.0}\electronvolt$.
+
+Im 1s-Zustand ist der Zustand:
+\[
+	\psi(x, t) = R_{1,0}(r) Y_{0, 0}(\theta, \phi)
+\]
+
+Dabei ist $Y_{0, 0} = 1$, und $R_{1,0}(r)$ ist gegeben als:
+\[
+	R_{1,0}(r) = 2 C_0 \exp\del{- \frac{\rho}{2}}
+	\eqnsep
+	C_0 = \del{\frac Z{a_0}}^{3/2}
+	\eqnsep
+	\rho = \frac{2Zr}{a_0}
+\]
+
+Also:
+\[
+	\psi(x, t) = 2 \del{\frac Z{a_0}}^{3/2} \exp\del{- \frac{Zr}{a_0}}
+\]
+
+Die Wahrscheinlichkeit, dass das Teilchen im Kern ist, ist:
+\[
+	4 \piup \int_0^{r_{\text p}} \dif r \, \psi^\dagger(x, t) \psi(x, t)
+\]
+
+Allerdings brauche ich dann den Hinweis, der auf dem Aufgabenblatt gegeben ist,
+nicht.
+
+\subsection{Wasserstoffähnliches Uran}
+
+Beim Wasserstoffatom kann der Kern als unendlich schwer angekommen werden, hier
+geht das erst recht. Daher brauche ich nur den Effekt zu betrachten, das $Z =
+92$ ist. Somit schrumpft der Radius auf $a_0 / 92$, die Energie wächst auf $92
+E_\text{Ryd}$.
+
+Die Aufenthaltswahrscheinlichkeit berechnet sich genau wie in der vorherigen
+Teilaufgabe.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        Zeeman-Effekt im Bohr-Modell                         %
@@ -80,7 +162,38 @@
 \section{Spektroskopie der Zeeman- und Isotopieverschiebung}
 \label 3
 
+\subsection{Verschiebung des Energieniveaus}
+
+Die Energieverschiebung ist:
+\[
+	\Deltaup E_\text{Zee}
+	= \gamma B m
+	= g_l B \mu_B m
+	= \SI{4.635e-24}\joule
+\]
+
+Dies entspricht einem Frequenzunterschied von:
+\[
+	\Deltaup f = \frac{\Deltaup E}\hbar
+	= \SI{6.9951e9}\hertz
+\]
+
+Bei einer Frequenz $f = \SI{4.65516e14}\hertz$ entspricht dies einem Wellenlängenunterschied von:
+\[
+	\Deltaup \lambda = \frac{c}{f+\Deltaup f} - \lambda
+	= \SI{0.009678}{\nano\meter}
+\]
+
+\subsection{Isotopieverschiebung}
+
 \fehlt
+
+\subsection{Finesse}
+
+Der freie Spektralbereich sollte gerade die $\SI{6.9951e9}\hertz$ aus dem
+ersten Aufgabenteil sein. Die Finesse sagt eigentlich nur etwas über die
+Schärfe der Peaks aus, also $\Deltaup \lambda / \deltaup \lambda$. Dabei habe
+ich nur $\Deltaup \lambda / \lambda$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                     Spin-Bahn-Kopplung und $g_j$-Faktor                     %
@@ -323,6 +436,18 @@ Resultat ist in Abbildung \ref{fig:4/b/1}.
 
 In dieser Abbildung ist dann auch zu sehen, dass $\vec j \nparallel \vec\mu_j$
 gilt.
+
+\subsection{Präzession von $\vec \mu_j$ um $\vec j$}
+
+\fehlt
+
+\subsection{$g$-Faktoren}
+
+\fehlt
+
+\subsection{externes Magnetfeld}
+
+\fehlt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
