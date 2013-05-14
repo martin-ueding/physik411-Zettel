@@ -153,7 +153,24 @@ Teilaufgabe.
 \section{Zeeman-Effekt im Bohr-Modell}
 \label 2
 
-\fehlt
+Die Energie eines Dipols $\vec \mu$ in einem magnetischen Feld $\vec B$ ist:
+\[
+	E = - \inner{\vec \mu}{\vec B}
+\]
+
+Mit $\vec \mu = \gamma \vec \ell$ kann ich dies schreiben als:
+\[
+	E = n B \mu
+\]
+
+Die Zentralkraft muss um die Lorenzkraft ergänzt werden:
+\[
+	m_\text e \frac{v^2}r = \frac{1}{4\piup \varepsilon_0} \frac{e^2}{r^2} + evB
+\]
+
+Wenn $\vec L \perp \vec B$ ist, dann wird eine Drehung um $\piup$ keine
+Änderung in der Energie haben. Allerdings wirkt dann ein Drehmoment auf das
+Atom.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             Spektroskopie der Zeeman- und Isotopieverschiebung              %
@@ -168,7 +185,7 @@ Die Energieverschiebung ist:
 \[
 	\Deltaup E_\text{Zee}
 	= \gamma B m
-	= g_l B \mu_B m
+	= g_\ell B \mu_B m
 	= \SI{4.635e-24}\joule
 \]
 
@@ -204,17 +221,19 @@ ich nur $\Deltaup \lambda / \lambda$.
 
 \subsection{Komponenten und Digramme}
 
-Bei $l = 1$ ist die Länge des Drehimpulses $\sqrt{1(1+1)} = \sqrt 2$. Mit $s =
-1/2$ ist die Länge des Spins $\sqrt 3/2$. Die $z$-Komponenten $m_l$ und $m_s$ sind $-1, 0, 1$ bzw. $-\half, \half$. Der Polarwinkel $\theta$ mit der $z$-Achse ist dann gegeben als:
+Bei $\ell = 1$ ist die Länge des Drehimpulses $\sqrt{1(1+1)} = \sqrt 2$. Mit $s
+= 1/2$ ist die Länge des Spins $\sqrt 3/2$. Die $z$-Komponenten $m_l$ und $m_s$
+sind $-1, 0, 1$ bzw. $-\half, \half$. Der Polarwinkel $\theta$ mit der
+$z$-Achse ist dann gegeben als:
 \[
-	\cos\del{\theta_l} = \frac{m_l}{\sqrt 2} = \pm 1, 0
+	\cos\del{\theta_\ell} = \frac{m_l}{\sqrt 2} = \pm 1, 0
 	\eqnsep
 	\cos\del{\theta_s} = \frac{m_s}{\sqrt{3}/2} = \pm \frac{1}{\sqrt 3}
 \]
 
 Die Winkel $\SI{90}\degree - \theta$ sind dann:
 \[
-	\theta_l = \pm \SI{45}\degree
+	\theta_\ell = \pm \SI{45}\degree
 	\eqnsep
 	\theta_s = \pm \SI{35.2644}\degree
 \]
@@ -223,7 +242,7 @@ Alle signifikant verschiedenen Vektordiagramme, also solche, die nicht durch
 Spiegellung oder Drehung aus den anderen hervorgehen können, sind in den
 Abbildungen \ref{fig:4/a/1}, \ref{fig:4/a/2}, \ref{fig:4/a/3}, \ref{fig:4/a/4},
 \ref{fig:4/a/5} und \ref{fig:4/a/6} gezeigt. In Abbildung \ref{fig:4/a/alle}
-sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
+sind alle Vektoren $\vec \ell$ und $\vec \sigma$ gezeigt.
 
 \begin{figure}
 	\centering
@@ -237,8 +256,8 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec l$, $m_l=1$};
-		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec l$, $m_l=0$};
+		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec \ell$, $m_\ell=1$};
+		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec \ell$, $m_\ell=0$};
 
 		\draw[->] (l0) -- ($(l0)+(s+r)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=\half$};
 		\draw[->] (l0) -- ($(l0)+(s+l)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=\half$};
@@ -268,12 +287,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec l$, $m_l=1$};
+		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec \ell$, $m_\ell=1$};
 		\draw[->] (l1) -- ($(l1)+(s+l)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=\half$};
 		\draw[->] (0, 0) -- ($(l1)+(s+l)$) node[midway, sloped, above] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 1$ und $m_s = \half$
+		$m_\ell = 1$ und $m_s = \half$
 	}
 	\label{fig:4/a/1}
 \end{figure}
@@ -290,12 +309,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l1) node[midway, sloped, above] {$\vec l$, $m_l=1$};
+		\draw[->] (0, 0) -- (l1) node[midway, sloped, above] {$\vec \ell$, $m_\ell=1$};
 		\draw[->] (l1) -- ($(l1)+(s+r)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=\half$};
 		\draw[->] (0, 0) -- ($(l1)+(s+r)$) node[midway, sloped, below] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 1$ und $m_s = \half$
+		$m_\ell = 1$ und $m_s = \half$
 	}
 	\label{fig:4/a/2}
 \end{figure}
@@ -312,12 +331,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec l$, $m_l=1$};
+		\draw[->] (0, 0) -- (l1) node[midway, sloped, below] {$\vec \ell$, $m_\ell=1$};
 		\draw[->] (l1) -- ($(l1)+(s-l)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=-\half$};
 		\draw[->] (0, 0) -- ($(l1)+(s-l)$) node[midway, sloped, above] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 1$ und $m_s = -\half$
+		$m_\ell = 1$ und $m_s = -\half$
 	}
 	\label{fig:4/a/3}
 \end{figure}
@@ -334,12 +353,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l1) node[midway, sloped, above] {$\vec l$, $m_l=1$};
+		\draw[->] (0, 0) -- (l1) node[midway, sloped, above] {$\vec \ell$, $m_\ell=1$};
 		\draw[->] (l1) -- ($(l1)+(s-r)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=-\half$};
 		\draw[->] (0, 0) -- ($(l1)+(s-r)$) node[midway, sloped, below] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 1$ und $m_s = -\half$
+		$m_\ell = 1$ und $m_s = -\half$
 	}
 	\label{fig:4/a/4}
 \end{figure}
@@ -356,12 +375,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec l$, $m_l=0$};
+		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec \ell$, $m_\ell=0$};
 		\draw[->] (l0) -- ($(l0)+(s+l)$) node[midway, sloped, above] {$\vec \sigma$, $m_s=\half$};
 		\draw[->] (0, 0) -- ($(l0)+(s+l)$) node[midway, sloped, above] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 0$ und $m_s = \half$
+		$m_\ell = 0$ und $m_s = \half$
 	}
 	\label{fig:4/a/5}
 \end{figure}
@@ -378,12 +397,12 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 		\coordinate (s-l) at (-144.736:0.866025);
 		\coordinate (s-r) at (-35.2644:0.866025);
 
-		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec l$, $m_l=0$};
+		\draw[->] (0, 0) -- (l0) node[midway, sloped, below] {$\vec \ell$, $m_\ell=0$};
 		\draw[->] (l0) -- ($(l0)+(s+r)$) node[midway, sloped, below] {$\vec \sigma$, $m_s=\half$};
 		\draw[->] (0, 0) -- ($(l0)+(s+r)$) node[midway, sloped, above] {$\vec j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 0$ und $m_s = \half$
+		$m_\ell = 0$ und $m_s = \half$
 	}
 	\label{fig:4/a/6}
 \end{figure}
@@ -392,7 +411,7 @@ sind alle Vektoren $\vec l$ und $\vec \sigma$ gezeigt.
 
 Für die magnetischen Momente gilt:
 \[
-	\vec \mu_l = - \mu_B \vec l
+	\vec \mu_\ell = - \mu_B \vec \ell
 	\eqnsep
 	\vec \mu_s = - 2 \mu_B \vec \sigma
 \]
@@ -424,12 +443,12 @@ Resultat ist in Abbildung \ref{fig:4/b/1}.
 		\draw[->, dotted] (l1) -- ($(l1)+(s+l)$) node[midway, sloped, above] {};
 		\draw[->] (0, 0) -- ($(l1)+(s+l)$) node[midway, sloped, above] {$\vec j$};
 
-		\draw[->] (0, 0) -- (mul1) node[midway, sloped, below] {$\vec \mu_l$};
+		\draw[->] (0, 0) -- (mul1) node[midway, sloped, below] {$\vec \mu_\ell$};
 		\draw[->] (mul1) -- ($(mul1)+(mus+l)$) node[midway, sloped, above] {$\vec \mu_s$};
 		\draw[->] (0, 0) -- ($(mul1)+(mus+l)$) node[midway, sloped, above] {$\vec \mu_j$};
 	\end{tikzpicture}
 	\caption{%
-		$m_l = 1$ und $m_s = \half$
+		$m_\ell = 1$ und $m_s = \half$
 	}
 	\label{fig:4/b/1}
 \end{figure}
