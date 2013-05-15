@@ -128,12 +128,24 @@ Also:
 \]
 
 Die Wahrscheinlichkeit, dass das Teilchen im Kern ist, ist:
-\[
-	4 \piup \int_0^{r_{\text p}} \dif r \, \psi^\dagger(x, t) \psi(x, t)
-\]
+\begin{align*}
+	P_\text{im Kern}
+	&= 4 \piup \int_0^{r_{\text p}} \dif r \, r^2 \psi^\dagger(x, t) \psi(x, t) \\
+	&= 16 \piup \frac{Z^3}{a_0^3} \int_0^{r_{\text p}} \dif r \, r^2 \exp\del{- \frac{2rZ}{a_0}}
+\end{align*}
 
-Allerdings brauche ich dann den Hinweis, der auf dem Aufgabenblatt gegeben ist,
-nicht.
+Dieses Integral kann man mit Substitution und dann partieller Integration
+lösen. Ich \href{http://www.smbc-comics.com/?id=2861}{mache dies mit
+\emph{Mathematica}} und erhalte für das mit $r_\text p =
+\SI{0.8}{\femto\meter}$ und $a_0/180$ folgenden Wert für den Innenbereich:
+$\SI{2.14e-45}{\meter\cubed}$. Für den gesamten Raum erhalte ich
+$\SI{7.98e-38}{\meter\cubed}$. Der Quotient gibt mir die Wahrscheinlichkeit,
+dass sich das Myon im Kern aufhält: $\num{2.68e-8}$. Die Einheit für die
+Wahrscheinlichkeit erhalte ich, weil ich die Wahrscheinlichkeitsdichte
+$\psi^\dagger \psi$ nicht noch durch $\si{\meter\cubed}$ geteilt hatte.
+
+Für den Wasserstoff muss ich in das obige nur $a_0$ anstelle von $a_0/180$
+einsetzen und erhalte: $\num{4.55e15}$.
 
 \subsection{Wasserstoffähnliches Uran}
 
@@ -142,8 +154,9 @@ geht das erst recht. Daher brauche ich nur den Effekt zu betrachten, das $Z =
 92$ ist. Somit schrumpft der Radius auf $a_0 / 92$, die Energie wächst auf $92
 E_\text{Ryd}$.
 
-Die Aufenthaltswahrscheinlichkeit berechnet sich genau wie in der vorherigen
-Teilaufgabe.
+Mit dem gleichen Ansatz wie oben, nur dass ich noch $Z = 91$ unterbringen,
+sowie $r_\text p$ auf $\sqrt[3]{238} \cdot \SI{1.3}{\femto\meter}$ setzen muss,
+erhalte ich für die Wahrscheinlichkeit im Kern $\num{0.00231}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        Zeeman-Effekt im Bohr-Modell                         %
