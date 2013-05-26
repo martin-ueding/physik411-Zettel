@@ -153,7 +153,26 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 \section{Auswahlregeln}
 \label 4
 
-\fehlt
+Die Auswahlregeln sind: \cite[Tabelle 15.8]{meschede-gerthsen_24}
+\begin{gather*}
+	\Deltaup l = \pm 1 \\
+	\Deltaup m = 0, \pm 1 \\
+	\Deltaup s = 0 \\
+	\Deltaup j = 0, \pm 1 \\
+	\Deltaup m_j = 0, \pm 1
+\end{gather*}
+
+Außerdem darf nicht $j\colon 0 \to 0$ sowie $\Deltaup m_j = 0$ bei $\Deltaup j
+= 0$ stattfinden.
+
+Die erlaubten Übergänge sind in Abbildung \ref{fig:termschema}.
+
+\begin{figure}
+	\centering
+	\includegraphics{4-Termschema-bearbeitet.pdf}
+	\caption{Ausgefülltes Termschema}
+	\label{fig:termschema}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                Quantendefekt                                %
@@ -242,7 +261,7 @@ Bei Cäsium ist $\tau = \SI{30}{\nano\second}$, $\Gamma = 1/\tau$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \IfFileExists{\bibliographyfile}{
-	%\bibliography{\bibliographyfile}
+	\bibliography{\bibliographyfile}
 }{}
 
 \end{document}
