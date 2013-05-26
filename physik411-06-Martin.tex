@@ -154,7 +154,41 @@
 \section{Lorenzkurve}
 \label 6
 
-\fehlt
+\subsection{Fouriertransformation}
+
+Ich berechne die Fouriertransformation zu der gegebenen Entwicklung des
+elektrischen Feldes $E$:
+\begin{align*}
+	E(\omega)
+	&= \int_0^\infty \dif t \, E(t) \exp\del{-\ii \omega t} \\
+	&= \int_0^\infty \dif t \, E_0 \exp\del{\ii \del{\frac{\ii \Gamma}2 + \omega_0 - \omega} t} \\
+	&= E_0 \frac1{-\frac \Gamma2 + \ii \del{\omega_0 - \omega}}
+\end{align*}
+
+\subsection{Intensitätsspektrum}
+
+\begin{align*}
+	P(\omega)
+	&= \abs{E(\omega)}^2 \\
+	&= E_0^2 \frac1{\frac{\Gamma^2}4 + \del{\omega_0 - \omega}^2}
+\end{align*}
+
+Die Maximale Intensität ist bei $\omega = \omega_0$. Die halbe Intensität ergibt sich bei
+\[
+	\del{\omega - \omega_0}^2 = \frac{\Gamma^2}4,
+\]
+
+Also bei $\abs{\omega_0 - \omega} = \Gamma / \sqrt 2$. Die volle Halbwertsbreite ist somit:
+\[
+	\Deltaup \omega_\text{FWHM} = \sqrt 2 \Gamma
+\]
+
+\subsection{Cäsium}
+
+Bei Cäsium ist $\tau = \SI{30}{\nano\second}$, $\Gamma = 1/\tau$.
+\[
+	\Deltaup\nu = \frac{\piup}{\sqrt 2 \tau} = \SI{7.40e7}\hertz
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
