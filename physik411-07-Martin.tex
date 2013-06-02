@@ -4,6 +4,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usepackage{xfrac}
 
 \newcommand{\themodul}{physik411}
 \newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
@@ -59,6 +60,10 @@
 \section{Hund'sche Regeln}
 \label 1
 
+Die Schalen werden so besetzt, dass zuerst das s-Orbital, dann das p-Orbital
+gefüllt wird, und dort erst die Spins $\uparrow$ und dann $\downarrow$ besetzt
+werden. Somit ergeben sich die folgenden Belegungen:
+
 \subsection{Sauerstoff}
 
 Im Sauerstoff, das 8 Valenzelektronen hat, werden die äußeren Schalen wie folgt
@@ -69,15 +74,32 @@ besetzt:
 	\underset{\text{2p}}{\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\phantom\downarrow$}}
 \]
 
+Der Gesamtdrehimpuls aus dem p-Orbital sind 4 mal $\ell = 1$, also ist $L = 4$.
+Der Spin ist $S = 3 \uparrow + 1 \downarrow = 1$. Somit ist $J = 5$ und $2s + 1
+= 3$. Dies ist also $^3\mathrm P_5$ und $\mathrm{[He] 2s^2 \, 2p^4}$.
+
+Wenn allerdings der Gesamtdrehimpuls $L$ die Summe der $m_\ell$ ist, dann ist
+$L = 1 + 0 + (-1) + 1 = 1$. Somit wäre der Drehimpuls $J = 2$ und die
+spektroskopische Notation $\mathrm{^3P_2}$.
+
 \subsection{Stickstoff}
 
+Besetzung der Schalen:
 \[
 	\underset{\text{2s}}{\fbox{$\uparrow \downarrow$}}
 	\quad
 	\underset{\text{2p}}{\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\phantom\downarrow$}\fbox{$\uparrow\phantom\downarrow$}}
 \]
 
+Analog zum Sauerstoff, allerdings ist hier noch ein Elektron weniger auf einem
+$m_\ell = 0$ Platz. Somit ändert sich nur der Spin auf $S = \sfrac 32$. Ich
+erhalte $^4\mathrm P_{\sfrac 32}$ und $\mathrm{[He] 2s^2 \, 2p^3}$.
+
 \subsection{Eifel}
+
+Welches Element soll dies sein?
+
+\fehlt
 
 \subsection{Magnetische Quantenzahl}
 
