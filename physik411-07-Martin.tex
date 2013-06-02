@@ -107,11 +107,71 @@ $m_J$ gibt die $z$-Komponente des Gesamtdrehimpulses an. Wenn diese entartet
 ist, bedeutet dies eine komplette Kugelsymmetrie.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   Energieskala der diatomischen Moleküle                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Energieskala der diatomischen Moleküle}
+\label 2
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Infrarotspektroskopie eines heteronuklearen Moleküls            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Infrarotspektroskopie eines heteronuklearen Moleküls}
+\label 3
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Einstein-Modell der Licht-Materie-Wechselwirkung               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Einstein-Modell der Licht-Materie-Wechselwirkung}
+\label 4
+
+\subsection{QED-Prozesse}
+
+Der Term $\textcircled 1$ trägt positiv zur Bilanz bei, es ist also die
+Absorption. Je mehr Energie vorhanden ist, und desto mehr Atome im Grundzustand
+sind, desto mehr Atome werden angeregt.
+
+Term $\textcircled 2$ hängt noch von der Energiedichte ab, jedoch von der
+Anzahl der angeregten Zustände. Außerdem trägt er negativ zur Bilanz bei, so
+dass es die stimulierte Emission ist.
+
+Term $\textcircled 3$ ist die spontane Emission, da hier nur die Anzahl der
+angeregten Zustände drin ist, und der Term negativ eingeht.
+
+\subsection{Einsteinkoeffizienten}
+
+Im Gleichgewichtsfall mit $\dot N_a = \dot N_g = 0$ werden die beiden Differentialgleichungen zu einer Differentialgleichung:
+\begin{align*}
+	A N_e &= B \varrho \del{N_g - N_e} \\
+	\frac AB &= \varrho \frac{N_g - N_e}{N_e} \\
+	\frac AB &= \varrho \del{\frac{N_g}{N_e} - 1} \\
+	\frac AB \frac 1\varrho &= \frac{N_g}{N_e} - 1 \\
+	\intertext{%
+		Da es sich um einen Zustand im thermischen Gleichgewicht handelt, kann
+		die Verteilung auch durch die Boltzmann-Verteilung angegeben werden.
+		Die Energiedifferenz zwischen den beiden Zuständen ist $\Deltaup E = h
+		\nu$. \cite{wikipedia/Einsteinkoeffizienten}
+	}
+	\frac AB \frac 1\varrho &= \exp\del{\frac{h\nu}{k_\text{B} T}} - 1 \\
+	\frac AB \frac{c^3}{8\piup h \nu^3} \del{\exp\del{\frac{h\nu}{k_\text{B} T}} - 1} &= \exp\del{\frac{h\nu}{k_\text{B} T}} - 1 \\
+	\frac AB \frac{c^3}{8\piup h \nu^3} &= 1 \\
+	\frac AB &= \frac{8\piup h \nu^3}{c^3}
+\end{align*}
+
+Dies hängt nicht mehr von der Temperatur ab.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \IfFileExists{\bibliographyfile}{
-	%\bibliography{\bibliographyfile}
+	\bibliography{\bibliographyfile}
 }{}
 
 \end{document}
