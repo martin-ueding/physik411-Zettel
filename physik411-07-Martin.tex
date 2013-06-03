@@ -191,7 +191,72 @@ Näherung erfüllt ist.
 \section{Infrarotspektroskopie eines heteronuklearen Moleküls}
 \label 3
 
-\fehlt
+\subsection{Zentralpotential}
+
+Die Rotation in einem klassischen Keplerproblem muss in einer Ebene
+stattfinden, so wie in Abbildung \ref{fig:3a-Ebene}. Falls dies nicht der Fall
+ist, so wie in Abbildung \ref{fig:3a-Zylinder}, würde die Zentralkraft die
+beiden Körper in die Ebene ziehen. Die Bewegung wäre nicht stabil kann daher
+nicht der sich einstellende Gleichgewichtszustand sein.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\coordinate (H) at (1, 0, 0);
+		\coordinate (Cl) at (3, 0, 0);
+
+		\draw[->] (-2, 0, 0) -- ++(1, 0, 0) node[right] {$\ev_x$};
+		\draw[->] (-2, 0, 0) -- ++(0, 1, 0) node[above] {$\ev_y$};
+		\draw[->] (-2, 0, 0) -- ++(0, 0, 1) node[below left] {$\ev_z$};
+
+		\draw[thin, dotted] (Cl) arc (0:360:1);
+		\draw[->] (H) arc (180:270:1);
+		\draw[->] (Cl) arc (0:90:1);
+
+		\draw[->, color=red] (H) -- ($(H)!.3!(Cl)$);
+		\draw[->, color=red] (Cl) -- ($(H)!.7!(Cl)$);
+
+		\shade[ball color=black!.1] (H) circle (3mm) node {H};
+		\shade[ball color=yellow!.1] (Cl) circle (3mm) node {Cl};
+
+		\draw[fill] (2, 0, 0) circle (.4mm) node[below] {$\vec R$};
+	\end{tikzpicture}
+	\caption{%
+		Bewegung in einer Ebene. Die anziehende Kraft (rot) hält die Bewegung
+		in dieser Ebene.
+	}
+	\label{fig:3a-Ebene}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\coordinate (H) at (1, 0, 1);
+		\coordinate (Cl) at (3, 0, -1);
+
+		\draw[->] (-2, 0, 0) -- ++(1, 0, 0) node[right] {$\ev_x$};
+		\draw[->] (-2, 0, 0) -- ++(0, 1, 0) node[above] {$\ev_y$};
+		\draw[->] (-2, 0, 0) -- ++(0, 0, 1) node[below left] {$\ev_z$};
+
+		\draw[thin, dotted] (Cl) arc (0:360:1);
+		\draw[thin, dotted] (H) arc (180:-180:1);
+		\draw[->] (H) arc (180:270:1);
+		\draw[->] (Cl) arc (0:90:1);
+
+		\draw[->, color=red] (H) -- ($(H)!.3!(Cl)$);
+		\draw[->, color=red] (Cl) -- ($(H)!.7!(Cl)$);
+
+		\shade[ball color=black!.1] (H) circle (3mm) node {H};
+		\shade[ball color=yellow!.1] (Cl) circle (3mm) node {Cl};
+
+		\draw[fill] (2, 0, 0) circle (.4mm) node[below] {$\vec R$};
+	\end{tikzpicture}
+	\caption{%
+		Bewegung in zwei Ebenen. Die anziehende Kraft (rot) zieht die Teilchen
+		aus ihren Ebenen heraus. Dies ist so nicht stabil.
+	}
+	\label{fig:3a-Ebene}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              Einstein-Modell der Licht-Materie-Wechselwirkung               %
