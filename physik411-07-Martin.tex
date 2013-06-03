@@ -258,6 +258,66 @@ nicht der sich einstellende Gleichgewichtszustand sein.
 	\label{fig:3a-Ebene}
 \end{figure}
 
+\subsection{Rotationsspektrum}
+
+Mit der Näherung $m r^2 \approx m r_0^2 =: I$ ist der Hamiltonoperator:
+\[
+	\hat H = \frac{\hat p_r^2}{2 \mu} + \frac{\hbar^2 J(J+1)}{2I} + \half \mu \omega^2 \del{r - r_0}^2
+\]
+
+Der Abstand der Energien im Drehimpuls, also dem mittleren Term, sind für $J$ und $J-1$:
+\begin{align*}
+	\Deltaup E_\text{rot}
+	&= \frac{\hbar^2}{2I} \del{ J(J+1) - (J-1)J } \\
+	&= \frac{\hbar^2}{2I} \del{J^2 + J - \del{J^2 - J}} \\
+	&= \frac{\hbar^2}{2I} 2J \\
+	&= \frac{\hbar^2}{I} J
+\end{align*}
+
+Für den Abstand zwischen $J$ und $J+1$ erhalte ich anstelle von $J$ den Faktor
+$-J + \sfrac 32$. Macht das einen Unterschied? Der Abstand wächst linear, somit ist nur die erste Linie von der nächsten um den auf dem Aufgabenblatt gegeben Faktor $\hbar^2/I$ getrennt.
+
+\subsection{Trägheitsmoment}
+
+Der Abstand von 11 Schritten ist $\SI{260}{\radian\per\centi\meter}$. Somit ist der Abstand von einem Schritt zum nächsten $\Deltaup k = \SI{23}{\radian\per\centi\meter}$. Mit $\Deltaup \omega = \Deltaup k c$, sowie $\Deltaup \omega \hbar = E = \hbar^2 / I$ erhalte ich:
+\[
+	I = \frac{\hbar}{\Deltaup k c} = \SI{1.49e-46}{\kilogram\meter\squared}
+\]
+
+\subsection{Bindungslänge}
+
+Aus $I = \mu r_0^2$ und der reduzierten Masse
+\[
+	\mu^{-1}
+	= \frac1{\SI{1}\atomicmassunit} + \frac1{\SI{36}\atomicmassunit}
+	= \SI{37/36}\atomicmassunit
+\]
+kann ich den Bindungsradius schreiben als:
+\[
+	r_0 = \sqrt{I \mu^{-1}} = \SI{3.04e-10}\meter
+\]
+
+Daraus folgt die Bindungslänge:
+\[
+	2 r_0 = 11.5 a_0
+\]
+
+\subsection{Schwingungsfrequenz}
+
+Mit $k = \SI{2885}{\radian\per\centi\meter}$ in der Mitte kann ich schreiben:
+\[
+	\nu = \frac\omega{2\piup} = \frac{k c}{2 \piup} = \SI{13.8}{\tera\hertz}
+\]
+
+\subsection{Isotopischer Effekt}
+
+Die höhere Linie hat leicht höhere Wellenzahlen, also auch höhere Frequenzen. Bei einer Feder gilt mit Federkonstante $D$ und Masse $m$:
+\[
+	\omega = \sqrt{\frac Dm}
+\]
+
+Die Höhere Frequenz gehört also zu einer kleineren Masse. Damit ist die höhere, linke Linie vom Isotop $\mathrm{^1H^{35}Cl}$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              Einstein-Modell der Licht-Materie-Wechselwirkung               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
