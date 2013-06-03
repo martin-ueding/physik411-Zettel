@@ -111,7 +111,78 @@ ist, bedeutet dies eine komplette Kugelsymmetrie.
 \section{Energieskala der diatomischen Moleküle}
 \label 2
 
+\subsection{Rotationsspektrum}
+
+Die Kraft, die zwischen den beiden Stickstoffmolekülen ist, ist deutlich komplexer, als zwischen Kern und Elektron im Wasserstoffatom. Die Molekülorbitale bilden ein sp-Hybridorbital und zwei verbleibende p-Orbitale, die dann in $\sigma$ und $\sigma^*$ bzw. zwei $\pi$-Bindungen eingehen.
+
+Angenommen, der Drehimpuls für das ganze Molekül ist der gleiche gequantelte Drehimpuls wie für das Elektron selbst. Dann gilt:
+\[
+	E(m) = \frac{L^2}{2m}
+\]
+
+Der Massenunterschied zwischen dem Wasserstoffatom und dem Stickstoffmolekül ist $\beth := \mu/m$, ($\beth > 1$). Wenn die Masse um den Faktor $\beth$ größer wird, so wird der Drehimpuls um den Faktor $\beth$ kleiner. Also
+\[
+	E_{\mathrm N_2} = \beth^{-1} E_{\mathrm H}
+\]
+
+\paragraph{Umrechnung der Energie}
+
+Die reduzierte Masse ist:
+\[
+	\mu
+	= \frac{\SI{10}\atomicmassunit \cdot \SI{10}\atomicmassunit}{\SI{20}\atomicmassunit}
+	= \SI5\atomicmassunit
+\]
+
+Einsetzen der Konstanten gibt:
+\[
+	\Deltaup E = \SI{1.49}{\milli\electronvolt}
+\]
+
+Dies entspricht einer Frequenz von:
+\[
+	f = \SI{0.36}{\tera\hertz}
+\]
+
+Mit $k = \omega/c$ und $\omega = 2 \piup f$ erhalte ich die Wellenzahl:
+\[
+	k = \SI{75.6}{\radian\per\centi\meter}
+\]
+
+\subsection{Schwingungsspektrum}
+
 \fehlt
+
+\paragraph{Umrechnung der Energie}
+
+Bis auf die Wurzel ist die Rechnung die gleiche, wie oben auch.
+\[
+	\Deltaup E = \SI{143}{\milli\electronvolt}
+	\eqnsep
+	f = \SI{34.5}{\tera\hertz}
+	\eqnsep
+	k = \SI{7220}{\radian\per\centi\meter}
+\]
+
+\subsection{Elektronische Übergänge}
+
+Das Stickstoffatom ist vergleichbar groß mit dem Wasserstoffatom, und dort sind
+die Übergangsenergien einige $\si\electronvolt$. Beim Stickstoff sind die
+Übergangsenergien ähnlich groß. Das Stickstoffmolekül ist etwas kleiner als
+doppelt so groß, daher sollten die Energien auch in der gleichen Größenordnung
+liegen, wenn man das ganze als harmonischen Oszillator betrachtet.
+
+\subsection{Born-Oppenheimer-Näherung}
+
+Die Born-Oppenheimer-Näherung besagt, dass wenn die Kerne langsam genug sind,
+sich die Elektronen instantan daran anpassen und wie in einem effektiven
+Potential bewegen.
+
+Wenn das Molekül den gleichen Drehimpuls wie die einzelnen Elektronen hat, dann
+müssen die Kerne sich um den Faktor $\beth$ langsamer bewegen. Der Abstand ist
+vergleichbar zu den Atomen, nur sind die Atomkerne um den Faktor $\beth$
+schwerer. Mit $\beth = 9110$ kann durchaus davon ausgegangen werden, dass die
+Näherung erfüllt ist.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %            Infrarotspektroskopie eines heteronuklearen Moleküls            %
