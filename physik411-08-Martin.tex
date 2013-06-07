@@ -90,6 +90,41 @@ langreichweitiger werden. Daher ist auch der Quantendefekt bei größeren $\ell$
 kleiner, weil sich die Elektronen nicht mehr so häufig am Kern aufhalten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Fouriertransformationsinfrarotspektroskopie (FTIR)              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fouriertransformationsinfrarotspektroskopie (FTIR)}
+\label 2
+
+\subsection{Skizze}
+
+Eine Skizze der Apparatur ist in Abbildung \ref{fig:2/a/Strahlteiler}.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (-.2, 2) -- ++(0, -1);
+		\draw[->] (.2, 2) -- ++(0, -1) node[midway, right] {einfallendes Licht};
+
+		\node[draw] at (4, 0) {Detektor};
+
+		\draw (-2, .5) rectangle (-1.8, -.5);
+		\draw[|-|] (-1.9, .7) -- ++(-1, 0) node[midway, above] {$l$};
+
+		\draw (.5, -2) rectangle (-.5, -1.8);
+
+		\draw (-140:1) -- (50:1) -- (40:1) -- (-130:1) node[midway, below, sloped] {Strahlteiler} -- cycle;
+	\end{tikzpicture}
+	\caption{%
+		Michelsoninterferometer für die
+		Fouriertransformationsinfrarotspektroskopie. Die beiden unbeschrifteten
+		Rechtecke sind Spiegel, der eine davon beweglich. Seine Position wird
+		durch $l$ gegeben.
+	}
+	\label{fig:2/a/Strahlteiler}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
