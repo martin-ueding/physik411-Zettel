@@ -68,12 +68,12 @@ dargestellt.
 	\centering
 	\begin{tikzpicture}[scale=1.5]
 		\draw[->] (0, 0) -- ++(7, 0) node[right] {$r$};
-		\draw[->] (0, -1.5) -- ++(0, 2) node[above] {$V(r)$};
+		\draw[->] (0, -1.5) -- ++(0, 4) node[above] {$V(r)$};
 		\draw (1, -.1) -- ++(0, .2) node[above] {$r_0$};
 		\draw (.1, -1) -- ++(-.2, 0) node[left] {$E_0$};
-		\draw[domain=0:7, samples=100, color=blue] plot (\x,{(exp(-\x) - 1)^2 - 1});
-		\draw[domain=0:7, samples=100, color=MidnightBlue] plot (\x,{(exp(-\x/2) - 1)^2 - 1});
-		\draw[domain=0:7, samples=100, color=ForestGreen] plot (\x,{(exp(-\x/3) - 1)^2 - 1});
+		\draw[domain=0:7, samples=100, color=blue] plot (\x,{(exp(-(\x-1)) - 1)^2 - 1});
+		\draw[domain=0:7, samples=100, color=MidnightBlue] plot (\x,{(exp(-(\x-1)/2) - 1)^2 - 1});
+		\draw[domain=0:7, samples=100, color=ForestGreen] plot (\x,{(exp(-(\x-1)/3) - 1)^2 - 1});
 	\end{tikzpicture}
 	\caption{%
 		In \textcolor{blue}{blau} das Morse-Potential für $\ell = 1$. In
@@ -123,6 +123,96 @@ Eine Skizze der Apparatur ist in Abbildung \ref{fig:2/a/Strahlteiler}.
 	}
 	\label{fig:2/a/Strahlteiler}
 \end{figure}
+
+\subsection{Art der Strahlungsquelle}
+
+Es könnte vielleicht einen Laser geben, der im Infrarotbereich strahlt. Eine
+LED wird wahrscheinlich kein Licht in diesem Spektralbereich abgeben, sie
+strahlen ja auch meistens kaltes Licht aus. Eine Glühlampe eigentlich sich
+wunderbar dafür. Schließlich hat die EU ja die normalen Glühlampen verboten,
+weil sie zu viel Wärme abstrahlen, und nicht genug Licht.
+
+Der Infrarotbereich befindet sich zwischen Wellenlängen von
+\SI{780}{\nano\meter} bis \SI{1}{\milli\meter}.
+
+Die ziemlich warme Raumtemperatur von $\SI{300}{\kelvin}$ lässt sich mit dem Wien'schen Verschiebungsgesetz in eine Maximalwellenlänge umrechnen:
+\[
+	T \lambda_\text{max} = \SI{2897.8}{\micro\meter\kelvin}
+	\implies
+	\lambda_\text{max} = \SI{9.659}{\micro\meter}
+\]
+
+\subsection{}
+
+Es kommen zwei gleiche Strahlen zur Interferenz, beide mit $I_0/2$. Dabei ist
+\[
+	\tau = \frac{2l}c
+\]
+die Zeit, die das Licht auf dem einen Arm des Interferometers mehr unterwegs
+ist. Das Feld sei linear polarisiert, so dass $E(t)$ eine skalare Größe ist.
+Die Amplitude, die beim Detektor ankommt, ist dann die Differenz der beiden
+Felder, da ein Strahl beim Durchgang durch den Strahlteiler so reflektiert
+wird, dass seine Amplitude gespiegelt wird.
+\begin{align*}
+	\bar E(t)
+	&= \half \del{E(t) - E(t-\tau)} \\
+	\intertext{%
+		Die Energiedichte $\varrho_{W_\text{Feld}}$ ist
+		\[
+			\varrho = \half \varepsilon_0 E^2(t),
+		\]
+		wobei der Strahlungsfluss $I$ gerade $\rho c$ ist.
+	}
+	I(t)
+	&= \half \varepsilon_0 c \del{\half \del{E(t) - E(t-\tau)}}^2 \\
+	&= \frac{\varepsilon_0 c}4 \del{E^2(t) - 2 E(t) E(t-\tau) +  E^2(t-\tau)} \\
+	\intertext{%
+		Die Intensität muss allerdings über eine ganze Periode gemittelt
+		werden, damit die mittlere Intensität herauskommt:
+	}
+	I
+	&= \frac 1T \int_{\frac T2}^{\frac T2} \dif t \, \frac{\varepsilon_0 c}4 \del{E^2(t) - 2 E(t) E(t-\tau) +  E^2(t-\tau)} \\
+	\intertext{%
+		Mit einer Transformation $t' := t - \tau$ wird der letzte Summand wie
+		der erste zu $\mathcal C(0)$, also $I_0$.
+	}
+	&= \half I_0 - \frac 1T \int_{\frac T2}^{\frac T2} \dif t \, \frac{\varepsilon_0 c}2 E(t) E(t-\tau) \\
+	&= \half I_0 - \half \mathcal C(\tau) \\
+\end{align*}
+
+\subsection{Auflösungsvermögen}
+
+Es gelten:
+\[
+	\omega k = c
+	\eqnsep
+	\omega = \frac kc
+	\eqnsep
+	\Deltaup \omega = \frac{\Deltaup k}c
+\]
+
+Bei einer Diskreten Fouriertransformation (DFT oder FFT) erhalte ich mit $N$
+Messpunkten $N$ Frequenzen. (Oder $N-1$?) Um zwei Frequenzen mit
+Wellenzahlunterschied von $\Deltaup k = \SI{.1}{\per\centi\meter}$
+unterscheiden zu können, brauche ich:
+\[
+	N = \frac{k}{\Deltaup k} = \num{40000}
+\]
+
+Der Spiegel sollte sich soweit bewegen, dass mindestens eine komplette Periode
+abgedeckt ist, also $I$ maximal und minimal geworden ist. Die Spiegelbewegung
+muss also abdecken:
+\[
+	\lambda = \frac{2\piup}{k} = \SI{15708}{\nano\meter}
+\]
+
+Der Bruchteil $\Deltaup l$ muss dann sein:
+\[
+	\Deltaup l = \SI{3.92}{\nano\meter}
+\]
+
+So klein wie die Werte allerdings sind, sind die Längen auch vielleicht um den
+Faktor $N$ größer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
