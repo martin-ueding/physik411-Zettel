@@ -80,12 +80,58 @@ oder $\piup$-Bindung.
 Beim Silizium ist die Bindung zwischen zwei Atomkernen zu erkennen, es handelt
 sich um eine gerichtete Bindung.
 
+\subsection{Bloch-Wellen}
+
+\fehlt
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               Bravais-Gitter                                %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Bravais-Gitter}
 \label 2
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\coordinate (a) at (0, 0, 0);
+		\coordinate (b) at (2, 0, 0);
+		\coordinate (c) at (2, 2, 0);
+		\coordinate (d) at (0, 2, 0);
+		\coordinate (e) at (0, 0, 2);
+		\coordinate (f) at (2, 0, 2);
+		\coordinate (g) at (2, 2, 2);
+		\coordinate (h) at (0, 2, 2);
+		\coordinate (m) at (1, 1, 1);
+
+		\draw (a) -- (b) -- (c) -- (d) -- (a);
+		\draw (e) -- (f) -- (g) -- (h) -- (e);
+		\draw (a) -- (d) -- (h) -- (e) -- (a);
+		\draw (b) -- (c) -- (g) -- (f) -- (b);
+		\draw (a) -- (b) -- (f) -- (e) -- (a);
+
+		\draw[dashed] (a) -- (m);
+		\draw[dashed] (b) -- (m);
+		\draw[dashed] (c) -- (m);
+		\draw[dashed] (d) -- (m);
+		\draw[dashed] (e) -- (m);
+		\draw[dashed] (f) -- (m);
+		\draw[dashed] (g) -- (m);
+		\draw[dashed] (h) -- (m);
+
+		\node[draw, circle, fill=white] at (a) {A};
+		\node[draw, circle, fill=white] at (b) {B};
+		\node[draw, circle, fill=white] at (c) {C};
+		\node[draw, circle, fill=white] at (d) {D};
+		\node[draw, circle, fill=white] at (e) {E};
+		\node[draw, circle, fill=white] at (f) {F};
+		\node[draw, circle, fill=white] at (g) {G};
+		\node[draw, circle, fill=white] at (h) {H};
+		\node[draw, circle, fill=white] at (m) {M};
+	\end{tikzpicture}
+	\caption{}
+	\label{fig:}
+\end{figure}
 
 \fehlt
 
