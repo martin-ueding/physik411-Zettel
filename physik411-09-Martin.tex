@@ -95,7 +95,7 @@ sich um eine gerichtete Bindung.
 
 Die Skizze ist in Abbildung \ref{fig:bcc}.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=2, z={(-3mm, -5mm)}]
 		\coordinate (a) at (0, 0, 0);
@@ -133,7 +133,7 @@ Die Skizze ist in Abbildung \ref{fig:bcc}.
 		\node[draw, circle, fill=white, inner sep=.5mm] at (h) {H};
 		\node[draw, circle, fill=white, inner sep=.5mm] at (m) {M};
 
-		\draw[|-|] (0, -.3, 2) -- ++(2, 0, 0) node[below, midway] {$\alpha$};
+		\draw[|-|] (0, -.3, 2) -- ++(2, 0, 0) node[below, midway] {$a$};
 	\end{tikzpicture}
 	\caption{%
 		bcc Zelle. Die Punkte A bis H sind die Eckpunkte, M ist der
@@ -141,6 +141,102 @@ Die Skizze ist in Abbildung \ref{fig:bcc}.
 	}
 	\label{fig:bcc}
 \end{figure}
+
+\subsection{Basisvektoren des Bravaisgitters}
+
+Es handelt sich hier um einen Würfel mit Kantenlänge $a$, also sind die
+Basisvektoren skalierte Versionen der kanonischen Basisvektoren des $\R^3$:
+\[
+	\vec t_i = a \ev_i
+\]
+
+\subsection{Volumina der Zellen}
+
+Laut \cite{wikipedia/elementarzelle/problematik} ist die Einheitszelle:
+
+\begin{quote}
+	Die unit cell (dt. Einheitszelle, frz. maille) ist das von den drei
+	Vektoren a, b, c einer kristallographischen Basis des direkten Gitters
+	aufgespannte Parallelepiped. Ist die Basis primitiv, so heißt die
+	Einheitszelle „primitive Zelle“ (primitive cell). Ist die Basis nicht
+	primitiv, ist die Einheitszelle eine vielfache Zelle (multiple cell). Die
+	Multiplizität ergibt sich aus dem Verhältnis ihres Volumens zum Volumen der
+	primitiven Zelle.
+\end{quote}
+
+Dies sollte dann das Parallelepiped sein, das von den $\vec t_i$ aufgespannt
+wird. Da diese orthogonal sind und einen Würfel aufspannen, ist das Volumen
+$V_\text{Einh.} = a^3$.
+
+Laut \cite{wikipedia/elementarzelle/problematik} ist die konventionelle Zelle:
+
+\begin{quote}
+	Die \emph{conventional cell} […] ist für jedes Gitter diejenige Zelle, die
+	folgende Bedingungen erfüllt:
+	\begin{enumerate}
+		\item
+			Ihre Basisvektoren definieren ein rechtshändiges Achsensystem.
+		\item
+			Ihre Kanten verlaufen entlang von Symmetrieachsen des Gitters.
+		\item
+			Es ist die kleinste Zelle, die die vorstehenden Bedingungen
+			erfüllt.
+	\end{enumerate}
+\end{quote}
+
+Wie in Abbildung \ref{fig:bcc} zu sehen, liegen die Symmetrieebenen außerhalb
+der Zelle, allerdings auch parallel zu den Würfelseiten durch dessen Mitte.
+Somit ist die konventionelle Zelle in jeder Länge nur halb so groß, also ist
+das Volumen:
+\[
+	V_\text{konv.} = \frac 18 a^3
+\]
+
+\subsection{Gitterkonstante bestimmen}
+
+Innerhalb einer Einheitszelle sind von den Eckatomen jeweils nur ein Achtel,
+allerdings gibt es acht von ihnen. Und das mittlere Atom ist komplett drin.
+Also sind pro Einheitszelle gerade zwei volle Atome enthalten. Die Atomdichte
+$\nu$ ist also:
+\[
+	\nu = \frac{2}{a^3}
+\]
+
+Mit einer Dichte von $\rho = \SI{10.28}{\gram\per\centi\meter\cubed}$ und einer
+Molaren Masse von $\SI{95.9}{\gram\per\mol}$ sind dies
+
+\[
+	\nu
+	= \SI{107.2}{\milli\mol\per\centi\meter\cubed}
+	= \SI{6.455e22}{\per\centi\meter\cubed}
+\]
+
+Somit erhalte ich für $a$:
+\[
+	a = \SI{3.141e-10}{\meter}
+\]
+
+Die Gitterkonstante ist also im Bereich einiger Atomradien, was anschaulich gut
+passt.
+
+\subsection{Welches Bravaisgitter?}
+
+In der Aufgabenstellung wird das abgebildete Gitter als „konventionelle Zelle“
+bezeichnet. Nach der Definition von \cite{wikipedia/elementarzelle/problematik}
+sollte dies aber nicht die kleinste Zelle sein. Denn durch die Mitte gehen auch
+Symmetrieebenen, an denen sich der Kristall spiegeln lassen sollte. Ist dies
+vielleicht doch die Einheitszelle?
+
+Das gesamte Gitter, wenn man ignoriert, dass es von zwei verschiedenen Ionen
+besetzt ist, ist einfach nur kubisch.
+
+Die Gitter von Chlor und Natrium einzeln sind kubisch flächenzentriert.
+
+\subsection{Vektoren einzeichnen}
+
+\fehlt
+
+\subsection{Gitterkonstante von Natriumchlorid}
 
 \fehlt
 
@@ -167,7 +263,7 @@ Die Skizze ist in Abbildung \ref{fig:bcc}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \IfFileExists{\bibliographyfile}{
-	%\bibliography{\bibliographyfile}
+	\bibliography{\bibliographyfile}
 }{}
 
 \end{document}
