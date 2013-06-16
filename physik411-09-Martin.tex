@@ -91,9 +91,13 @@ sich um eine gerichtete Bindung.
 \section{Bravais-Gitter}
 \label 2
 
+\subsection{Skizze}
+
+Die Skizze ist in Abbildung \ref{fig:bcc}.
+
 \begin{figure}
 	\centering
-	\begin{tikzpicture}[scale=2]
+	\begin{tikzpicture}[scale=2, z={(-3mm, -5mm)}]
 		\coordinate (a) at (0, 0, 0);
 		\coordinate (b) at (2, 0, 0);
 		\coordinate (c) at (2, 2, 0);
@@ -119,18 +123,23 @@ sich um eine gerichtete Bindung.
 		\draw[dashed] (g) -- (m);
 		\draw[dashed] (h) -- (m);
 
-		\node[draw, circle, fill=white] at (a) {A};
-		\node[draw, circle, fill=white] at (b) {B};
-		\node[draw, circle, fill=white] at (c) {C};
-		\node[draw, circle, fill=white] at (d) {D};
-		\node[draw, circle, fill=white] at (e) {E};
-		\node[draw, circle, fill=white] at (f) {F};
-		\node[draw, circle, fill=white] at (g) {G};
-		\node[draw, circle, fill=white] at (h) {H};
-		\node[draw, circle, fill=white] at (m) {M};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (a) {A};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (b) {B};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (c) {C};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (d) {D};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (e) {E};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (f) {F};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (g) {G};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (h) {H};
+		\node[draw, circle, fill=white, inner sep=.5mm] at (m) {M};
+
+		\draw[|-|] (0, -.3, 2) -- ++(2, 0, 0) node[below, midway] {$\alpha$};
 	\end{tikzpicture}
-	\caption{}
-	\label{fig:}
+	\caption{%
+		bcc Zelle. Die Punkte A bis H sind die Eckpunkte, M ist der
+		Mittelpunkt.
+	}
+	\label{fig:bcc}
 \end{figure}
 
 \fehlt
