@@ -82,7 +82,11 @@ sich um eine gerichtete Bindung.
 
 \subsection{Bloch-Wellen}
 
-\fehlt
+In der Vorlesung von \date{2013-06-07} wurde der Realteil des Potentials
+$u_k(r)$ gezeigt. Es hatte einige stark negative Peaks zwischen den Atomen, so
+dass die Wahrscheinlichkeitsverteilung wahrscheinlich auch Spitzen hat. Jedoch
+klingen delokalisierte Elektronen, die sich nahezu frei bewegen, nach einer
+näherungsweisen homogenen Verteilung.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               Bravais-Gitter                                %
@@ -314,6 +318,129 @@ Kubikwurzel daraus ist dann die Gitterkonstante $a = \SI{5.63e-10}\meter$.
 
 \section{Reziprokes Gitter}
 \label 3
+
+\subsection{Bravaisvektoren}
+
+In der Ebene brauche ich zwei Vektoren. Ich benutze dazu (in Polarkoordinaten):
+\[
+	\vec t_1 = a \angle \SI{-30}\degree
+	\eqnsep
+	\vec t_2 = a \angle \SI{90}\degree
+\]
+
+In kartesischen Koordinaten ist dies:
+\[
+	\vec t_1 = a
+	\begin{pmatrix}
+		\cos\del{\SI{30}\degree} \\
+		- \sin\del{\SI{30}\degree}
+	\end{pmatrix}
+	= a
+	\begin{pmatrix}
+		\sqrt{3}/2 \\
+		- \num{.5}
+	\end{pmatrix}
+	\eqnsep
+	\vec t_2 = a
+	\begin{pmatrix}
+		0 \\ 1
+	\end{pmatrix}
+\]
+
+Diese sind in Abbildung \ref{fig:3a} eingezeichnet.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\draw (0, 0)
+		-- ++(0, 1)
+		-- ++(.866, .5)
+		-- ++(.866, -.5)
+		-- ++(0, -1)
+		-- ++(-.866, -.5)
+		-- ++(-.866, .5);
+
+		\draw (0, 0)
+		-- ++(.866, -.5)
+		-- ++(0, -1)
+		-- ++(-.866, -.5)
+		-- ++(-.866, .5)
+		-- ++(0, 1)
+		-- ++(.866, .5)
+		-- ++(.866, -.5)
+		-- ++(0, -1)
+		-- ++(-.866, -.5)
+		-- ++(-.866, .5);
+
+		\draw (0, 0) ++(-150:1) ++(150:1)
+		-- ++(0, 1)
+		-- ++(.866, .5)
+		-- ++(.866, -.5)
+		-- ++(0, -1)
+		-- ++(-.866, -.5)
+		-- ++(-.866, .5);
+
+		\draw[very thick, red, ->] (0, 0) -- ++(.866, -.5) node[midway, sloped, below] {$\vec t_1$};
+		\draw[very thick, red, ->] (0, 0) -- ++(0, 1) node[midway, sloped, above] {$\vec t_2$};
+
+		\draw[very thick, darkgreen, ->] (0, -2) -- ++(150:3);
+		\draw[very thick, darkgreen, ->] (0, -2) -- ++(60:3.464);
+	\end{tikzpicture}
+	\caption{%
+		Bravaisvektoren für Graphen in rot. In Grün die Basisvektoren der
+		konventionellen Zelle.
+	}
+	\label{fig:3a}
+\end{figure}
+
+\subsection{Reziprokes Gitter}
+
+Das reziproke Gitter $\vec g_i$ hat als definierende Eigenschaft:
+\[
+	\inner{\vec t_i}{\vec g_j} = 2 \piup \delta_{ij}
+\]
+
+Also suche ich einen Vektor $\vec g_1$, der auf $\vec t_2$ senkrecht steht, und
+auf $\vec t_1$ projiziert die Länge $2\piup$ hat. Dieser muss proportional zu
+$\ev_x$ sein. Durch Raten erhalte ich:
+\[
+	\vec g_1 = \frac{2\piup}a \begin{pmatrix}
+		2 / \sqrt 3 \\ 0
+	\end{pmatrix}
+\]
+
+Diesen Vektor drehe ich um \SI{-120}{\degree}, so dass dieser senkrecht auf $\vec t_1$ steht und erhalte damit dann $\vec g_2$. Die Rotationsmatrix ist:
+\[
+	\tens R_{\SI{-120}\degree} =
+	\begin{pmatrix}
+		- \half & - \frac{\sqrt 3}2 \\
+		- \frac{\sqrt 3}2 & \half
+	\end{pmatrix}
+\]
+
+Dadurch wird der Vektor:
+\[
+	\vec g_2
+	= \frac{2\piup}a
+	\begin{pmatrix}
+		- \frac1{\sqrt{3}} \\ - 1
+	\end{pmatrix}
+\]
+
+Dieser Vektor ist senkrecht auf $\vec t_1$ und hat die Länge $2\piup$, wenn auf $\vec t_2$ projiziert.
+
+Beim normalen Gitter hatte ich auch noch die Differenz der beiden Vektoren
+gebraucht, um das ganze Sechseck zu bekommen. Wahrscheinlich brauche ich dann
+auch hier die Differenz, allerdings an nur einigen Stellen, die Gitterpunkte im
+reziproken Gitter zu erhalten. Das reziproke Gitter sollte ebenfalls die
+Wabenstruktur haben, allerdings so verkippt, dass es horizontale
+Verbindungslinien gibt.
+
+\subsection{Erste Brilloinzone}
+
+\fehlt
+
+\subsection{Millerindizes}
 
 \fehlt
 
