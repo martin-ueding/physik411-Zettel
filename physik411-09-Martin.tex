@@ -152,59 +152,30 @@ Basisvektoren skalierte Versionen der kanonischen Basisvektoren des $\R^3$:
 
 \subsection{Volumina der Zellen}
 
-Laut \cite{wikipedia/elementarzelle/problematik} ist die Einheitszelle:
+Die konventionelle Zelle ist die, aus der man den ganzen Kristall durch
+Translation aufbauen kann. Dies sollte dann das Parallelepiped sein, das von
+den $\vec t_i$ aufgespannt wird. Da diese orthogonal sind und einen Würfel
+aufspannen, ist das Volumen $V_\text{konv.} = a^3$.
 
-\begin{quote}
-	Die unit cell (dt. Einheitszelle, frz. maille) ist das von den drei
-	Vektoren a, b, c einer kristallographischen Basis des direkten Gitters
-	aufgespannte Parallelepiped. Ist die Basis primitiv, so heißt die
-	Einheitszelle „primitive Zelle“ (primitive cell). Ist die Basis nicht
-	primitiv, ist die Einheitszelle eine vielfache Zelle (multiple cell). Die
-	Multiplizität ergibt sich aus dem Verhältnis ihres Volumens zum Volumen der
-	primitiven Zelle.
-\end{quote}
-
-Dies sollte dann das Parallelepiped sein, das von den $\vec t_i$ aufgespannt
-wird. Da diese orthogonal sind und einen Würfel aufspannen, ist das Volumen
-$V_\text{Einh.} = a^3$.
-
-Laut \cite{wikipedia/elementarzelle/problematik} ist die konventionelle Zelle:
-
-\begin{quote}
-	Die \emph{conventional cell} […] ist für jedes Gitter diejenige Zelle, die
-	folgende Bedingungen erfüllt:
-	\begin{enumerate}
-		\item
-			Ihre Basisvektoren definieren ein rechtshändiges Achsensystem.
-		\item
-			Ihre Kanten verlaufen entlang von Symmetrieachsen des Gitters.
-		\item
-			Es ist die kleinste Zelle, die die vorstehenden Bedingungen
-			erfüllt.
-	\end{enumerate}
-\end{quote}
-
-Wie in Abbildung \ref{fig:bcc} zu sehen, liegen die Symmetrieebenen außerhalb
-der Zelle, allerdings auch parallel zu den Würfelseiten durch dessen Mitte.
-Somit ist die konventionelle Zelle in jeder Länge nur halb so groß, also ist
-das Volumen:
+Die Einheitszelle ist die, bei der nur an den Eckpunkten Atome sitzen. Dies ist
+die quadratische Pyramide ABCDM aus Abbildung \ref{fig:bcc}. Das Volumen ist
+ein Sechstel des ganzen Würfels, also:
 \[
-	V_\text{konv.} = \frac 18 a^3
+	V_\text{Einh.} = \frac{a^3}6
 \]
 
 \subsection{Gitterkonstante bestimmen}
 
-Innerhalb einer Einheitszelle sind von den Eckatomen jeweils nur ein Achtel,
-allerdings gibt es acht von ihnen. Und das mittlere Atom ist komplett drin.
-Also sind pro Einheitszelle gerade zwei volle Atome enthalten. Die Atomdichte
-$\nu$ ist also:
+Innerhalb einer konventionellen Zelle sind von den Eckatomen jeweils nur ein
+Achtel, allerdings gibt es acht von ihnen. Und das mittlere Atom ist komplett
+drin. Also sind pro Einheitszelle gerade zwei volle Atome enthalten. Die
+Atomdichte $\nu$ ist also:
 \[
 	\nu = \frac{2}{a^3}
 \]
 
 Mit einer Dichte von $\rho = \SI{10.28}{\gram\per\centi\meter\cubed}$ und einer
 Molaren Masse von $\SI{95.9}{\gram\per\mol}$ sind dies
-
 \[
 	\nu
 	= \SI{107.2}{\milli\mol\per\centi\meter\cubed}
@@ -216,16 +187,10 @@ Somit erhalte ich für $a$:
 	a = \SI{3.141e-10}{\meter}
 \]
 
-Die Gitterkonstante ist also im Bereich einiger Atomradien, was anschaulich gut
+Die Gitterkonstante ist also im Bereich einiger Atomradii, was anschaulich gut
 passt.
 
 \subsection{Welches Bravaisgitter?}
-
-In der Aufgabenstellung wird das abgebildete Gitter als „konventionelle Zelle“
-bezeichnet. Nach der Definition von \cite{wikipedia/elementarzelle/problematik}
-sollte dies aber nicht die kleinste Zelle sein. Denn durch die Mitte gehen auch
-Symmetrieebenen, an denen sich der Kristall spiegeln lassen sollte. Ist dies
-vielleicht doch die Einheitszelle?
 
 Das gesamte Gitter, wenn man ignoriert, dass es von zwei verschiedenen Ionen
 besetzt ist, ist einfach nur kubisch.
@@ -234,7 +199,103 @@ Die Gitter von Chlor und Natrium einzeln sind kubisch flächenzentriert.
 
 \subsection{Vektoren einzeichnen}
 
-\fehlt
+Die Vektoren $\vec t_n$ sind in Abbildung \ref{fig:bravaisgitter}, sowie die
+Vektoren $\vec d_n$ in Abbildung \ref{fig:einheitszelle}. Dabei bin ich davon
+ausgegangen, dass das interessantere Gitter der einzelnen Ionen gemeint ist.
+Das kubische Gitter des Gesamtkristalls hat sowohl als Bravaisgitter, als auch
+als konventionelle Zelle die gestreckten, kanonischen Basisvektoren des $\R^3$.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=3, z={(-3mm, -5mm)}]
+
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(1, 0, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 1}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(0, 1, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 1}
+		\draw (\x, \y, \z) -- ++(0, 0, 1);
+
+		\node[fill=white, draw, circle] (n1) at (0, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n2) at (2, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 0) {Na};
+		\node[fill=white, draw, circle] (n1) at (1, 0, 1) {Na};
+		\node[fill=white, draw, circle] (n2) at (1, 2, 1) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n5) at (0, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n6) at (2, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n7) at (2, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n8) at (0, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 2) {Na};
+
+		\draw[->, very thick, color=darkgreen] (0, 0, 2) -- ++(2, 0, 0) node[midway, above, sloped] {$\vec t_1$};
+		\draw[->, very thick, color=darkgreen] (0, 0, 2) -- ++(0, 2, 0) node[midway, above, sloped] {$\vec t_3$};
+		\draw[->, very thick, color=darkgreen] (0, 0, 2) -- ++(0, 0, -2) node[midway, above, sloped] {$\vec t_2$};
+
+	\end{tikzpicture}
+	\caption{%
+		Das kubisch flächenzentrierte Gitter des Natriums. Eingezeichnet sind
+		die Vektoren, die das Bravaisgitter aufspannen.
+	}
+	\label{fig:bravaisgitter}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=3, z={(-3mm, -5mm)}]
+
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(1, 0, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 1}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(0, 1, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 1}
+		\draw (\x, \y, \z) -- ++(0, 0, 1);
+
+		\node[fill=white, draw, circle] (n1) at (0, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n2) at (2, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 0) {Na};
+		\node[fill=white, draw, circle] (n1) at (1, 0, 1) {Na};
+		\node[fill=white, draw, circle] (n2) at (1, 2, 1) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n5) at (0, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n6) at (2, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n7) at (2, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n8) at (0, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 2) {Na};
+
+		\draw[->, very thick, color=darkblue] (0, 0, 2) -- ++(1, 0, -1) node[midway, above, sloped] {$\vec d_1$};
+		\draw[->, very thick, color=darkblue] (0, 0, 2) -- ++(0, 1, -1) node[midway, above, sloped] {$\vec d_3$};
+		\draw[->, very thick, color=darkblue] (0, 0, 2) -- ++(0, 0, -2) node[midway, above, sloped] {$\vec d_2$};
+
+	\end{tikzpicture}
+	\caption{%
+		Das kubisch flächenzentrierte Gitter des Natriums. Eingezeichnet sind
+		die Vektoren, die die Einheitszelle aufspannen.
+	}
+	\label{fig:einheitszelle}
+\end{figure}
 
 \subsection{Gitterkonstante von Natriumchlorid}
 
