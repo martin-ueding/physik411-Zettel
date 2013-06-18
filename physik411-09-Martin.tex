@@ -352,45 +352,47 @@ Diese sind in Abbildung \ref{fig:3a} eingezeichnet.
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=2]
-		\draw (0, 0)
-		-- ++(0, 1)
-		-- ++(.866, .5)
-		-- ++(.866, -.5)
-		-- ++(0, -1)
-		-- ++(-.866, -.5)
-		-- ++(-.866, .5);
+		\fill[gray] (0, 0) circle (.5mm);
+		\fill[gray] (-30:1) circle (.5mm);
+		\draw[gray] (-150:1) circle (.5mm);
+		\fill[gray] ($(-30:1)+(-90:1)$) circle (.5mm);
+		\fill[gray] ($(-30:1)+(30:1)$) circle (.5mm);
+		\fill[gray] ($(-30:1)+(-90:1)+(-30:1)+(30:1)$) circle (.5mm);
+		\draw[gray] ($(-30:1)+(30:1)+(-30:1)$) circle (.5mm);
+		\draw[gray] ($(-30:1)+(-90:1)+(-30:1)$) circle (.5mm);
 
-		\draw (0, 0)
-		-- ++(.866, -.5)
-		-- ++(0, -1)
-		-- ++(-.866, -.5)
-		-- ++(-.866, .5)
-		-- ++(0, 1)
-		-- ++(.866, .5)
-		-- ++(.866, -.5)
-		-- ++(0, -1)
-		-- ++(-.866, -.5)
-		-- ++(-.866, .5);
+		\draw[blue, ->, thick] (0, 0) -- (-30:1) node[midway, sloped, above] {$\vec d_1$};
+		\draw[blue, ->, thick] (0, 0) -- ($(-30:1)+(-90:1)$) node[midway, sloped, above] {$\vec d_2$};
+		\draw[blue, ->, thick] (0, 0) -- ($(-30:1)+(30:1)$) node[midway, sloped, above] {$\vec d_3$};
+		\draw[blue, ->, thick] (0, 0) -- ($(-30:1)+(-90:1)+(-30:1)+(30:1)$) node[midway, sloped, above] {$\vec d_4$};
 
-		\draw (0, 0) ++(-150:1) ++(150:1)
-		-- ++(0, 1)
-		-- ++(.866, .5)
-		-- ++(.866, -.5)
-		-- ++(0, -1)
-		-- ++(-.866, -.5)
-		-- ++(-.866, .5);
-
-		\draw[very thick, red, ->] (0, 0) -- ++(.866, -.5) node[midway, sloped, below] {$\vec t_1$};
-		\draw[very thick, red, ->] (0, 0) -- ++(0, 1) node[midway, sloped, above] {$\vec t_2$};
-
-		\draw[very thick, darkgreen, ->] (0, -2) -- ++(150:3);
-		\draw[very thick, darkgreen, ->] (0, -2) -- ++(60:3.464);
 	\end{tikzpicture}
 	\caption{%
-		Bravaisvektoren für Graphen in rot. In Grün die Basisvektoren der
-		konventionellen Zelle.
+		Bravaisvektoren für Graphen in blau.
 	}
-	\label{fig:3a}
+	\label{fig:3a-bravais}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\fill[gray] (0, 0) circle (.5mm);
+		\fill[gray] (-30:1) circle (.5mm);
+		\draw[gray] (-150:1) circle (.5mm);
+		\fill[gray] ($(-30:1)+(-90:1)$) circle (.5mm);
+		\fill[gray] ($(-30:1)+(30:1)$) circle (.5mm);
+		\fill[gray] ($(-30:1)+(-90:1)+(-30:1)+(30:1)$) circle (.5mm);
+		\draw[gray] ($(-30:1)+(30:1)+(-30:1)$) circle (.5mm);
+		\draw[gray] ($(-30:1)+(-90:1)+(-30:1)$) circle (.5mm);
+
+		\draw[red, ->, thick] (0, 0) -- ++(1.732, 0) node[midway, sloped, above] {$\vec t_1$};
+		\draw[red, ->, thick] (0, 0) -- ++(.866, -1.5) node[midway, sloped, above] {$\vec t_2$};
+
+	\end{tikzpicture}
+	\caption{%
+		Basisvektoren für die Einheitszelle in rot.
+	}
+	\label{fig:3a-basis}
 \end{figure}
 
 \subsection{Reziprokes Gitter}
@@ -400,43 +402,106 @@ Das reziproke Gitter $\vec g_i$ hat als definierende Eigenschaft:
 	\inner{\vec t_i}{\vec g_j} = 2 \piup \delta_{ij}
 \]
 
-Also suche ich einen Vektor $\vec g_1$, der auf $\vec t_2$ senkrecht steht, und
-auf $\vec t_1$ projiziert die Länge $2\piup$ hat. Dieser muss proportional zu
-$\ev_x$ sein. Durch Raten erhalte ich:
+Laut \cite{wikipedia/Reziprokes_Gitter} kann ich die Bravaisvektoren in eine
+Matrix $2 \piup \tens A$ schreiben, transponieren, invertieren und erhalte eine
+Matrix $\tens B$, in der die Vektoren des reziproken Gitters stehen:
 \[
-	\vec g_1 = \frac{2\piup}a \begin{pmatrix}
-		2 / \sqrt 3 \\ 0
-	\end{pmatrix}
+	\tens B = \del{2 \piup \tens A^\text T}^{-1}
 \]
 
-Diesen Vektor drehe ich um \SI{-120}{\degree}, so dass dieser senkrecht auf $\vec t_1$ steht und erhalte damit dann $\vec g_2$. Die Rotationsmatrix ist:
+Die Vektoren $\vec g_i$ aus dem reziproken Gitter sind:
 \[
-	\tens R_{\SI{-120}\degree} =
+	\vec g_1 = \frac{2 \piup}a
 	\begin{pmatrix}
-		- \half & - \frac{\sqrt 3}2 \\
-		- \frac{\sqrt 3}2 & \half
+		\frac{1}{\sqrt3} \\ \frac 13
 	\end{pmatrix}
-\]
-
-Dadurch wird der Vektor:
-\[
-	\vec g_2
-	= \frac{2\piup}a
+	\eqnsep
+	\vec g_2 = \frac{2 \piup}a
 	\begin{pmatrix}
-		- \frac1{\sqrt{3}} \\ - 1
+		0 \\ - \frac 23
 	\end{pmatrix}
 \]
 
-Dieser Vektor ist senkrecht auf $\vec t_1$ und hat die Länge $2\piup$, wenn auf $\vec t_2$ projiziert.
+Das reziproke Gitter ist in Abbildung \ref{fig:3b} dargestellt.
 
-Beim normalen Gitter hatte ich auch noch die Differenz der beiden Vektoren
-gebraucht, um das ganze Sechseck zu bekommen. Wahrscheinlich brauche ich dann
-auch hier die Differenz, allerdings an nur einigen Stellen, die Gitterpunkte im
-reziproken Gitter zu erhalten. Das reziproke Gitter sollte ebenfalls die
-Wabenstruktur haben, allerdings so verkippt, dass es horizontale
-Verbindungslinien gibt.
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.5]
+		\foreach \x in {0, ..., 4}
+		\foreach \y in {0, ..., 4}
+		\draw ($\x*(3.63, 2.09)+\y*(0, -4.19)$) circle (2mm);
+	\end{tikzpicture}
+	\caption{%
+		Gitterpunkte des reziproken Gitters.
+	}
+	\label{fig:3b}
+\end{figure}
 
 \subsection{Erste Brillouinzone}
+
+Laut \cite{wikipedia/Brillouin-Zone} kann ich die Brillouinzone konstruieren,
+in dem ich mir einen Punkt aus dem Gitter aussuche und zu jedem Nachbarpunkt
+die Mittelsenkrechte einzeichne. Die Fläche, die sich dann ergibt, ist die
+erste Brilloinzone. Die Nachbarn sind in Abbildung \ref{fig:3c-1} dargestellt.
+Die Zone ist in Abbildung \ref{fig:3c-2} konstruiert.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.5]
+		\coordinate (m) at ($1*(3.63, 2.09)+1*(0, -4.19)$);
+		\coordinate (1) at ($0*(3.63, 2.09)+0*(0, -4.19)$);
+		\coordinate (2) at ($1*(3.63, 2.09)+0*(0, -4.19)$);
+		\coordinate (3) at ($2*(3.63, 2.09)+1*(0, -4.19)$);
+		\coordinate (4) at ($2*(3.63, 2.09)+2*(0, -4.19)$);
+		\coordinate (5) at ($1*(3.63, 2.09)+2*(0, -4.19)$);
+		\coordinate (6) at ($0*(3.63, 2.09)+1*(0, -4.19)$);
+
+		\node[draw, circle] at (m) {m};
+		\node[draw, circle] at (1) {1};
+		\node[draw, circle] at (2) {2};
+		\node[draw, circle] at (3) {3};
+		\node[draw, circle] at (4) {4};
+		\node[draw, circle] at (5) {5};
+		\node[draw, circle] at (6) {6};
+	\end{tikzpicture}
+	\caption{%
+		Unmittelbare Nachbarn eines Punktes im reziproken Gitter.
+	}
+	\label{fig:3c-1}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.5]
+		\coordinate (m) at ($1*(3.63, 2.09)+1*(0, -4.19)$);
+		\coordinate (1) at ($0*(3.63, 2.09)+0*(0, -4.19)$);
+		\coordinate (2) at ($1*(3.63, 2.09)+0*(0, -4.19)$);
+		\coordinate (3) at ($2*(3.63, 2.09)+1*(0, -4.19)$);
+		\coordinate (4) at ($2*(3.63, 2.09)+2*(0, -4.19)$);
+		\coordinate (5) at ($1*(3.63, 2.09)+2*(0, -4.19)$);
+		\coordinate (6) at ($0*(3.63, 2.09)+1*(0, -4.19)$);
+
+		\node[fill, circle] at (m) {};
+		\node[fill, circle] at (1) {};
+		\node[fill, circle] at (2) {};
+		\node[fill, circle] at (3) {};
+		\node[fill, circle] at (4) {};
+		\node[fill, circle] at (5) {};
+		\node[fill, circle] at (6) {};
+
+		\draw (1) -- (3);
+		\draw (2) -- (4);
+		\draw (3) -- (5);
+		\draw (4) -- (6);
+		\draw (5) -- (1);
+		\draw (6) -- (2);
+	\end{tikzpicture}
+	\caption{%
+		Konstruktion der ersten Brilloinzone. Die Fläche um den zentralen Punkt
+		ist die gesuchte Zone.
+	}
+	\label{fig:3c-2}
+\end{figure}
 
 \fehlt
 
