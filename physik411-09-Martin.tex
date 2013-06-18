@@ -321,33 +321,9 @@ Kubikwurzel daraus ist dann die Gitterkonstante $a = \SI{5.63e-10}\meter$.
 
 \subsection{Bravaisvektoren}
 
-In der Ebene brauche ich zwei Vektoren. Ich benutze dazu (in Polarkoordinaten):
-\[
-	\vec t_1 = a \angle \SI{-30}\degree
-	\eqnsep
-	\vec t_2 = a \angle \SI{90}\degree
-\]
-
-In kartesischen Koordinaten ist dies:
-\[
-	\vec t_1 = a
-	\begin{pmatrix}
-		\cos\del{\SI{30}\degree} \\
-		- \sin\del{\SI{30}\degree}
-	\end{pmatrix}
-	= a
-	\begin{pmatrix}
-		\sqrt{3}/2 \\
-		- \num{.5}
-	\end{pmatrix}
-	\eqnsep
-	\vec t_2 = a
-	\begin{pmatrix}
-		0 \\ 1
-	\end{pmatrix}
-\]
-
-Diese sind in Abbildung \ref{fig:3a} eingezeichnet.
+Die Bravaisvektoren sind in Abbildung \ref{fig:3a-bravais}. Die Basisvektoren
+für die Einheitszelle in Abbildung \ref{fig:3a-basis}. Das Gitter ist in
+Abbildung \ref{fig:normal} dargestellt.
 
 \begin{figure}[h]
 	\centering
@@ -393,6 +369,19 @@ Diese sind in Abbildung \ref{fig:3a} eingezeichnet.
 		Basisvektoren für die Einheitszelle in rot.
 	}
 	\label{fig:3a-basis}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.25]
+		\foreach \x in {0, ..., 3}
+		\foreach \y in {0, ..., 3}
+		\draw ($\x*(10.88, 0)+\y*(5.44, -9.43)$) circle (4mm);
+	\end{tikzpicture}
+	\caption{%
+		Das normale Gitter
+	}
+	\label{fig:normal}
 \end{figure}
 
 \subsection{Reziprokes Gitter}
@@ -504,6 +493,11 @@ Die Zone ist in Abbildung \ref{fig:3c-2} konstruiert.
 \end{figure}
 
 \subsection{Millerindizes}
+
+Wenn ich \cite{wikipedia/Millersche_Indizes} richtig verstanden habe, dann sind
+die Millerindizes letztlich die inversen Spurpunkte der Ebene.
+
+Die Hyperebene zu $(10)$ sollte dann also bei $\vec t_1$ den Spurpunkt 1 und bei $\vec t_2$ den Spurpunkt 0 haben.
 
 \fehlt
 
