@@ -599,7 +599,129 @@ eingezeichnet.
 \section{Bragg-Beugung und Röntgenstrahlung}
 \label 4
 
-\fehlt
+\subsection{Reziprokes Gitter}
+
+Da hier die Gittervektoren einfach die kanonischen Einheitsvektoren sind, unterscheiden sich die Vektoren des reziproken Gitters nur durch einen Faktor. Die Vektoren sind also:
+\[
+	\vec g_1 = \frac{2\piup}a \ev_x
+	\eqnsep
+	\vec g_2 = \frac{2\piup}a \ev_y
+	\eqnsep
+	\vec g_3 = \frac{2\piup}a \ev_z
+\]
+
+\subsection{Hyperebenenfamilie}
+
+Die Ebene $(110)$ hat die Spurpunkte $(1, 1, \infty)$. Es sind also die
+$x$-$y$-Ebenen. Sie sind in Abbildung \ref{fig:millerebenen} eingezeichnet.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=3, z={(-3mm, -5mm)}]
+		\fill[opacity=.2, color=orange] (0, 0, 0) -- (2, 0, 0) -- (2, 0, 2) -- (0, 0, 2) -- cycle;
+		\fill[opacity=.2, color=orange] (0, 2, 0) -- (2, 2, 0) -- (2, 2, 2) -- (0, 2, 2) -- cycle;
+
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(1, 0, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 1}
+		\foreach \z in {0, ..., 2}
+		\draw (\x, \y, \z) -- ++(0, 1, 0);
+
+		\foreach \x in {0, ..., 2}
+		\foreach \y in {0, ..., 2}
+		\foreach \z in {0, ..., 1}
+		\draw (\x, \y, \z) -- ++(0, 0, 1);
+
+		\node[fill=white, draw, circle] (n1) at (0, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n2) at (2, 0, 0) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 2, 0) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 0) {Na};
+		\node[fill=white, draw, circle] (n1) at (1, 0, 1) {Na};
+		\node[fill=white, draw, circle] (n2) at (1, 2, 1) {Na};
+		\node[fill=white, draw, circle] (n3) at (2, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n4) at (0, 1, 1) {Na};
+		\node[fill=white, draw, circle] (n5) at (0, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n6) at (2, 0, 2) {Na};
+		\node[fill=white, draw, circle] (n7) at (2, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n8) at (0, 2, 2) {Na};
+		\node[fill=white, draw, circle] (n4) at (1, 1, 2) {Na};
+
+	\end{tikzpicture}
+	\caption{%
+		Die Hyperebenenfamilie $(110)$.
+	}
+	\label{fig:millerebenen}
+\end{figure}
+
+\subsection{Abstand der Gitterebenen}
+
+Der Abstand der Gitterebenen ist aus der Zeichnung auf dem Aufgabenblatt zu
+entnehmen, er ist das Ergebnis aus der vorherigen Aufgabe, $a =
+\SI{5.63e-10}\meter$.
+
+\subsection{Energie der $K_\alpha$ Strahlung}
+
+Bei der $K_\alpha$ Linie wird ein Elektron aus dem $n=1$ Orbital geworfen, und
+ein anderes rückt aus $n=2$ nach. Mit der größeren, so nah am Kern nicht
+abgeschrimten Kernladung von $Z$ ergibt sich als Energiedifferenz:
+\[
+	E_{K_\alpha} = Z E_\text{Ryd} \del{\frac1{1^2} - \frac1{2^2}}
+	= \SI{428.4}\electronvolt
+\]
+
+\subsection{Streuwinkel}
+
+Nach \cite[Seite 862]{meschede-gerthsen_24} gilt für einen beliebigen Vektor aus dem reziproken Gitter:
+\[
+	\Deltaup \vec k = \vec g
+\]
+
+Der einfallende Strahl liege in $x$-$z$-Ebene, der Kristall parallel zur
+$x$-$y$-Ebene. Er trifft von oben auf den Kristall im Winkel $\theta$ und
+verlässt den Kristall ebenfalls im Winkel $\theta$. Als Änderungen kommt nur
+die $z$-Komponente in Frage, so dass der Vektor aus dem reziproken Gitter ein
+Vielfaches von $\vec g_3$ sein muss:
+\begin{align*}
+	\Deltaup \vec k &= \frac{2\piup}a n \ev_z \\
+	k \begin{pmatrix}
+		\cos\theta \\ 0 \\ \sin\theta
+	\end{pmatrix} - k \begin{pmatrix}
+		\cos\theta \\ 0 \\ - \sin\theta
+	\end{pmatrix} &= \frac{2\piup}a n \ev_z \\
+		2k \sin\theta &= \frac{2\piup}a n \\
+		\sin\del\theta &= \frac{n\piup}{ak} \\
+		\intertext{%
+			Mit $k = 2\piup/\lambda$ erhalte ich:
+		}
+		\sin\del\theta &= \frac{n\lambda}{2a}
+\end{align*}
+
+Dies ist die Bragg-Bedingung. Damit stelle ich jetzt eine Tabelle für $\theta$
+in $\si\degree$ auf:
+\begin{center}
+	\begin{tabular}{S|SS}
+		{$n$} & {$\lambda_\alpha = \SI{.711}\angstrom$} & {$\lambda_\alpha = \SI{.631}\angstrom$} \\
+		\hline
+		1 & 3.62029 & 3.21249 \\
+		2 & 7.25513 & 6.43513 \\
+		3 & 10.9196 & 9.67837 \\
+		4 & 14.63 & 12.9533 \\
+	\end{tabular}
+\end{center}
+
+Die drei gegebenen Streuwinkel liegen dort gut drin. Wenn ich mit diesen $n$ und $\lambda$ sowie den Winkeln $\theta$ die Gitterkonstante $a$ ausrechne, erhalte ich:
+\[
+	a = \SI{5.64321}\angstrom
+	\eqnsep
+	a = \SI{5.6417}\angstrom
+	\eqnsep
+	a = \SI{5.63996}\angstrom
+\]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
