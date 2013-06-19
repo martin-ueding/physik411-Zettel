@@ -384,7 +384,39 @@ Abbildung \ref{fig:normal} dargestellt.
 	\label{fig:normal}
 \end{figure}
 
-\fehlt
+In kartesischen Koordinaten sind die Bravaisvektoren:
+\[
+	\vec t_1 =
+	\begin{pmatrix}
+		\sqrt 3 \\ 0
+	\end{pmatrix}
+	a
+	\eqnsep
+	\vec t_2 =
+	\begin{pmatrix}
+		\sqrt 3/2 \\ -3/2
+	\end{pmatrix}
+	a
+\]
+
+Und die Basisvektoren:
+\[
+	\vec d_1 =
+	\begin{pmatrix}
+		\sqrt 3/2 \\ - 1/2
+	\end{pmatrix}
+	a
+	\eqnsep
+	\vec d_2 = \vec t_2
+	\eqnsep
+	\vec d_3 = \vec t_1
+	\eqnsep
+	\vec d_4 =
+	\begin{pmatrix}
+		3\sqrt3/2 \\ -1/5
+	\end{pmatrix}
+	a
+\]
 
 \subsection{Reziprokes Gitter}
 
@@ -499,9 +531,66 @@ Die Zone ist in Abbildung \ref{fig:3c-2} konstruiert.
 Wenn ich \cite{wikipedia/Millersche_Indizes} richtig verstanden habe, dann sind
 die Millerindizes letztlich die inversen Spurpunkte der Ebene.
 
-Die Hyperebene zu $(10)$ sollte dann also bei $\vec t_1$ den Spurpunkt 1 und bei $\vec t_2$ den Spurpunkt 0 haben.
+Die Hyperebene zu $(10)$ sollte dann also bei $\vec t_1$ den Spurpunkt 1 und
+bei $\vec t_2$ den Spurpunkt $\infty$ haben, also parallel dazu sein. Sie sind
+in Abbildungen \ref{fig:10}, \ref{fig:11}, \ref{fig:21} sowie \ref{fig:01}
+eingezeichnet.
 
-\fehlt
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.25]
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 1}
+		\draw ($\x*(10.88, 0)+\y*(5.44, -9.43)$) circle (4mm);
+		\draw[thick, red] ($1*(10.88, 0)+0*(5.44, -9.43)$) -- ($1*(10.88, 0)+1*(5.44, -9.43)$);
+	\end{tikzpicture}
+	\caption{%
+		Hyperebene zum Millerindex $(10)$.
+	}
+	\label{fig:10}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.25]
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 1}
+		\draw ($\x*(10.88, 0)+\y*(5.44, -9.43)$) circle (4mm);
+		\draw[thick, red] ($0*(10.88, 0)+1*(5.44, -9.43)$) -- ($1*(10.88, 0)+0*(5.44, -9.43)$);
+	\end{tikzpicture}
+	\caption{%
+		Hyperebene zum Millerindex $(11)$.
+	}
+	\label{fig:11}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.25]
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 1}
+		\draw ($\x*(10.88, 0)+\y*(5.44, -9.43)$) circle (4mm);
+		\draw[thick, red] ($0*(10.88, 0)+1*(5.44, -9.43)$) -- ($.5*(10.88, 0)+0*(5.44, -9.43)$);
+	\end{tikzpicture}
+	\caption{%
+		Hyperebene zum Millerindex $(21)$.
+	}
+	\label{fig:21}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=.25]
+		\foreach \x in {0, ..., 1}
+		\foreach \y in {0, ..., 1}
+		\draw ($\x*(10.88, 0)+\y*(5.44, -9.43)$) circle (4mm);
+		\draw[thick, red] ($0*(10.88, 0)+1*(5.44, -9.43)$) -- ($1*(10.88, 0)+1*(5.44, -9.43)$);
+	\end{tikzpicture}
+	\caption{%
+		Hyperebene zum Millerindex $(01)$.
+	}
+	\label{fig:01}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                     Bragg-Beugung und Röntgenstrahlung                     %
