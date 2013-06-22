@@ -1,0 +1,119 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{10}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l*4{|c}}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 14
+		& \punkte / 10
+		& \punkte / 16
+		& \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             Die Brillouin-Zone                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Die Brillouin-Zone}
+\label 1
+
+\subsection{Definition}
+
+Die erste Brillouin-Zone ist die primitive Wiener-Seitz-Zelle im reziproken Raum.
+\cite{wikipedia/Brillouin-Zone}
+
+\subsection{Konstruktion}
+
+Im reziproken Gitter:
+
+\begin{itemize}
+	\item Punkt aussuchen
+	\item Verbindung zu nächsten Nachbarn einzeichnen
+	\item Mittelsenkrechten in die Verbindungen einzeichnen.
+	\item Umschlossene Fläche ist erste Zone.
+\end{itemize}
+
+\subsection{Symmetrie}
+
+\begin{small}
+Die transnationale Symmetrie ist eine andere Formulierung des Mach'schen
+Prinzips. Wenn das Universum überall gleich ist, dann sind es auch Kristalle.
+Und wenn das im ganzen Universum gilt, dann auch in den $\approx \num{e2}$
+Ländern auf der Erde.
+\end{small}
+
+Die Bragg-Reflexion tritt immer auf, wenn $\Deltaup \vec k = \vec g$, also ein
+beliebiger reziproker Gittervektor, ist. Der Bloch-Satz besagt, dass in der
+Welle ein Phasenfaktor auftritt: \cite[Vorlesung 16, Folie
+7]{meschede/physik441}
+\[
+	\exp{\ii \inner{\vec k}{\vec t_n}}
+	\eqnsep
+	\inner{\vec t_n}{\vec g_m} = 2\piup n
+\]
+
+Wenn also eine Transformation $\vec k' := \vec k + \vec g$ durchgeführt wird,
+ändert sich die Phase gerade nicht. Somit sind die Zonen zueinander äquivalent.
+
+\subsection{Äquivalente Zonen}
+
+Die Zonen habe ich per Hand in die gegebene Abbildung gemalt, siehe nächste
+Seite.
+
+Dabei habe ich jedoch nur $6+6+6=18$ Maschen eingezeichnet. Die Sechsecke sind
+allerdings komplett belegt. Wo ist da der Fehler?
+
+\includepdf[pages=2]{gitter.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
