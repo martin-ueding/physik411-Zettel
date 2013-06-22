@@ -4,6 +4,7 @@
 
 \usepackage{pdfpages}
 \usepackage{tikz}
+\usepackage{cleveref}
 \usetikzlibrary{calc}
 
 \newcommand{\themodul}{physik411}
@@ -76,13 +77,6 @@ Im reziproken Gitter:
 
 \subsection{Symmetrie}
 
-\begin{small}
-Die transnationale Symmetrie ist eine andere Formulierung des Mach'schen
-Prinzips. Wenn das Universum überall gleich ist, dann sind es auch Kristalle.
-Und wenn das im ganzen Universum gilt, dann auch in den $\approx \num{e2}$
-Ländern auf der Erde.
-\end{small}
-
 Die Bragg-Reflexion tritt immer auf, wenn $\Deltaup \vec k = \vec g$, also ein
 beliebiger reziproker Gittervektor, ist. Der Bloch-Satz besagt, dass in der
 Welle ein Phasenfaktor auftritt: \cite[Vorlesung 16, Folie
@@ -105,6 +99,182 @@ Dabei habe ich jedoch nur $6+6+6=18$ Maschen eingezeichnet. Die Sechsecke sind
 allerdings komplett belegt. Wo ist da der Fehler?
 
 \includepdf[pages=2]{gitter.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Edelmetalle                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Edelmetalle}
+\label 2
+
+\subsection{Bravaisgitter}
+
+Kupfer ist „cubic-close-packed“, also ccp.
+\cite{webelements/copper/crystal_structure}
+
+\subsection{Erste 3D Zone}
+
+\fehlt
+
+\cite{akopian/brillouin-zones}
+\cite{chang/intro_solid_state}
+
+\subsection{Hybridisierungstypen}
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Optische Gitter und Tight-Binding-Methode                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Optische Gitter und Tight-Binding-Methode}
+\label 3
+
+\subsection{Oszillatorfrequenz}
+
+Gegeben ist das Potential:
+\[
+	\hat V(x) = \frac{U_0}2 \del{1-\cos\del{\frac{2\piup}a x}}
+\]
+
+Ein Minimum ist bei $x = 0$. Darum entwickele ich die Funktion und erhalte:
+\[
+	\hat V(x) = U_0 \frac{\piup^2}{a^2} x^2 + \mathcal O(x^3)
+\]
+
+Ein Koeffizientenvergleich mit $U(x) = m \omega^2 x^2/2$ liefert:
+\[
+	\omega^2 = 2 U_0 \frac{\piup^2}{a^2m}
+\]
+
+\subsection{Bedingung an Potentialtiefe}
+
+Das $\Deltaup x$ sieht nach dem FWHM für die Wellenfunktion des Zustandes $\ket 0$ des harmonischen Oszillators aus. Nach \cite[Übersichtsfolie 17]{kubis/physik421} ist das:
+\[
+	\psi_0(x) = \del{\frac{m \omega}{\piup \hbar}}^{\frac 14} \exp\del{-\frac{m\omega}{2\hbar} x^2}
+\]
+
+Die halbe Höhe ist erreicht, wenn:
+\[
+	x = \pm \sqrt{\frac{2\hbar \ln(2)}{m\omega}}
+\]
+
+Somit ist
+\[
+	\Deltaup x = 2 \sqrt{\frac{2\hbar \ln(2)}{m\omega}}
+\]
+
+Dies soll jetzt deutlich kleiner als $a$ sein. Nach drei Umformungen und dem
+Einsetzen des gefundenen $\omega$ erhalte ich:
+\[
+	32 \frac{\hbar^2 \ln^2(2) a^2 m}{\piup^2} \ll U_0
+\]
+
+\subsection{Diagonalisieren}
+
+Gegeben ist:
+\[
+	\hat H = \begin{pmatrix}
+		E & J \\ J & E
+	\end{pmatrix}
+\]
+
+Ich suche die Eigenvektoren, diese sind:
+\[
+	\vec e_1 = \begin{pmatrix}
+		-1 \\ 1
+	\end{pmatrix}
+	\eqnsep
+	\vec e_2 = \begin{pmatrix}
+		1 \\ 1
+	\end{pmatrix}
+\]
+
+Somit kann ich die Eigenzustände schreiben als:
+\[
+	\ket{e_1} = \frac{1}{\sqrt{2}} \vec e_2 \\
+	\ket{e_2} = \frac{1}{\sqrt{2}} \vec e_1 \\
+\]
+
+\subsection{Skizze}
+
+Die Skizze der komplizierten Formel, deren Herleitung gar nicht so wichtig ist,
+ist in \cref{fig:J}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{3d.pdf}
+	\caption{}
+	\label{fig:J}
+\end{figure}
+
+\subsection{Tunnelrate durch Barriere}
+
+\fehlt
+
+\subsection{Translationsinvariate Matrixform}
+
+Die Funktion $\psi_k$ erfüllt das Bloch-Theorem. Der reziproke
+Gitterbasisvektor ist $g = 2\piup/a$. Eine Translation im $k$-Raum um $k
+\mapsto k + g$ führt in der Exponentialfunktion zur Addition von $2\piup \ii$,
+so dass nichts verändert wird.
+
+$\psi_0$ ist die Wellenfunktion vom Oszillator an der Position 0. Die Funktion $\psi_k$ kann in der Basis der $\psi_n$ dargestellt werden als:
+\[
+	\psi_k =
+	\begin{pmatrix}
+		\vdots \\
+		\exp(-2 \ii k a) \\
+		\exp(- \ii k a) \\
+		1 \\
+		\exp(\ii k a) \\
+		\exp(2 \ii k a) \\
+		\vdots \\
+	\end{pmatrix}
+\]
+
+Wenn ich nun den Hamilonoperator darauf anwende, erhalte ich:
+\[
+	\begin{pmatrix}
+		\vdots \\
+		J \exp(-2\ii ka) + E_0 \exp(-\ii ka) + J \\
+		J \exp(-\ii ka) + E_0 + J \exp(\ii ka) \\
+		J + E_0 \exp(\ii ka) + J \exp(2\ii ka) \\
+		\vdots \\
+	\end{pmatrix}
+	=
+	\del{J \exp(\ii ka) + E_0 + J \exp(-\ii ka)}
+	\begin{pmatrix}
+		\vdots \\
+		\exp(-2 \ii k a) \\
+		\exp(- \ii k a) \\
+		1 \\
+		\exp(\ii k a) \\
+		\exp(2 \ii k a) \\
+		\vdots \\
+	\end{pmatrix}
+\]
+
+Somit ist der Energieeigenwert:
+\[
+	J \exp(\ii ka) + E_0 + J \exp(-\ii ka)
+	=
+	E_0 + 2 J \cos(ka)
+\]
+
+\subsection{Effektive Masse}
+
+Gegeben ist in der vorherigen Aufgabe:
+\[
+	E = E_0 + 2 J \cos(ka)
+\]
+
+Dies leite ich zweimal nach $k$ ab, invertiere es und erhalte:
+\[
+	m_\text{eff} = - \frac{\hbar}{2Ja^2}
+\]
+
+Da $J$ negativ ist (siehe \cref{fig:J}), ist die Masse auch positiv.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
