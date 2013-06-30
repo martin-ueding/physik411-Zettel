@@ -116,7 +116,10 @@ kugelsymmetrisch und kann daher beliebig gespiegelt oder gedreht werden. Die
 $p_i$-Orbitale können an der $i$-Achse symmetrisch gespiegelt werden, an den
 anderen beiden Achsen jedoch nur antisymmetrisch.
 
-\fehlt
+Die $\sigmaup$ und $\piup$ Bahnen sind nicht gekoppelt, da sie getrennte
+Orbitale sind. Genauso wie schon s und p orthogonale Wellenfunktionen sind.
+Durch die Hybridisierung bleibt die Anzahl der Wellenfunktionen gleich, so dass
+diese weiterhin orthogonal sein können.
 
 \subsection{Äquivalenz von Hochsymmetriepunkten}
 
@@ -156,6 +159,44 @@ Durch die Summation über die Basisvektoren $\vec t$ ist jeder Summand in der
 Klammer genauso periodisch wie das Gitter selbst. Auch wenn der zweite Summand
 zum ersten Verschoben ist, ist die Periodizität immer noch die gleiche, wie das
 Gitter. Daher erfüllt $\psi_{\vec k}(\vec r)$ das Bloch-Theorem.
+
+\subsection{Energieeigenwerte}
+
+Die Funktionen $\psi_{\vec k, A}(\vec r)$ und $\psi_{\vec k, B}(\vec r)$ bilden
+die Basis für den Hamiltonoperator $\hat H_k$. Die Eigenwerte dieses Operators
+sind die Energien, die im Leitungs- und Valenzband herauskommen. Daher brauche
+ich nur die Eigenwerte $\lambda$ dieser Matrix zu bestimmen.
+\begin{align*}
+	\det \begin{pmatrix}
+		E_0 - \lambda & J\cdot\del{1 + \exp(-\ii \vec k \vec t_1) + \exp(-\ii \vec k \vec t_2)} \\
+		J\cdot\del{1 + \exp(\ii \vec k \vec t_1) + \exp(\ii \vec k \vec t_2)} & E_0 - \lambda
+	\end{pmatrix}
+	&= 0 \\
+	(E_0 - \lambda)^2 - J^2\cdot \del{1 + \exp(\ii \vec k \vec t_1) + \exp(\ii \vec k \vec t_2)} \del{1 + \exp(-\ii \vec k \vec t_1) + \exp(-\ii \vec k \vec t_2)} &= 0 \\
+	\lambda^2 - 2 E_0 \lambda + E_0^2 - J^2\cdot \del{3 + 2\cos(\vec k \vec t_1) + 2 \cos(\vec k \vec t_2) + 2 \cos\del{\vec k (\vec t_1 - \vec t_2)}} &= 0
+\end{align*}
+
+Die Lösung für die Eigenwerte, und damit für die Eigenenergien, ist:
+\[
+	\lambda = E_0 \pm J \sqrt{3 + 2\cos(\vec k \vec t_1) + 2 \cos(\vec k \vec t_2) + 2 \cos\del{\vec k (\vec t_1 - \vec t_2)}}
+\]
+
+\subsection{Entartung}
+
+Ich setze:
+\[
+	\vec k := \frac{\vec g_1 - \vec g_2}3
+\]
+
+Mit $\vec g_i \vec t_j = 2 \piup \delta_{ij}$ folgt dann für $\lambda$:
+\begin{align*}
+	\lambda
+	&= E_0 \pm J \sqrt{3 + 2\cos(2\piup/3) + 2 \cos(-2\piup/3) + 2 \cos(4\piup/3)} \\
+	&= E_0 \pm J \times 0 \\
+	&= E_0
+\end{align*}
+
+Somit haben beide ($\pm$) Energien den gleichen Wert und sind entartet.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
