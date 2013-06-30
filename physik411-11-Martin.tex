@@ -59,12 +59,103 @@
 
 \subsection{Hybridorbital}
 
+Die $\sigmaup$-Bindung liegt in der Ebene, die $\piup$-Bindung liegt senkrecht
+dazu. Die Bindungen mit $^*$ sind die Antibindenen.
+
+\subsection{Hybridisierungstyp}
+
+Da noch ein $\piup$-Bindung übrig bleibt, und zwei p-Orbitale eine mit dem
+s-Orbital entartete Bindungsenergie haben, muss es $\mathrm{sp^2}$ sein. Dieses
+Hybridorbital ist in \cref{fig:sp2} dargestellt.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=.5\textwidth]{sp2.png}
-	\caption{}
+	\caption{%
+		$\mathrm{sp^2}$-Hybridorbital. Bild aus \cite{Winter/Orbitron/sp2}.
+	}
 	\label{fig:sp2}
 \end{figure}
+
+\subsection{Besetzung}
+
+Kohlenstoff hat 4 Valenzelektronen. So kann jeweils ein Elektron in eines der
+Hybridorbitale und eins in das $p_z$-Orbital. Jedes der Hybridorbitale geht
+eine $\sigmaup$-Bindung mit einem benachbarten Atom ein, so kommt jeweils noch
+ein weiteres Elektron mit entgegengesetztem Spin dazu. Das Elektron im
+$p_z$-Orbital besetzt das $\piup$-Molekülorbital. Es geht mit allen Nachbarn
+gleichzeitig eine $\piup$-Bindung ein, jedoch nur eine Gleichzeitig. Dies führt
+zu einem delokalisierten $\piup$-Molekülorbital.
+
+Die Besetzung ist dann also:
+\begin{gather*}
+	\underset{\sigmaup^*}{\boxed{\phantom{\uparrow\downarrow}}\boxed{\phantom{\uparrow\downarrow}}\boxed{\phantom{\uparrow\downarrow}}} \\
+	\underset{\piup^*}{\boxed{\phantom{\uparrow\downarrow}}} \\
+	\underset{\piup}{\boxed{\uparrow\downarrow}} \\
+	\underset{\sigmaup}{\boxed{\uparrow\downarrow}\boxed{\uparrow\downarrow}\boxed{\uparrow\downarrow}}
+\end{gather*}
+
+Also ist $\sigmaup$ mit 6 Elektronen besetzt, und $\piup$ mit 2, der Rest leer.
+Daher ist die Bindung auch maximal stark.
+
+\subsection{Bloch-Funktionen}
+
+Die vier Symmetrieachsen sind schon in Abbildung (1a) auf dem Aufgabenzettel
+eingezeichnet. So sind die Spiegelungen an Achsen, die senkrecht zur $z$-Achse
+sind, die Achsen $C2'$, $C2''$ und $C2''$. Die Spiegelung an der $x$-$y$-Ebene
+ist wohl durch $C3$ gegeben, wobei das auch die Punktsymmetrie des Kristalls
+sein könnte.
+
+Die drei Spiegelungen $C2$ sind wohl von gerader Parität und um
+\SI{120}{\degree} versetzt, so dass diese unterschiedlich sind. Die Spiegelung
+$C3$ ist von ungerader Parität, da das $p_z$ Orbital selbst antisymmetrisch
+ist.
+
+Die einzelnen Orbitale s und p haben andere Symmetrien, das s-Orbital ist
+kugelsymmetrisch und kann daher beliebig gespiegelt oder gedreht werden. Die
+$p_i$-Orbitale können an der $i$-Achse symmetrisch gespiegelt werden, an den
+anderen beiden Achsen jedoch nur antisymmetrisch.
+
+\fehlt
+
+\subsection{Äquivalenz von Hochsymmetriepunkten}
+
+Die Punkte $K_1$ und $K_5$ sowie $K_2$ und $K_4$ lassen sich durch $\vec g_2$
+aufeinander abbilden. $\vec g_1$ tut dies mit $K_4$ und $K_6$. Die Summe der
+beiden Gittervektoren lässt noch $K_3$ und $K_5$ äquivalent sein. Letztlich
+gilt:
+\[
+	K_i \sim K_j
+	\iff
+	|i - j| \mod 2 = 0
+\]
+
+Damit gibt sich die eine Gruppe, in der $i$ und $j$ gerade sind, sowie eine
+andere Gruppe, in der beide ungerade sind.
+
+\subsection{Punktgruppe D3h}
+
+Die Drehung $C_3$ um \SI{120}{\degree} funktioniert auch im reziproken Gitter,
+sie bildet gerade auf gerade Punkte ab. Die Rotationen $C_2$ bildet auch
+äquivalente $K$ aufeinander ab, wenn die Rotationsachse genau gleich im Raum
+liegt. Dann bildet $C_2'''$ $K_6$ auf $K_4$ ab, sowie $K_1$ auf $K_3$ ab.
+
+\subsection{Überlagerung von Bloch-Funktionen}
+
+Das Bloch-Theorem besagt, dass die Wellenfunktionen aus einem periodischen
+Potential, das die gleiche Periodizität wie das Kristallgitter hat, und einer
+ebenen Welle besteht. Jede Überlagerung hat schon mal eine derartige ebene
+Welle:
+\[
+	\psi_{\vec k} (\vec r)
+	= 
+	\sum_{n_1, n_2} \del{c_1 \psi_{p_z} (\vec r - n_1 \vec t_1 - n_2 \vec t_2) + c_2 \psi_{p_z} (\vec r - n_1 \vec t_1 - n_2 \vec t_2 - \vec d)} \exp\del{\ii \vec k \cdot (n_1 \vec t_1 + n_2 \vec t_2)}
+\]
+
+Durch die Summation über die Basisvektoren $\vec t$ ist jeder Summand in der
+Klammer genauso periodisch wie das Gitter selbst. Auch wenn der zweite Summand
+zum ersten Verschoben ist, ist die Periodizität immer noch die gleiche, wie das
+Gitter. Daher erfüllt $\psi_{\vec k}(\vec r)$ das Bloch-Theorem.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
