@@ -184,6 +184,86 @@ Mit $\vec g_i \vec t_j = 2 \piup \delta_{ij}$ folgt dann für $\lambda$:
 Somit haben beide ($\pm$) Energien den gleichen Wert und sind entartet.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Zustandsdichte im zweidimensionalen Systemen                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zustandsdichte im zweidimensionalen Systemen}
+
+\subsection{Zustandsdichte}
+
+\begin{align*}
+	D(E)
+	&= \sum_{\vec k, s} \delta\del{E - E_\text{frei} \del{|k|}} \\
+	\intertext{%
+		Dies wandele ich mit der auf dem Aufgabenblatt gegebenen Formel in ein
+		Integral um. Dabei ist die Dimension $m = 1$.
+	}
+	&= \frac{S}{2\piup} \int_{-\infty}^\infty \dif k \, \delta\del{E - E_\text{frei} \del{|k|}} \\
+	\intertext{%
+		Die $\delta$-Distribution hat nun die Eigenschaft bei Verkettung, dass
+		eine Summe über alle Nullstellen entsteht. Daher formt sich der
+		Ausdruck um zu:
+	}
+	&= \frac{S}{2\piup} \sum_n \int_{-\infty}^\infty \dif k \, \frac{\delta(k-k_n)}{\od{E_\text{frei}}k} \\
+	\intertext{%
+		Die Dispersionsrelation ist streng monoton steigend, somit dann auf dem
+		relevanten Intervall bijektiv. Daher gibt es nur eine Nullstelle der
+		inneren Funktion, $k - k_0$. Die Summe entfällt.
+	}
+	&= \frac{S}{2\piup} \int_{-\infty}^\infty \dif k \, \frac{\delta(k-k_0)}{\od{E_\text{frei}}k} \\
+	\intertext{%
+		Und da die Dispersionsrelation nur vom Betrag abhängt, kann die
+		Integration auch von 0 begonnen werden. Allerdings sollte dann noch ein
+		Faktor 2 dazu.
+	}
+	&= \frac{S}{\piup} \int_0^\infty \dif k \, \frac{\delta(k-k_0)}{\od{E_\text{frei}}k} \\
+\end{align*}
+
+\subsection{Explizite Formel}
+
+Ich setze ein:
+\[
+	E_\text{frei}(K) = \frac{\hbar^2 k^2}{2m}
+\]
+
+Die Nullstelle der Funktion ist bei:
+\[
+	k_0 = \frac{\sqrt{2mE}}\hbar
+\]
+
+Wenn ich diese auch noch in die $D(E)$ einsetze und integriere, erhalte ich:
+\[
+	D(E) = \frac S\piup \frac{\hbar{\sqrt{2E}}}{\sqrt m}
+\]
+
+\subsection{Anzahl der Quantenzustände}
+
+Ich integriere die Dichte nach dem Wellenvektor von $0$ bis $E_\text{F}$ und
+erhalte dann die Gesamtzahl an Zuständen. Ich erhalte:
+\[
+	\frac{2S\hbar}{3\piup} \sqrt{\frac2m} E_\text{F}^{3/2}
+\]
+
+Da die Teilchen Spin $1/2$ haben, sind es Fermionen. Ich muss also den Rest der
+Teilaufgabe rechnen. Die gerade errechnete Anzahl setze ich gleich $n$ und löse
+nach $E_\text{F}$ auf. Ich erhalte:
+\[
+	E_\text{F} = \del{\frac{3 n \piup}{2 S \hbar} \sqrt{\frac m2}}^{2/3}
+\]
+
+Jedoch ist diese Energie gleich 0, wenn die Masse $m$ gleich 0 ist.
+
+\subsection{Masseloses Teilchen}
+
+Die Fermi-Geschwindigkeit ist:
+\[
+	v_\text{F} = \sqrt{\frac{2E_\text{F}}{m_\text{e}}}
+\]
+
+Wenn ich allerdings $m = 0$ in die Formel aus der vorherigen Teilaufgabe
+einsetze, erhalte ich einfach nur 0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                    Ende                                     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
