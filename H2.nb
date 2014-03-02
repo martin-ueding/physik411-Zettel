@@ -1,0 +1,1355 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     59923,       1346]
+NotebookOptionsPosition[     58284,       1285]
+NotebookOutlinePosition[     58644,       1301]
+CellTagsIndexPosition[     58601,       1298]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{"Quantity", "[", "\"\<ElectronMass\>\"", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575991575550929*^9, 3.575991592822504*^9}, {
+  3.575992073678437*^9, 3.575992078400865*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"9.10938291707429769542081766`7.0617630921243855*^-31"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"kg\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: kilograms"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Kilograms\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.5759915945244513`*^9, 3.575992078892961*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"e0", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{"m", "*", 
+    RowBox[{
+     RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], "^", "2"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5759919434820642`*^9, 3.5759919589108458`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "8.1871050718172236872879264916121846962021322`7.0617630921243855*^-14"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"kg\"", "\[ThinSpace]", 
+          SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", 
+          SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], 
+    "Unit: kilogram meters squared per second squared"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.575991959400475*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pmax", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1*^6", ",", "\"\<ElectronVolt\>\""}], "]"}], "/", 
+    RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.575991665543239*^9, 3.575991700733556*^9}, {
+   3.575991844016377*^9, 3.575991855083027*^9}, 3.575992210346986*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"1.068857152503816514332586646208836922`7.359612335017222*^-21"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+         "\"kg\"", "\[ThinSpace]", "\"m\"", "\[InvisibleSpace]", "\"/\"", 
+          "\[InvisibleSpace]", "\"s\""}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: kilogram meters per second"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", "\"Meters\""}], "\"Seconds\""]}], 
+     "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575991673484921*^9, 3.575991706743781*^9}, 
+   3.5759918558589783`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eclassical", "[", "p_", "]"}], ":=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"p", "^", "2"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"2", "m"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575991727958687*^9, 3.575991747780417*^9}, {
+  3.575991874380836*^9, 3.575991881546953*^9}, {3.5759920901491013`*^9, 
+  3.5759921226802397`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ephoton", "[", "p_", "]"}], ":=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], "p"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.575991889763957*^9, 3.575991912439521*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eelectron", "[", "p_", "]"}], ":=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Sqrt", "[", 
+     RowBox[{
+      RowBox[{"e0", "^", "2"}], "+", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], "^", "2"}], 
+       RowBox[{"p", "^", "2"}]}]}], "]"}], "-", "e0"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575991914744894*^9, 3.57599198859052*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"eclassical", "[", "pmax", "]"}], "//", "UnitConvert"}]], "Input",
+ CellChangeTimes->{{3.575992035876956*^9, 3.5759920495495243`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"6.270762920269766111007228`6.7591398081205005*^-13"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"kg\"", "\[ThinSpace]", 
+          SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", 
+          SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], 
+    "Unit: kilogram meters squared per second squared"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575992094881469*^9, 3.575992124834099*^9}, 
+   3.5759921670118637`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ephoton", "[", "pmax", "]"}], "//", "UnitConvert"}]], "Input",
+ CellChangeTimes->{{3.57599213044204*^9, 3.575992159877688*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "3.20435313000000007212758380164923602189711778`7.359612335017222*^-13"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"kg\"", "\[ThinSpace]", 
+          SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", 
+          SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], 
+    "Unit: kilogram meters squared per second squared"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.575992133813737*^9, 3.575992166186842*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"eelectron", "[", "pmax", "]"}], "//", "UnitConvert"}], "//", 
+  "QuantityMagnitude"}]], "Input",
+ CellChangeTimes->{{3.575992135985839*^9, 3.5759921857495937`*^9}}],
+
+Cell[BoxData["2.48857930115236894178938819276728863163525187`7.\
+045237067249365*^-13"], "Output",
+ CellChangeTimes->{{3.575992141372158*^9, 3.575992186672248*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1: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
+     "]]}, 
+   {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
+1:eJwBwQM+/CFib1JlAgAAADsAAAACAAAASmXo0cDpZT5AyGYKxOHOOwRDGnDf
+GUQ/3e8nKAZUrDwzn5icsxlUPw/bn2TIU7w8S83Xsp0ZZD+o0NuCqVPMPFdk
+972SGXQ/dsv5EZpT3DzdL4dDjRmEP9zIiFmSU+w8oBVPhooZlD+PR1B9jlP8
+PIEIsyeJGaQ/6AY0j4xTDD1YWaGv8PG0P3v1H4iGhB09C/+BXEcevz+zwMFp
+Ze0lPSVR7ujDi8Q/yRFnEIj0LD13zjk/mPTJPyi1hBcUSjI9F7QR3gEBzz/m
+R40pxdg1PbbiQ8zPPNI/Xl6U97SzOT3Cap0bWezUP2Q6FQalfD099SY9D61t
+1z9yvqYLO4JAPQL5qxAbJdo/jiFC8kJsQj02/2C2U67cP+k3OVq7NUQ9zIQ0
+zsYq3z8JMW3iM/ZFPR+Q6/mp7uA/CGygyMvcRz3r99/e1TDiP0NaLzDUokk9
+pOq7yg6O4z9cir31+45LPQ4dp+/k5OQ/O52I2yNyTT2MabVmoCTmP1hjr0K8
+NE899kCr5Gh/5z+oteoDuo5QPXQyxLQWw+g/Q5MrJ85yUT3frsSL0SHqP80R
+bPnxaVI9+2rUmyl66z+7AcvblVxTPStBB/5mu+w/RsvX/vE+VD1HoiFnsRfu
+P8A15NBdNFU9dx1fIuFc7z/YeZ7jgRlWPSzsVQvXTfA/VS93Bib6Vj0TD/AI
+xPrwP7+FT9jZ7Vc9BL+bryOc8T/JtdXqRdFYPWs0u9kJS/I/v4ZbrMHHWT2r
+SWKgvvbyPxvJ/329uVo99esaEOaW8z8V5VGQcZtbPbVTRwOURPQ//aGjUTWQ
+XD1/SIWftOb0P4U4o1OxdF09Id1K2KOF9T9uQMFlrVRePTo3hJQZMvY/R+ne
+JrlHXz1cHs/5AdP2P941VZQ+FWA99cqN4nCB9z+Rx7psKJBgPZgEXnRSJPg/
+E0Z3Ze4CYT0T3rWiAsT4P0f9QmZ0c2E9BX2BVDlx+T/yhI4+gu1hPQCpXq/i
+Evo/bPkwN2xfYj1ymq+NEsL6P14+Uwfe2mI9vSuICBFu+z8BvITfD1RjPRFK
+ciyCDvw/dCYN2B3FYz3cLdDTebz8P11hFaizP2Q9sJ4/JORe/T8WiXSYJbJk
+PV2vNhEd/v0/genikFciZT2AhaGB3Kr+P2Ia0WARnGU9regdmw5M/z8TOBZR
+pw1mPWg2mfEKef8/uy1DPlotZj0ihBRIB6b/P2IjcCsNTWY93NGPngPT/z8I
+GZ0YwGxmPZcfC/X///8/sA7KBXOMZj0/8MGJ
+     "]]}, 
+   {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
+1: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
+qDYjl8uBxZ3sGn8djP8Hi7/NPw==
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotRange->{{0, 2}, {0., 1.4268011186535662`*^-12}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{{3.575991654537735*^9, 3.575991677291872*^9}, 
+   3.575991714765256*^9, 3.575991756839107*^9, 3.575991796252928*^9, 
+   3.5759918311512823`*^9, {3.5759918618096437`*^9, 3.575991884944879*^9}, {
+   3.5759920048273497`*^9, 3.575992024238924*^9}, 3.575992150877557*^9, 
+   3.575992263329041*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ NamespaceBox["WolframAlphaQueryResults",
+  DynamicModuleBox[{Typeset`q$$ = "Compton Wavelength", Typeset`opts$$ = {
+   AppearanceElements -> {"Extrusion", "Warnings", "Assumptions", "Pods"}, 
+    Asynchronous -> All, 
+    Method -> {
+     "ExtrusionChosen" -> {"Result", "Result", 1, 1, "Content"}, 
+      "Formats" -> {"cell", "minput", "moutput", "msound", "dataformats"}}}, 
+   Typeset`elements$$ = {"Extrusion", "Warnings", "Assumptions", "Pods"}, 
+   Typeset`pod1$$ = XMLElement[
+   "pod", {"title" -> "Input interpretation", "scanner" -> "Formula", "id" -> 
+     "Input", "position" -> "100", "error" -> "false", "numsubpods" -> "1"}, {
+    
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                PaneBox[
+                 StyleBox[
+                  TagBox[
+                   GridBox[{{
+                    StyleBox[
+                    "\"Compton wavelength\"", {
+                    LineIndent -> 0, LineSpacing -> {0.9, 0, 1.5}}]}}, 
+                    GridBoxBackground -> {"Columns" -> {
+                    GrayLevel[0.949]}, "Rows" -> {{None}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    ColumnsEqual -> False, RowsEqual -> False, 
+                    GridBoxDividers -> {"Columns" -> {
+                    GrayLevel[0.84], 
+                    GrayLevel[0.84]}, "Rows" -> {{
+                    GrayLevel[0.84]}}, 
+                    "RowsIndexed" -> {
+                    1 -> GrayLevel[0.84], -1 -> GrayLevel[0.84]}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {1, 1}, "Rows" -> {{0.3}}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Baseline}}}, 
+                    AllowScriptLevelChange -> False, BaselinePosition -> 1], 
+                   Global`TagBoxWrapper["Separator" -> " | "]], 
+                  LineSpacing -> {1, 0, 1.5}, LineIndent -> 0], 
+                 BaselinePosition -> Center]}}, 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              ColumnsEqual -> False, RowsEqual -> False, 
+              GridBoxSpacings -> {"Columns" -> {{
+                   AbsoluteThickness[-1]}}, "Rows" -> {{0}}}, 
+              AllowScriptLevelChange -> False], 
+             Global`TagBoxWrapper["Separator" -> " | "]], TraditionalForm]], 
+          "Output"]}], 
+       XMLElement[
+       "dataformats", {}, {"plaintext,computabledata,formatteddata"}]}]}], 
+   Typeset`pod2$$ = XMLElement[
+   "pod", {"title" -> "Equation", "scanner" -> "Formula", "id" -> "Equation", 
+     "position" -> "200", "error" -> "false", "numsubpods" -> "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["cell", {"compressed" -> True, "string" -> False}, {
+         Cell[
+          BoxData[
+           FormBox[
+            TagBox[
+             GridBox[{{
+                TagBox[
+                 GridBox[{{
+                    StyleBox[
+                    TagBox[
+                    GridBox[{{
+                    TagBox[
+                    PaneBox[
+                    StyleBox[
+                    TemplateBox[{
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    SubscriptBox["\[Lambda]", "C"], "\[LongEqual]", 
+                    FractionBox[
+                    StyleBox["\"h\"", Italic, StripOnInput -> False], 
+                    RowBox[{"m", " ", 
+                    StyleBox["\"c\"", Italic, StripOnInput -> False]}]]}], 
+                    HoldForm], PolynomialForm[#, TraditionalOrder -> 
+                    False]& ]}, "RowDefault"], 
+                    GrayLevel[0], StripOnInput -> False], 
+                    BaseStyle -> {{
+                    Alignment -> Left, BaselinePosition -> Baseline, 
+                    FontColor -> GrayLevel[0.3]}, 
+                    LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                    Global`TagBoxWrapper["Label"]], "\[SpanFromLeft]"}, {
+                    TagBox[
+                    PaneBox[
+                    SubscriptBox["\[Lambda]", "C"], 
+                    BaseStyle -> {{
+                    Alignment -> Left, BaselinePosition -> Baseline, 
+                    FontColor -> GrayLevel[0.3]}, 
+                    LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                    Global`TagBoxWrapper["Label"]], 
+                    "\"Compton wavelength\""}, {
+                    TagBox[
+                    PaneBox[
+                    "m", BaseStyle -> {{
+                    Alignment -> Left, BaselinePosition -> Baseline, 
+                    FontColor -> GrayLevel[0.3]}, 
+                    LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                    Global`TagBoxWrapper["Label"]], "\"mass of particle\""}, {
+                    
+                    TagBox[
+                    PaneBox[
+                    StyleBox["\"h\"", Italic, StripOnInput -> False], 
+                    BaseStyle -> {{
+                    Alignment -> Left, BaselinePosition -> Baseline, 
+                    FontColor -> GrayLevel[0.3]}, 
+                    LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                    Global`TagBoxWrapper["Label"]], 
+                    TemplateBox[{"\"Planck constant\"", "\" \"", 
+                    StyleBox[
+                    RowBox[{"\"(\"", "\[NoBreak]", 
+                    TemplateBox[{"\"\[TildeTilde]\"", "\"\[ThinSpace]\"", 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    RowBox[{"6.62607", 
+                    StyleBox["\[Times]", 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", "-34"]}], 
+                    Global`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"6.62607", "\[Times]", 
+                    SuperscriptBox["10", "-34"]}]], SyntaxForm -> CenterDot], 
+                    "\[NoBreak]", 
+                    StyleBox[
+                    RowBox[{}], FontFamily -> "Helvetica", FontSize -> 
+                    Smaller], "\[InvisibleSpace]", "\[ThickSpace]", 
+                    "\[InvisibleSpace]", 
+                    StyleBox[
+                    
+                    RowBox[{"\"J\"", "\[InvisibleSpace]", "\"\[ThinSpace]\"", 
+                    "\[InvisibleSpace]", "\"s\""}], FontFamily -> "Helvetica",
+                     FontSize -> Smaller]}], Identity], #& , SyntaxForm -> 
+                    Dot], "Unit", SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, "RowDefault"], "\[NoBreak]",
+                     "\")\""}], LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, 
+                    GrayLevel[0.6], StripOnInput -> False]}, "RowDefault"]}, {
+                    
+                    TagBox[
+                    PaneBox[
+                    StyleBox["\"c\"", Italic, StripOnInput -> False], 
+                    BaseStyle -> {{
+                    Alignment -> Left, BaselinePosition -> Baseline, 
+                    FontColor -> GrayLevel[0.3]}, 
+                    LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                    Global`TagBoxWrapper["Label"]], 
+                    TemplateBox[{"\"speed of light in vacuum\"", "\" \"", 
+                    StyleBox[
+                    RowBox[{"\"(\"", "\[NoBreak]", 
+                    TemplateBox[{"\"\[TildeTilde]\"", "\"\[ThinSpace]\"", 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    RowBox[{"2.998", 
+                    StyleBox["\[Times]", 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", "8"]}], 
+                    Global`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"2.998", "\[Times]", 
+                    SuperscriptBox["10", "8"]}]], SyntaxForm -> CenterDot], 
+                    "\[NoBreak]", 
+                    StyleBox[
+                    RowBox[{}], FontFamily -> "Helvetica", FontSize -> 
+                    Smaller], "\[InvisibleSpace]", "\[ThickSpace]", 
+                    "\[InvisibleSpace]", 
+                    StyleBox[
+                    
+                    RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"s\""}], FontFamily -> "Helvetica",
+                     FontSize -> Smaller]}], Identity], #& , SyntaxForm -> 
+                    Dot], "Unit", SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, "RowDefault"], "\[NoBreak]",
+                     "\")\""}], LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, 
+                    GrayLevel[0.6], StripOnInput -> False]}, "RowDefault"]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {Left, Left}, "Rows" -> {{Baseline}}, 
+                    "ItemsIndexed" -> {{1, 1} -> {Left, Baseline}, {1, 2} -> {
+                    Left, Baseline}}}, AutoDelete -> False, 
+                    GridBoxBackground -> {
+                    "Columns" -> {None, None}, "Rows" -> {None, None}}, 
+                    GridBoxFrame -> {
+                    "Columns" -> {{True}}, "Rows" -> {{True}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{1.5}, 2}, "Rows" -> {{1}}}, FrameStyle -> 
+                    GrayLevel[0.84], BaselinePosition -> Automatic, 
+                    AllowScriptLevelChange -> False], "Grid"], 
+                    LineSpacing -> {0.9, 0, 1.5}, LineIndent -> 0, 
+                    StripOnInput -> False]}}, 
+                  GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                  DefaultBaseStyle -> "Column", 
+                  GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                 "Column"]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+              DefaultBaseStyle -> "Column", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"], TraditionalForm]], "Output"]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,computabledata,formatteddata,formuladata"}]}], 
+     XMLElement["infos", {"count" -> "1"}, {
+       XMLElement["info", {}, {
+         XMLElement["units", {"count" -> "2"}, {
+           XMLElement[
+           "unit", {"short" -> "J s", "long" -> "joule seconds"}, {}], 
+           XMLElement[
+           "unit", {"short" -> "m/s", "long" -> "meters per second"}, {}], 
+           XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+             Cell[
+              BoxData[
+               FormBox[
+                StyleBox[
+                 TagBox[
+                  GridBox[{{
+                    StyleBox[
+                    StyleBox[
+                    TagBox[
+                    RowBox[{
+                    StyleBox[
+                    
+                    RowBox[{"\"J\"", "\[InvisibleSpace]", "\"\[ThinSpace]\"", 
+                    "\[InvisibleSpace]", "\"s\""}], FontFamily -> "Helvetica",
+                     FontSize -> Smaller]}], Identity], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False], 10, StripOnInput -> False], 
+                    StyleBox[
+                    "\"joule seconds\"", FontSize -> 10, 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, {FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, 
+                    GrayLevel[0.6], StripOnInput -> False]}, {
+                    StyleBox[
+                    StyleBox[
+                    TagBox[
+                    RowBox[{
+                    StyleBox[
+                    
+                    RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+                    "\[InvisibleSpace]", "\"s\""}], FontFamily -> "Helvetica",
+                     FontSize -> Smaller]}], Identity], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False], 10, StripOnInput -> False], 
+                    StyleBox[
+                    "\"meters per second\"", FontSize -> 10, 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, {FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, 
+                    GrayLevel[0.6], StripOnInput -> False]}}, 
+                   GridBoxAlignment -> {
+                    "Columns" -> {Left, Left}, "Rows" -> {{Baseline}}}, 
+                   AutoDelete -> False, 
+                   GridBoxBackground -> {"Columns" -> {{None}}}, 
+                   GridBoxFrame -> {
+                    "Columns" -> {{True}}, "Rows" -> {{True}}}, 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                   GridBoxSpacings -> {
+                    "Columns" -> {{1.5}}, "Rows" -> {{0.5}}}, FrameStyle -> 
+                   GrayLevel[0.84], BaselinePosition -> Automatic, 
+                   AllowScriptLevelChange -> False], "Grid"], 
+                 LineSpacing -> {0.9, 0, 1.5}, LineIndent -> 0, StripOnInput -> 
+                 False], TraditionalForm]], "Output"]}]}]}]}]}], 
+   Typeset`pod3$$ = XMLElement[
+   "pod", {"title" -> "Input value", "scanner" -> "Formula", "id" -> 
+     "InputValue", "position" -> "300", "error" -> "false", "numsubpods" -> 
+     "1"}, {
+     XMLElement["subpod", {"title" -> ""}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             TagBox[
+              GridBox[{{
+                 TagBox[
+                  PaneBox[
+                  "\"mass of particle\"", 
+                   BaseStyle -> {{
+                    BaselinePosition -> Baseline, FontColor -> 
+                    GrayLevel[0.3]}, LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                  Global`TagBoxWrapper["Label"]], 
+                 TemplateBox[{
+                   StyleBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    RowBox[{"1", 
+                    StyleBox["\[Times]", 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", "-30"]}], 
+                    Global`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"1", "\[Times]", 
+                    SuperscriptBox["10", "-30"]}]], SyntaxForm -> CenterDot], 
+                    "\[NoBreak]", 
+                    StyleBox[
+                    RowBox[{}], FontFamily -> "Helvetica", FontSize -> 
+                    Smaller], "\[InvisibleSpace]", "\[ThickSpace]", 
+                    "\[InvisibleSpace]", 
+                    StyleBox[
+                    "\"kg\"", FontFamily -> "Helvetica", FontSize -> 
+                    Smaller]}], Identity], #& , SyntaxForm -> Dot], "  ", 
+                    StyleBox[
+                    
+                    RowBox[{
+                    "\"(\"", "\[NoBreak]", "\"kilograms\"", "\[NoBreak]", 
+                    "\")\""}], LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, {
+                    FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, 
+                    GrayLevel[0.6], StripOnInput -> False]}], "Unit", 
+                    SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, "RowDefault"]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {Left, {Left}}, "Rows" -> {{Baseline}}}, 
+               AutoDelete -> False, 
+               GridBoxBackground -> {"Columns" -> {None, None}}, 
+               GridBoxFrame -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {"Columns" -> {{1.5}, 2}, "Rows" -> {{1}}}, 
+               FrameStyle -> GrayLevel[0.84], BaselinePosition -> Automatic, 
+               AllowScriptLevelChange -> False], "Grid"], 
+             LineSpacing -> {0.9, 0, 1.5}, LineIndent -> 0, StripOnInput -> 
+             False], TraditionalForm]], "Output"]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,computabledata,formatteddata,numberdata,quantitydata"}]}]}]\
+, Typeset`pod4$$ = XMLElement[
+   "pod", {"title" -> "Result", "scanner" -> "Formula", "id" -> "Result", 
+     "position" -> "400", "error" -> "false", "numsubpods" -> "1", "primary" -> 
+     "true"}, {
+     XMLElement["subpod", {"title" -> "", "primary" -> "true"}, {
+       XMLElement["cell", {"compressed" -> False, "string" -> True}, {
+         Cell[
+          BoxData[
+           FormBox[
+            StyleBox[
+             TagBox[
+              GridBox[{{
+                 TagBox[
+                  PaneBox[
+                  "\"Compton wavelength\"", 
+                   BaseStyle -> {{
+                    BaselinePosition -> Baseline, FontColor -> 
+                    GrayLevel[0.3]}, LineSpacing -> {0.9, 0, 1.5}, 
+                    LinebreakAdjustments -> {1, 10, 10000, 0, 100}, 
+                    TextAlignment -> Left}, BaselinePosition -> Baseline], 
+                  Global`TagBoxWrapper["Label"]], 
+                 TagBox[
+                  GridBox[{{
+                    StyleBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox["2.21", 
+                    Global`TagBoxWrapper["StringBoxes" -> "2.21"]], 
+                    "\[NoBreak]", 
+                    StyleBox[
+                    RowBox[{}], FontFamily -> "Helvetica", FontSize -> 
+                    Smaller], "\[InvisibleSpace]", "\[ThickSpace]", 
+                    "\[InvisibleSpace]", 
+                    StyleBox[
+                    "\"pm\"", FontFamily -> "Helvetica", FontSize -> 
+                    Smaller]}], Identity], #& , SyntaxForm -> Dot], "  ", 
+                    StyleBox[
+                    
+                    RowBox[{
+                    "\"(\"", "\[NoBreak]", "\"picometers\"", "\[NoBreak]", 
+                    "\")\""}], LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, {
+                    FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, 
+                    GrayLevel[0.6], StripOnInput -> False]}], "Unit", 
+                    SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, {
+                    StyleBox[
+                    TemplateBox[{
+                    StyleBox[
+                    "\"=\"", LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, 
+                    GrayLevel[0.6], StripOnInput -> False], "\" \"", 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    RowBox[{"8.702", 
+                    StyleBox["\[Times]", 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", "-11"]}], 
+                    Global`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"8.702", "\[Times]", 
+                    SuperscriptBox["10", "-11"]}]], SyntaxForm -> CenterDot], 
+                    "\[InvisibleSpace]", " ", 
+                    StyleBox[
+                    "\"inches\"", LinebreakAdjustments -> {1, 100, 1, 0, 100},
+                     LineIndent -> 0, {
+                    FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, StripOnInput -> False]}], Identity], #& , 
+                    SyntaxForm -> Dot], "Unit", SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, "RowDefault"], LineIndent -> 
+                    0]}, {
+                    StyleBox[
+                    TemplateBox[{
+                    StyleBox[
+                    "\"=\"", LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    LineIndent -> 0, 
+                    GrayLevel[0.6], StripOnInput -> False], "\" \"", 
+                    StyleBox[
+                    TagBox[
+                    TagBox[
+                    TagBox[
+                    RowBox[{
+                    TagBox[
+                    RowBox[{"2.21", 
+                    StyleBox["\[Times]", 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", "-12"]}], 
+                    Global`TagBoxWrapper[
+                    "StringBoxes" -> RowBox[{"2.21", "\[Times]", 
+                    SuperscriptBox["10", "-12"]}]], SyntaxForm -> CenterDot], 
+                    "\[InvisibleSpace]", " ", 
+                    StyleBox[
+                    "\"meters\"", LinebreakAdjustments -> {1, 100, 1, 0, 100},
+                     LineIndent -> 0, {
+                    FontFamily :> Global`$UnitFontFamily, FontSize -> 
+                    Smaller}, StripOnInput -> False]}], Identity], #& , 
+                    SyntaxForm -> Dot], "Unit", SyntaxForm -> Dot], 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineIndent -> 
+                    0, ZeroWidthTimes -> False]}, "RowDefault"], LineIndent -> 
+                    0]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+                   BaselinePosition -> 1, DefaultBaseStyle -> "Column", 
+                   GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+                  "Column"]}}, 
+               GridBoxAlignment -> {
+                "Columns" -> {Left, Left}, "Rows" -> {{Baseline}}}, 
+               AutoDelete -> False, 
+               GridBoxBackground -> {"Columns" -> {None, None}}, 
+               GridBoxFrame -> {"Columns" -> {{True}}, "Rows" -> {{True}}}, 
+               GridBoxItemSize -> {
+                "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+               GridBoxSpacings -> {"Columns" -> {{1.5}, 2}, "Rows" -> {{1}}}, 
+               FrameStyle -> GrayLevel[0.84], BaselinePosition -> Automatic, 
+               AllowScriptLevelChange -> False], "Grid"], 
+             LineSpacing -> {0.9, 0, 1.5}, LineIndent -> 0, StripOnInput -> 
+             False], TraditionalForm]], "Output"]}], 
+       XMLElement[
+       "dataformats", {}, {
+        "plaintext,computabledata,formatteddata,numberdata,quantitydata"}]}]}]\
+, Typeset`aux1$$ = {True, False, {False}, True}, Typeset`aux2$$ = {
+   True, False, {False}, True}, Typeset`aux3$$ = {True, False, {False}, True},
+    Typeset`aux4$$ = {True, False, {False}, True}, Typeset`asyncpods$$ = {}, 
+   Typeset`nonpods$$ = {
+    XMLElement["assumptions", {"count" -> "3"}, {
+      XMLElement[
+      "assumption", {
+       "type" -> "Clash", "word" -> "Compton Wavelength", "template" -> 
+        "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+        "2"}, {
+        XMLElement[
+        "value", {
+         "name" -> "Formula", "desc" -> "a formula", "input" -> 
+          "*C.Compton+Wavelength-_*Formula-"}, {}], 
+        XMLElement[
+        "value", {
+         "name" -> "PhysicalQuantity", "desc" -> "a physical quantity", 
+          "input" -> "*C.Compton+Wavelength-_*PhysicalQuantity-"}, {}]}], 
+      XMLElement[
+      "assumption", {
+       "type" -> "FormulaSolve", "template" -> "Calculate ${desc1}", "count" -> 
+        "2"}, {
+        XMLElement[
+        "value", {
+         "name" -> "ComptonWavelength.lambda", "desc" -> "Compton wavelength",
+           "input" -> "*FS-_**ComptonWavelength.lambda--"}, {}], 
+        XMLElement[
+        "value", {
+         "name" -> "ComptonWavelength.m", "desc" -> "mass of particle", 
+          "input" -> "*FS-_**ComptonWavelength.m--"}, {}]}], 
+      XMLElement[
+      "assumption", {
+       "type" -> "FormulaVariable", "desc" -> "mass of particle", "current" -> 
+        "1", "count" -> "1"}, {
+        XMLElement[
+        "value", {
+         "name" -> "ComptonWavelength.m", "desc" -> "1\[Times]10^-30 kg", 
+          "valid" -> "true", "input" -> 
+          "*F.ComptonWavelength.m-_1%C3%9710%5E-30+kg"}, {}]}]}]}, 
+   Typeset`initdone$$ = True, Typeset`queryinfo$$ = {
+   "success" -> "true", "error" -> "false", "numpods" -> "4", "datatypes" -> 
+    "Formula", "timedout" -> "", "timedoutpods" -> "", "timing" -> "0.925", 
+    "parsetiming" -> "0.239", "parsetimedout" -> "false", "recalculate" -> "",
+     "id" -> "MSPa154120aa8e51ace5i520000058f727acd54ge2i1", "host" -> 
+    "http://www4b.wolframalpha.com", "server" -> "59", "related" -> 
+    "http://www4b.wolframalpha.com/api/v2/relatedQueries.jsp?id=\
+MSPa154220aa8e51ace5i520000055e04f6if9868dg5&s=59", "version" -> "2.6"}, 
+   Typeset`sessioninfo$$ = {
+   "TimeZone" -> 2., 
+    "Date" -> {2013, 4, 26, 21, 39, 55.887362`8.49988858465328}, "Line" -> 46,
+     "SessionID" -> 23912083413919565740}, Typeset`showpods$$ = {1, 2, 3, 4}, 
+   Typeset`failedpods$$ = {}, Typeset`chosen$$ = {
+   "Result", "Result", 1, 1, "Content"}, Typeset`open$$ = False, 
+   Typeset`newq$$ = "Compton Wavelength"}, 
+   DynamicBox[ToBoxes[
+     AlphaIntegration`FormatAlphaResults[
+      Dynamic[{
+       1, {Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$}, {
+        Typeset`aux1$$, Typeset`aux2$$, Typeset`aux3$$, Typeset`aux4$$}, 
+        Typeset`chosen$$, Typeset`open$$, Typeset`elements$$, Typeset`q$$, 
+        Typeset`opts$$, Typeset`nonpods$$, Typeset`queryinfo$$, 
+        Typeset`sessioninfo$$, Typeset`showpods$$, Typeset`failedpods$$, 
+        Typeset`newq$$}]], StandardForm],
+    ImageSizeCache->{182., {29., 21.}},
+    TrackedSymbols:>{Typeset`showpods$$, Typeset`failedpods$$}],
+   DynamicModuleValues:>{},
+   Initialization:>If[
+     Not[Typeset`initdone$$], Null; 
+     WolframAlphaClient`Private`doAsyncUpdates[
+       Hold[{Typeset`pod1$$, Typeset`pod2$$, Typeset`pod3$$, Typeset`pod4$$}],
+        Typeset`asyncpods$$, 
+       Dynamic[Typeset`failedpods$$]]; Typeset`asyncpods$$ = {}; 
+     Typeset`initdone$$ = True],
+   SynchronousInitialization->False],
+  BaseStyle->{Deployed -> True},
+  DeleteWithContents->True,
+  Editable->False,
+  SelectWithContents->True]], "WolframAlphaShortInput"],
+
+Cell[BoxData[
+ InterpretationBox[
+  FrameBox[
+   StyleBox[
+    FormBox[
+     StyleBox[
+      StyleBox[GridBox[{
+         {
+          PaneBox["\<\"Compton wavelength\"\>",
+           
+           BaseStyle->{{
+             BaselinePosition -> Baseline, FontColor -> GrayLevel[0.3]}, 
+             LineSpacing -> {0.9, 0, 1.5}, 
+             LinebreakAdjustments -> {1, 10, 10000, 0, 100}, TextAlignment -> 
+             Left},
+           BaselinePosition->Baseline], 
+          StyleBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                RowBox[{
+                "2.21", "\[NoBreak]", "\[InvisibleSpace]", "\[ThickSpace]", 
+                 "\[InvisibleSpace]", 
+                 StyleBox["\<\"pm\"\>",
+                  FontFamily->"Helvetica",
+                  FontSize->Smaller], "  ", 
+                 StyleBox[
+                  
+                  RowBox[{"\<\"(\"\>", "\[NoBreak]", "\<\"picometers\"\>", 
+                   "\[NoBreak]", "\<\")\"\>"}],
+                  StripOnInput->False,
+                  LineIndent->0,
+                  LinebreakAdjustments->{1, 100, 1, 0, 100},
+                  LineColor->GrayLevel[0.6],
+                  FrontFaceColor->GrayLevel[0.6],
+                  BackFaceColor->GrayLevel[0.6],
+                  GraphicsColor->GrayLevel[0.6],
+                  FontFamily:>$CellContext`$UnitFontFamily,
+                  FontSize->Smaller,
+                  FontColor->GrayLevel[0.6]]}], "Unit"],
+               ZeroWidthTimes->False,
+               LineIndent->0,
+               LinebreakAdjustments->{1, 100, 1, 0, 100}]},
+             {
+              StyleBox[
+               
+               TemplateBox[{
+                StyleBox[
+                 "\"=\"", StripOnInput -> False, LineIndent -> 0, 
+                  LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineColor -> 
+                  GrayLevel[0.6], FrontFaceColor -> GrayLevel[0.6], 
+                  BackFaceColor -> GrayLevel[0.6], GraphicsColor -> 
+                  GrayLevel[0.6], FontColor -> GrayLevel[0.6]],"\" \"",
+                 StyleBox[
+                  StyleBox[
+                   RowBox[{
+                    RowBox[{"8.702", 
+                    StyleBox[
+                    "\[Times]", LineColor -> GrayLevel[0.5], FrontFaceColor -> 
+                    GrayLevel[0.5], BackFaceColor -> GrayLevel[0.5], 
+                    GraphicsColor -> GrayLevel[0.5], FontColor -> 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", 
+                    RowBox[{"-", "11"}]]}], "\[InvisibleSpace]", " ", 
+                    StyleBox[
+                    "\"inches\"", StripOnInput -> False, LineIndent -> 0, 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    FontFamily :> $CellContext`$UnitFontFamily, FontSize -> 
+                    Smaller]}], "Unit"], ZeroWidthTimes -> False, LineIndent -> 
+                  0, LinebreakAdjustments -> {1, 100, 1, 0, 100}]},
+                "RowDefault"],
+               LineIndent->0]},
+             {
+              StyleBox[
+               
+               TemplateBox[{
+                StyleBox[
+                 "\"=\"", StripOnInput -> False, LineIndent -> 0, 
+                  LinebreakAdjustments -> {1, 100, 1, 0, 100}, LineColor -> 
+                  GrayLevel[0.6], FrontFaceColor -> GrayLevel[0.6], 
+                  BackFaceColor -> GrayLevel[0.6], GraphicsColor -> 
+                  GrayLevel[0.6], FontColor -> GrayLevel[0.6]],"\" \"",
+                 StyleBox[
+                  StyleBox[
+                   RowBox[{
+                    RowBox[{"2.21", 
+                    StyleBox[
+                    "\[Times]", LineColor -> GrayLevel[0.5], FrontFaceColor -> 
+                    GrayLevel[0.5], BackFaceColor -> GrayLevel[0.5], 
+                    GraphicsColor -> GrayLevel[0.5], FontColor -> 
+                    GrayLevel[0.5]], 
+                    SuperscriptBox["10", 
+                    RowBox[{"-", "12"}]]}], "\[InvisibleSpace]", " ", 
+                    StyleBox[
+                    "\"meters\"", StripOnInput -> False, LineIndent -> 0, 
+                    LinebreakAdjustments -> {1, 100, 1, 0, 100}, 
+                    FontFamily :> $CellContext`$UnitFontFamily, FontSize -> 
+                    Smaller]}], "Unit"], ZeroWidthTimes -> False, LineIndent -> 
+                  0, LinebreakAdjustments -> {1, 100, 1, 0, 100}]},
+                "RowDefault"],
+               LineIndent->0]}
+            },
+            BaselinePosition->1,
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+           "Column"]}
+        },
+        AllowScriptLevelChange->False,
+        AutoDelete->False,
+        BaselinePosition->Automatic,
+        FrameStyle->GrayLevel[0.84],
+        GridBoxAlignment->{"Columns" -> {Left, Left}, "Rows" -> {{Baseline}}},
+        
+        GridBoxBackground->{"Columns" -> {None, None}},
+        GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{1.5}, 2}, "Rows" -> {{1}}}], "Grid"],
+      
+      StripOnInput->False,
+      LineSpacing->{0.9, 0, 1.5},
+      LineIndent->0],
+     TraditionalForm], "Output",
+    ScriptLevel->0,
+    FontFamily->"Times",
+    FontSize->14,
+    Background->None],
+   BaseStyle->{Plain},
+   FrameMargins->10,
+   FrameStyle->GrayLevel[0.85],
+   RoundingRadius->5,
+   StripOnInput->False],
+  WolframAlphaResult[
+  "Compton Wavelength", {{"Result", 1}, "Content"}]]], "Output",
+ CellChangeTimes->{{3.575993989473681*^9, 3.575993997016863*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"k", "=", 
+  RowBox[{"2", 
+   RowBox[{"Pi", "/", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"2.21*^-12", ",", "\"\<Meter\>\""}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.5759943464167643`*^9, 3.575994362578906*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.843070274741894`*^12"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"per \"", "\[InvisibleSpace]", "\"meter\""}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: reciprocal meters"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["1", "\"Meters\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.575994365707243*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"hkc", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{
+    RowBox[{"Quantity", "[", "\"\<PlanckConstant\>\"", "]"}], 
+    RowBox[{"k", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", "Pi"}], ")"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575994011219151*^9, 3.575994241841342*^9}, 
+   3.575994281898752*^9, {3.5759943501141872`*^9, 3.57599435123999*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.9982215248868777`*^-22"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+         "\"kg\"", "\[ThinSpace]", "\"m\"", "\[InvisibleSpace]", "\"/\"", 
+          "\[InvisibleSpace]", "\"s\""}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: kilogram meters per second"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", "\"Meters\""}], "\"Seconds\""]}], 
+     "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575994038636105*^9, 3.575994242760347*^9}, 
+   3.575994282525415*^9, 3.575994367357182*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"hkcc", "=", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{"hkc", "*", 
+    RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.5759943770725517`*^9, 3.5759944208135347`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"8.988442005743453`*^-14"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"kg\"", "\[ThinSpace]", 
+          SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", 
+          SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], 
+    "Unit: kilogram meters squared per second squared"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "2"]}], 
+        SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575994401103507*^9, 3.575994421603157*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"QuantityMagnitude", "[", 
+      RowBox[{"eclassical", "[", 
+       RowBox[{"x", " ", "pmax"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"QuantityMagnitude", "[", 
+      RowBox[{"ephoton", "[", 
+       RowBox[{"x", " ", "pmax"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"QuantityMagnitude", "[", 
+      RowBox[{"eelectron", "[", 
+       RowBox[{"x", " ", "pmax"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"QuantityMagnitude", "[", "hkcc", "]"}]}], "\[IndentingNewLine]",
+     "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.57599156277033*^9, 3.575991568111534*^9}, {
+  3.575991601673321*^9, 3.5759916765705967`*^9}, {3.575991713938821*^9, 
+  3.575991714100418*^9}, {3.575991747035705*^9, 3.5759917947912083`*^9}, {
+  3.575991826677944*^9, 3.57599182849196*^9}, {3.5759919934293013`*^9, 
+  3.575992008693906*^9}, {3.5759921978710213`*^9, 3.575992220222736*^9}, {
+  3.5759944448508377`*^9, 3.57599445332763*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {}, 
+   {Hue[0.67, 0.6, 0.6], LineBox[CompressedData["
+1:eJwVxXk4FGgcAGBSzG6OiGqUhhytaFxFa7+vH2EpbK5yZKJQQ46RJAoroyJ5
+SnKsY6Y0ztyMRZgYlCOJVhITSWIw7i7a3T/e51U6HWDntU5ISMj5P/9/xGui
+h/PJ6+BvU9GJBmUOhutN5Gk8oimYe18ZoHhLIz1GakYF0QGerclNS3vrIMuu
+/vJMoifoDCmuTFFtkaPnSn0i8QLY9Oz//poaiIa0rpvcItIhTZMb0U29g5IY
+2ziqJ2KgXLgtwzb3LjoiVYAaMq6BSFTn7yxCMmLPdO6fJcUCJYJ38IleOkoo
+kvnFVi0B5moSeR/uZSOm3NFrccQkiLcT57RTy9DlrhTu8dokeFKaElIWXY6O
+x7xbp3ziHlyvUU60yq1A4kuBkXUZyVDfjgUMAhtd6ku6xCelAW8q1KZOrw7Z
+xw+x/+akQXzWz4pmSY8R2VRtiX7qL+j4lm4XvVqPxiqqAxWy0+GziztNMpiD
+bO++8flDLQvCZGNtRu81I01L5Xz5tiyQ3ObA/UzlIoKI78fxswz4RGN4exu1
+ILeatbJGByZc3FVt4fy9Fcmp3yY7Jd+Hj/RJp6C8dhRFqNgdS3wIqdml7k+p
+PUhFRLOQfJEFAhPFKL2BXtS6+pDc9zIHhHXIzXHn/0HiC8n7SfH54DSn8miV
+9BaVTEvVcCcKII0rYU/cx0N2EzeQj9kjsD7ffuv2gRGUOhRmUrVWDF4bGm98
+LR9DO/mhHkV7SyGCQGO8SxhHAd76qkJvS2FBR9CKIieQjGdJHutAOaysUCwc
+M/nIyfl+iWCuEnTyQuLiPs6jCo8AeXZSFXyVpmf0Si8iSX8cc9mADZHKekSC
+2RJquTrgIhpeDU041E6vdQXpPpIW3UGohR1HWdxEvVV0i82jjRTUQudyq4YB
+aw1NcIoGc6zrQD67JeK9lBDOenW4TOfuY1CcCaf1pQjjjT+iXM13NkLq+YZe
+w6H1+GB+v8dgfSM0ji34u1ZtwDX5yVXVZA7cD7P2arsjiqft+Y8tn3MgU9rP
+I9SRgI/lpXQESTSBN5/Cst4ijgPCD3VjShMEXakk1m6SwLF20y/FiprgN22t
+TwFSkrj++6E36VbNEBH1tHNQfBNWtZ2ZaL7Jhbw9IsxBbRn8lWBPth3lwg5r
+zslTHTL4Bac6aPhAC9xzoTX4UjfjMO2otc8fWiBBP99dtkAWP5eSlSUbtUHe
+fLh2ruVWHPL8V0hdfAbhlytW34gp4B6r3QMnzdqhnzHtw6pXwBodskGqye0w
+Xyq390HwTsxrm80pN+gAtzStUl0+CZs/YUl2hXUCw7jldX+oEt5aKT0sLNwN
+wRT/F+JsFcweNensRi9hnLnNyq9AEzf5ZG535veBpdPF4qAhXbykhqWK/Prh
+BCkaNHIN8LovhZu2q76BHNeCV9wLGOv/cGfbF7+FUIUSN+saY9xJ3/e8dQ8P
+fE/V04VmTDHp9tSX/Jl3kK9UejKlygJPrfCGX2mPgkrdB0Yv3Qo/nKxrl0x4
+D1tEzr2nhdlgSYXc2bGxMWBigfKGF3Y43rvqDFNlHBQffKn9rngMLxsVjlEj
+P8I15o8/xToc8QVdbuWW5gnwFAwrq/u6YF4x92aP0iQ0hJB2UPwo+JtPX7p6
+2BR8E53r9zV1xxrGYmtn6vggNjwiFfbsFDZ/oHS2bOsMiFSLxkxe9cAhCm67
+RlxnodlMnxyl44U1+cc29lsLIFNLoWxy4gzeLCUgcL8KwIFydN3yaype35he
+opwxB61VrEixWh98bl/dwE+W8zCrf2TEoN8XFx4+zWxYnoe8rjh8e80fL03J
+bxpPXoBDTAmmSywNV9mbiySZLoJ6SItsXkUgjrSIYVSOL0LflVhTi97zWGno
+yOvsmCXIkvQ0frUUhA0N6ElE3WUYrjSarzUMxqb6nivTEctAP9DKb+sOxv8C
+NnCzbQ==
+     "]]}, 
+   {Hue[0.9060679774997897, 0.6, 0.6], LineBox[CompressedData["
+1:eJwBwQM+/CFib1JlAgAAADsAAAACAAAASmXo0cDpZT5AyGYKxOHOOwRDGnDf
+GUQ/3e8nKAZUrDwzn5icsxlUPw/bn2TIU7w8S83Xsp0ZZD+o0NuCqVPMPFdk
+972SGXQ/dsv5EZpT3DzdL4dDjRmEP9zIiFmSU+w8oBVPhooZlD+PR1B9jlP8
+PIEIsyeJGaQ/6AY0j4xTDD1YWaGv8PG0P3v1H4iGhB09C/+BXEcevz+zwMFp
+Ze0lPSVR7ujDi8Q/yRFnEIj0LD13zjk/mPTJPyi1hBcUSjI9F7QR3gEBzz/m
+R40pxdg1PbbiQ8zPPNI/Xl6U97SzOT3Cap0bWezUP2Q6FQalfD099SY9D61t
+1z9yvqYLO4JAPQL5qxAbJdo/jiFC8kJsQj02/2C2U67cP+k3OVq7NUQ9zIQ0
+zsYq3z8JMW3iM/ZFPR+Q6/mp7uA/CGygyMvcRz3r99/e1TDiP0NaLzDUokk9
+pOq7yg6O4z9cir31+45LPQ4dp+/k5OQ/O52I2yNyTT2MabVmoCTmP1hjr0K8
+NE899kCr5Gh/5z+oteoDuo5QPXQyxLQWw+g/Q5MrJ85yUT3frsSL0SHqP80R
+bPnxaVI9+2rUmyl66z+7AcvblVxTPStBB/5mu+w/RsvX/vE+VD1HoiFnsRfu
+P8A15NBdNFU9dx1fIuFc7z/YeZ7jgRlWPSzsVQvXTfA/VS93Bib6Vj0TD/AI
+xPrwP7+FT9jZ7Vc9BL+bryOc8T/JtdXqRdFYPWs0u9kJS/I/v4ZbrMHHWT2r
+SWKgvvbyPxvJ/329uVo99esaEOaW8z8V5VGQcZtbPbVTRwOURPQ//aGjUTWQ
+XD1/SIWftOb0P4U4o1OxdF09Id1K2KOF9T9uQMFlrVRePTo3hJQZMvY/R+ne
+JrlHXz1cHs/5AdP2P941VZQ+FWA99cqN4nCB9z+Rx7psKJBgPZgEXnRSJPg/
+E0Z3Ze4CYT0T3rWiAsT4P0f9QmZ0c2E9BX2BVDlx+T/yhI4+gu1hPQCpXq/i
+Evo/bPkwN2xfYj1ymq+NEsL6P14+Uwfe2mI9vSuICBFu+z8BvITfD1RjPRFK
+ciyCDvw/dCYN2B3FYz3cLdDTebz8P11hFaizP2Q9sJ4/JORe/T8WiXSYJbJk
+PV2vNhEd/v0/genikFciZT2AhaGB3Kr+P2Ia0WARnGU9regdmw5M/z8TOBZR
+pw1mPWg2mfEKef8/uy1DPlotZj0ihBRIB6b/P2IjcCsNTWY93NGPngPT/z8I
+GZ0YwGxmPZcfC/X///8/sA7KBXOMZj0/8MGJ
+     "]]}, 
+   {Hue[0.1421359549995791, 0.6, 0.6], LineBox[CompressedData["
+1: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
+qDYjl8uBxZ3sGn8djP8Hi7/NPw==
+     "]]}, 
+   {Hue[0.37820393249936934`, 0.6, 0.6], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAwAWIQ7ZX64uKBl6l2HK1zntzysbRdIOrf1iU5xR7Gb+TY
+rN4puQTOj4hcuP7Dxy1wPvf/xhh3uf1wvmrguxeHu4/A+eXnLO1nfDkJ54tv
+EbzHyHgezt/2yPnMeZtLcP6hrLnSkW+uwPlf1Wz51+Zeh/OZfq4WkFa9Beeb
+/U/YFrzuDpx/psXk3DGt+3C+/ITXP1e+ewDnv/5+/95Vg0dw/pJXu0/x9T2G
+8/lkl79/8uQJnN+TuTVtgcozOP+bw+onGfXP4fwSoyNbxA6/gPPvrzvSfVHx
+FZz/O+vKbM2q13C+tiP7v7Tdb+B890WK6RvF3yHCSzZe6WHMezhf500o93Xf
+D3C+MP8HjiO/EHyW/bPXK8/5COdnm+y+yen9Cc5f7Zm0YN83BP/raymBZ9M+
+w/lbg92Zp7h8gfPrPVrnb3mG4Cve9bqxuPUrnG9l3jJF0ugbnB8jd/4n42UE
+/+up3kcFjd/h/BkscSVBKj8Q7r+3dRHTEQSftbYxxLLwJ5zPsDJu/SOhX3B+
+0az1vUKHEPy92h0cgnm/4XxBryKdJr4/cP4d3QuXK/cg+Bvm2as8ifsL58eu
+NxOU/YfgN7QubLyz6h+cv/aF7Gw+n/9wvlKLiAf7MgR/ujz31///EXwAPviV
+jw==
+     "]]}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotRange->{{0, 2}, {0., 1.2398484365048417`*^-12}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{
+    Scaled[0.02], 
+    Scaled[0.02]}]], "Output",
+ CellChangeTimes->{3.575994496984036*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{Automatic, 136}, {128, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 257, 5, 32, "Input"],
+Cell[839, 29, 468, 10, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1344, 44, 268, 7, 32, "Input"],
+Cell[1615, 53, 822, 20, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2474, 78, 397, 9, 55, "Input"],
+Cell[2874, 89, 727, 17, 34, "Output"]
+}, Open  ]],
+Cell[3616, 109, 389, 10, 32, "Input"],
+Cell[4008, 121, 268, 7, 32, "Input"],
+Cell[4279, 130, 440, 12, 55, "Input"],
+Cell[CellGroupData[{
+Cell[4744, 146, 168, 3, 32, "Input"],
+Cell[4915, 151, 852, 20, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5804, 176, 162, 3, 32, "Input"],
+Cell[5969, 181, 844, 20, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6850, 206, 211, 5, 32, "Input"],
+Cell[7064, 213, 164, 2, 34, "Output"],
+Cell[7231, 217, 6282, 112, 218, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13550, 334, 28007, 567, 67, "WolframAlphaShortInput"],
+Cell[41560, 903, 5773, 136, 119, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47370, 1044, 243, 6, 32, "Input"],
+Cell[47616, 1052, 508, 13, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48161, 1070, 379, 9, 32, "Input"],
+Cell[48543, 1081, 710, 17, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49290, 1103, 246, 6, 32, "Input"],
+Cell[49539, 1111, 797, 19, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50373, 1135, 1164, 23, 165, "Input"],
+Cell[51540, 1160, 6728, 122, 218, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

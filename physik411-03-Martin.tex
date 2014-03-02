@@ -1,0 +1,407 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{3}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{Form}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& \ref 4
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \TextField[name=aufgabe1, width=1cm]{} / 4
+		& \TextField[name=aufgabe2, width=1cm]{} / 8
+		& \TextField[name=aufgabe3, width=1cm]{} / 8
+		& \TextField[name=aufgabe4, width=1cm]{} / 8
+		& \TextField[name=ergebnis, width=1cm]{} / 28
+	\end{tabular}
+\end{table}
+\end{Form}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Photoeffekt                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Photoeffekt}
+\label 1
+
+\subsection{Grenzwellenlänge}
+
+\newcommand\UA{U_\text{A}}
+
+Es muss $\hbar \omega \geq \UA$ gelten. Nach $f$ umgeformt bleibt:
+\[
+	f \geq \frac\UA h = \SI{5.08e14}\hertz
+\]
+
+Und die dazugehörige Wellenlänge:
+\[
+	\lambda \leq \frac{ch}\UA = \SI{5.90e-7}\meter
+\]
+
+\subsection{Geschwindigkeit}
+
+Ich forme nach $v$ um:
+\[
+	h \frac c\lambda - \UA = \half m_\text{e} v^2
+	\implies
+	v = \SI{712000}{\meter\per\second}
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Energie-Impuls-Beziehungen und Comptonwellenlänge              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Energie-Impuls-Beziehungen und Comptonwellenlänge}
+\label 2
+
+\subsection{Diagramm}
+
+Die kinetische Energie für ein klassisches Teilchen ist $E_\text{kin} =
+p^2/(2m)$. Für ein relativistisches Teilchen mit Ruhemasse $E_0$ ist die
+Gesamtenergie $E$: $E^2 = E_0^2 + c^2 p^2$. Dabei ist die kinetische Energie:
+\[
+	E_\text{kin} = \sqrt{E_0^2 + c^2 p^2} - E_0
+\]
+
+Für ein Photon ist $E_0 = 0$. In Abbildung \ref{fig:2-tikz} sind die
+verschiedenen Formeln mit frei gewählten Parametern geplottet. In Abbildung
+\ref{fig:2-mathematica} das ganze mit den richtigen Zahlenwerten, allerdings
+weniger übersichtlich.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=2]
+		\draw[->] (0, 0) -- ++(1.5, 0) node[right] {$p$};
+		\draw[->] (0, 0) -- ++(0, 2.5) node[above] {$E$};
+		\draw[domain=0:1.5] plot (\x, {\x}) node[right] {Photon};
+		\draw[domain=0:1.5] plot (\x, {sqrt(1+\x^2) - 1}) node[right] {Elektron};
+		\draw[domain=0:1.5] plot (\x, {\x^2}) node[right] {klassisches Teilchen};
+	\end{tikzpicture}
+	\caption{%
+		Plot für die verschiedenen Teilchen. Für diesen Plot habe ich $c = h =
+		1$ sowie für das Elektron $E_0 = m = 1$ gesetzt.
+	}
+	\label{fig:2-tikz}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.85\textwidth]{H2-Plot.pdf}
+	\caption{%
+		Plot der Energien für verschiedene Teilchen. In blau ist das klassische
+		Elektron, in violett das Photon und in gelb das Elektron. In grün die
+		Energie des Photons zur Compton-Wellenlänge. Auf der Ordinate ist der
+		Impuls $p$ in $\si{\mega\electronvolt}/c$, auf der Abszisse die
+		kinetische Energie $E$ in $\si\joule$.
+	}
+	\label{fig:2-mathematica}
+\end{figure}
+
+Für kleine Impulse sind die relativistische und die klassische Formel sehr nah
+beieinander, wie zu erwarten ist.
+
+\subsection{Compton-Wellenlänge}
+
+Die Wellenzahl $k$ zur Compton-Wellenlänge ist:
+\[
+	k_\text{C} = \frac{2\piup}{\lambda_\text{C}} = \SI{2.84e12}{\radian\per\meter}
+\]
+
+Der Impuls dazu ist:
+\[
+	p_\text{C} = \hbar k_\text{C} = \SI{3.00e-22}{\kilogram\meter\per\second}
+\]
+
+Und die Energie:
+\[
+	E_\text{C} = cp_\text{C} = \SI{2.99e-22}\joule = \SI{.561}{\mega\electronvolt}
+\]
+
+Den Wert für $p_\text{C}$ habe ich nicht in Abbildung \ref{fig:2-mathematica}
+eingezeichnet, da ich nicht weiß, wie in Mathematica eine vertikale Linie
+eingefügt wird. Sie sollte aber bei \num{.56} liegen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Atomares Magnetfeld, Kernmoment und Hyperfeinstruktur            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Atomares Magnetfeld, Kernmoment und Hyperfeinstruktur}
+\label 3
+
+\subsection{Magnetfeld am Ort des Protons}
+
+Das Gesetz von Biot-Savart ist:
+\begin{equation}
+	\label{eq:biot-savart}
+	\vec B\del{\vec x}
+	= \frac{\mu_0}{4\piup} \int \dif{^3x'} \,
+	\vec j\del{\vec x'} \times \frac{\vec x - \vec x'}{\abs{\vec x - \vec x'}}
+\end{equation}
+
+Ich nehme an, dass das Elektron wie eine Ringladung um das Proton verteilt ist,
+damit ich ein zeitlich konstantes Magnetfeld erhalte.
+\[
+	\varrho(r, \phi, z)
+	= \frac{e}{2\piup a_0} \delta(r - a_0) \delta(z)
+\]
+
+Mit dem Ansatz „Coulomb-Anziehung wirkt als Zentripetalkraft“ erhalte ich die
+Geschwindigkeit:
+\[
+	\frac{1}{4\piup\varepsilon_0} \frac{e^2}{a_0^2} = m_\text{e} \frac{v_0^2}{a_0}
+	\iff
+	v_0 = \sqrt{\frac{1}{4\piup\varepsilon_0} \frac{e^2}{a_0 m_\text{e}}}
+\]
+
+Das Geschwindigkeitsfeld ist:
+\[
+	\vec v\del{\vec x} = v_0 \ev_\phi
+\]
+
+Somit ist die Stromdichte:
+\[
+	\vec j\del{r, \phi, z} = \varrho(r, \phi, z) \vec v\del{\vec x}
+\]
+
+Dies setze ich in \eqref{eq:biot-savart} ein:
+\begin{align*}
+	\vec B\del{\vec 0}
+	&= \frac{\mu_0}{4\piup}
+	\int_{-\infty}^\infty \dif z
+	\int_0^{2\piup} \dif \phi'
+	\int_0^\infty \dif r' \, r'
+	\vec j\del{\vec x'} \times \frac{\vec 0 - \vec x'}{\abs{\vec 0 - \vec x'}} \\
+	\intertext{%
+		Das Integral über $r'$ führe ich aus. Dadurch werden nur alle $r'$ auf
+		$a_0$ gesetzt. Außerdem schreibe ich die Vektoren aus.
+	}
+	&= - \frac{\mu_0}{4\piup}
+	\int_{-\infty}^\infty \dif z
+	\int_0^{2\piup} \dif \phi' \,
+	a_0
+	\frac{e}{2\piup a_0} \delta(z) v_0 \ev_\phi
+	\times \frac{\vec x'}{a_0} \\
+	&= - \frac{\mu_0}{4\piup} \frac{e}{2\piup a_0} v_0
+	\int_0^{2\piup} \dif \phi' \,
+	\ev_{\phi'}
+	\times \begin{pmatrix}
+		a_0 \cos\del{\phi'} \\
+		a_0 \sin\del{\phi'} \\
+		0
+	\end{pmatrix} \\
+	\intertext{%
+		Das Kreuzprodukt liefert gerade $-1$.
+	}
+	&= \frac{\mu_0}{4\piup} \frac{e}{2\piup} v_0
+	\int_0^{2\piup} \dif \phi' \,
+	\ev_z \\
+	\intertext{%
+		Da nichts mehr von $\phi'$ abhängt, liefert diese Integration nur noch
+		einen Faktor $2\piup$.
+	}
+	&= \frac{\mu_0}{4\piup} e v_0 \ev_z \\
+	&= \frac{\mu_0}{4\piup} e^2 \sqrt{\frac{1}{4\piup\varepsilon_0} \frac{1}{a_0 m_\text{e}}} \ev_z
+\end{align*}
+
+Das Magnetfeld zeigt also – wie mit der rechten-Hand-Regel auch anschaulich zu
+sehen – senkrecht zur Rotationsebene nach oben.
+
+Von den Einheiten haut dies allerdings nicht hin, ich muss noch mit $a_0^{-2}$
+multiplizieren, damit als Einheit Tesla herauskommt. Dann ist der Wert:
+\[
+	\vec B\del{\vec 0} = \SI{12.5}\tesla
+\]
+
+Wenn die Coulomb-Kraft zwischen zwei Nukleonen $\SI{150}\newton$ ist, dann ist
+ein derart starkes Magnetfeld nicht weiter verwunderlich.
+
+\subsection{Magnetisches Dipolmoment}
+
+Für den Drehimpuls gilt:
+\[
+	\vec L
+	= \vec r \times \vec p
+	= m_\text{p} r_\text{p} v_\text{p} \ev_z
+	= \underbrace{m_\text{p}^{} r_\text{p}^2}_{\Theta_\text{p}} \vec \omega
+	\overset != \frac\hbar2 \ev_z
+\]
+
+Ich gehe davon aus, dass die Ladungsdichte ein dünner Ring um das Zentrum ist.
+Der Strom durch eine $\ev_z \wedge \ev_\rho$ Ebene ist:
+\[
+	\vec I = e \frac{\omega}{2\piup} \ev_\phi
+\]
+
+Dies muss der Fall sein, weil die Integration nach der Zeit $t$ um eine ganze
+Periode gerade die Ladung $e$ geben muss:
+\[
+	Q = \int_0^{\frac\omega{2\piup}} \dif t \, I = e
+\]
+
+Das magnetische Moment ist:
+\[
+	\vec\mu_\text{p}
+	= \half I \oint_0^{2\piup} \vec x \times \vec{\dif l}
+	= \half I \oint_0^{2\piup r_\text{p}} \dif \phi \, r_\text{p} \ev_z
+	= \half e \frac{\omega}{2\piup} r_\text{p}^2 \oint_0^{2\piup} \dif \phi \, \ev_z
+	= \half e \omega r_\text{p}^2 \ev_z
+\]
+
+Nun soll gerade $\vec L = \hbar \ev_z /2$ sein. Daher:
+\[
+	\vec \omega = \frac{\hbar}{2 m_\text{p}^{} r_\text{p}^2} \ev_z
+\]
+
+Somit ist das magnetische Moment:
+\[
+	\vec\mu_\text{p} = \frac{e \hbar}{4 m_\text{p}} \ev_z
+\]
+
+Nun noch einen Zahlenwert:
+\[
+	\vec\mu_\text{p} = \SI{2.53e-27}{\ampere\meter\squared}
+\]
+
+\subsection{Hyperfeinstruktur}
+
+Die Energiedifferenz ist:
+\[
+	\Deltaup E = 2 B m = \SI{6.32e-26}\joule
+\]
+
+Die Frequenz dazu ist:
+\[
+	\nu_\text{HFS} = \frac{\Deltaup E}{h} = \SI{9.54e7}\hertz
+\]
+
+Mit einem Faktor \num{5.6} multipliziert ergibt dies gerade mal
+\SI{530}{\mega\hertz}, und nicht die benötigten \SI{1.4}{\giga\hertz}. Da fehlt
+also noch gut ein Faktor \num{2.5} irgendwo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            Stern-Gerlach-Versuch                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Stern-Gerlach-Versuch}
+\label 4
+
+\subsection{Skizze}
+
+Der Versuchsaufbau ist in Abbildung \ref{fig:stern-gerlach-skizze} gezeigt.
+
+\begin{figure}
+	\centering
+	\includegraphics{H4-Skizze-crop.pdf}
+	\caption{Aufbau des Stern-Gerlach-Experiments}
+	\label{fig:stern-gerlach-skizze}
+\end{figure}
+
+Man wählt eine derartige Feldkonfiguration, damit es ein inhomogenes Feld und
+somit ein $\od Bz \neq 0$ gibt. Ein homogenes Magnetfeld übt auf einen Dipol
+ausschließlich ein Drehmoment aus. Für die Beobachtbarkeit ist es allerdings
+wichtig, dass auch eine Kraft auf den Schwerpunkt ausgeübt wird, dies geht nur
+mit einem inhomogenen Magnetfeld.
+
+\subsection{Ablenkende Kraft}
+
+Die potentielle Energie ist $V = - \inner{\vec \mu}{\vec B}$. Der negative Gradient gibt die Kraft:
+\[
+	\vec F
+	= - \vnabla V
+	= \vnabla \inner{\vec \mu}{\vec B}
+\]
+
+Unter der Annahme, dass das Magnetfeld nur entlang der $z$-Richtung variiert und $\vec \mu$ konstant ist, erhalte ich:
+\[
+	F_z = \inner{\vec \mu}{\dod{\vec B}z}
+\]
+
+Nach der klassischen Physik wäre zu erwarten, dass die magnetischen Momente
+$\vec \mu$ thermisch verteilt sind, also im Mittel $\vec 0$ und isotrop. Daher
+sollte die Ablenkung, die proportional zu $\mu$ ist, im Mittel null sein. Auf
+dem Schirm ist ein (eventuell Gaußscher) Peak zu erwarten.
+
+Im Experiment zeigen sich allerdings zwei Peaks. Daher gibt es für das
+magnetische Moment nur zwei mögliche Zustände: $\mu = \pm \abs{\tilde\mu}$.
+Diese können allerdings isotrop im Raum verteilt sein. Damit wird das
+Vorzeichen eigentlich auch nicht gebraucht, weil es nur einer Rotation um
+$\SI\pi\radian$ entspricht.
+
+\subsection{Magnetisches Moment der Atome}
+
+Die Kraft $F_z$ wirkt für die Zeit, die das Teilchen braucht, um den Magnet zu passieren:
+\[
+	t = \frac{l_1}{v_x}
+\]
+
+In dieser Zeit wirkt die Beschleunigung $a_y = F_z/M$. Somit ist die Auslenkung
+direkt hinter dem Magneten:
+\[
+	d_z = \half a_z t^2
+\]
+
+Danach fliegt das Atom noch eine Zeit $t_2 = l_2/v_x$ mit der Geschwindigkeit
+$v_z = a_z t_2$. Das gemessene $\delta_z$ ist das Doppelte der Kombination aus
+diesen beiden Termen.
+
+Zusammen mit der Kraft also:
+\[
+	\frac{\delta_z}2 = \frac{\inner{\vec \mu}{\dod{\vec B}z}}{M} \del{\half \del{\frac{l_1}{v_x}}^2 + \frac{l_1l_2}{v_x^2}}
+\]
+
+Umgeformt:
+\[
+	\mu_z = \frac{\delta_z M}{2 \dod{B}z} \del{\half \del{\frac{l_1}{v_x}}^2 + \frac{l_1l_2}{v_x^2}}^{-1}
+	= \SI{9.323e-23}{\ampere\meter\squared}
+\]
+
+Von den Einheiten her stimmt dies, allerdings ist dies deutlich größer als das
+magnetische Moment des Protons, das in Aufgabe \ref 3 bestimmt worden ist.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	%\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de

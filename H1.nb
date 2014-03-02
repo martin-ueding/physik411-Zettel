@@ -1,0 +1,288 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      8979,        278]
+NotebookOptionsPosition[      7803,        230]
+NotebookOutlinePosition[      8313,        252]
+CellTagsIndexPosition[      8229,        247]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"ua", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"2.1", ",", " ", "\"\<ElectronVolt\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5759821815287857`*^9, 3.5759822084200907`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.1`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"eV\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: electronvolts"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Electronvolts\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575982204661273*^9, 3.575982209012443*^9}, 
+   3.575982577287066*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Quantity"}]], "Input",
+ CellChangeTimes->{{3.575982250591304*^9, 3.575982253824378*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\!\(\*RowBox[{\\\"Quantity\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"magnitude\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"unit\
+\\\", \\\"TI\\\"]}], \\\"]\\\"}]\) represents a quantity with size \
+\!\(\*StyleBox[\\\"magnitude\\\", \\\"TI\\\"]\) and the unit specified by \
+\!\(\*StyleBox[\\\"unit\\\", \\\"TI\\\"]\).\\n\!\(\*RowBox[{\\\"Quantity\\\", \
+\\\"[\\\", StyleBox[\\\"unit\\\", \\\"TI\\\"], \\\"]\\\"}]\) assumes the \!\(\
+\*StyleBox[\\\"magnitude\\\", \\\"TI\\\"]\) of the specified \
+\!\(\*StyleBox[\\\"unit\\\", \\\"TI\\\"]\) to be 1.\"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Quantity"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.575982577427552*^9},
+ CellTags->"Info3575989777-6115358"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"f", "=", 
+  RowBox[{"ua", "/", 
+   RowBox[{"Quantity", "[", "\"\<PlanckConstant\>\"", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.575982226464068*^9, 3.575982239536789*^9}, 
+   3.5759822840755157`*^9, {3.575982405466092*^9, 3.575982411055661*^9}, {
+   3.575982444397094*^9, 3.57598244810497*^9}, {3.575982500987307*^9, 
+   3.575982505645056*^9}, {3.57598254835321*^9, 3.575982548819995*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.1`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"eV\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+          StyleBox["\"h\"", Italic, StripOnInput -> False]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: electronvolts per Planck constant"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["\"Electronvolts\"", "\"PlanckConstant\""]}], 
+     "]"}]& )]], "Output",
+ CellChangeTimes->{3.575982506334651*^9, 3.575982577609229*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", "f", "]"}]], "Input",
+ CellChangeTimes->{{3.575982514328671*^9, 3.575982520098871*^9}, {
+  3.575982551322919*^9, 3.575982551414054*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.0777776341699356`*^14"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"per \"", "\[InvisibleSpace]", "\"second\""}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: reciprocal seconds"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["1", "\"Seconds\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.575982520722274*^9, 3.575982577641295*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lambda", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], "/", 
+   "f"}]}]], "Input",
+ CellChangeTimes->{{3.575982553146737*^9, 3.5759825625439672`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"0.47619047619047616`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          StyleBox["\"h\"", Italic, StripOnInput -> False], "\[ThinSpace]", 
+          StyleBox["\"c\"", Italic, StripOnInput -> False], 
+          "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"eV\""}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Planck constant speed of light in vacuum per electronvolt"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"PlanckConstant\"", " ", "\"SpeedOfLight\""}], 
+        "\"Electronvolts\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575982563831061*^9, 3.575982577860618*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", "lambda", "]"}]], "Input",
+ CellChangeTimes->{{3.575982564667997*^9, 3.5759825725758743`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.904009186668669`*^-7"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"m\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: meters"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Meters\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.575982572936207*^9, 3.575982577910883*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Quantity", "[", "\"\<PlanckConstant\>\"", "]"}], 
+      RowBox[{
+       RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}], "/", 
+       RowBox[{"Quantity", "[", 
+        RowBox[{"350", ",", "\"\<NanoMeter\>\""}], "]"}]}]}], "-", "ua"}], 
+    "\[Equal]", 
+    RowBox[{
+     RowBox[{"1", "/", "2"}], " ", 
+     RowBox[{"Quantity", "[", "\"\<ElectronMass\>\"", "]"}], 
+     RowBox[{"v", "^", "2"}]}]}], ",", "v"}], "]"}]], "Input",
+ CellChangeTimes->{{3.575982734570801*^9, 3.5759828360811167`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"v", "\[Rule]", 
+     TemplateBox[{RowBox[{"-", "712310.5765547882`"}]},
+      "QuantityUnit",
+      DisplayFunction->(TooltipBox[
+        StyleBox[
+         RowBox[{#, 
+           StyleBox[
+            
+            RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+              "\[InvisibleSpace]", "\"s\""}], 
+            "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False],
+         "Unit: meters per second"]& ),
+      InterpretationFunction->(RowBox[{"Quantity", "[", 
+         RowBox[{#, ",", 
+           FractionBox["\"Meters\"", "\"Seconds\""]}], "]"}]& )]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"v", "\[Rule]", 
+     TemplateBox[{"712310.5765547882`"},
+      "QuantityUnit",
+      DisplayFunction->(TooltipBox[
+        StyleBox[
+         RowBox[{#, 
+           StyleBox[
+            
+            RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+              "\[InvisibleSpace]", "\"s\""}], 
+            "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False],
+         "Unit: meters per second"]& ),
+      InterpretationFunction->(RowBox[{"Quantity", "[", 
+         RowBox[{#, ",", 
+           FractionBox["\"Meters\"", "\"Seconds\""]}], "]"}]& )]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.575982787964447*^9, 3.575982803898252*^9}, 
+   3.575982836951104*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{114, Automatic}, {74, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3575989777-6115358"->{
+  Cell[1398, 48, 858, 17, 63, "Print",
+   CellTags->"Info3575989777-6115358"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3575989777-6115358", 8126, 241}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 205, 4, 32, "Input"],
+Cell[787, 28, 454, 11, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1278, 44, 117, 2, 32, "Input"],
+Cell[1398, 48, 858, 17, 63, "Print",
+ CellTags->"Info3575989777-6115358"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2293, 70, 414, 7, 32, "Input"],
+Cell[2710, 79, 634, 15, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3381, 99, 179, 3, 32, "Input"],
+Cell[3563, 104, 534, 13, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4134, 122, 204, 5, 32, "Input"],
+Cell[4341, 129, 811, 18, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5189, 152, 137, 2, 32, "Input"],
+Cell[5329, 156, 431, 10, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5797, 171, 604, 16, 99, "Input"],
+Cell[6404, 189, 1383, 38, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
