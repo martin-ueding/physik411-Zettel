@@ -1,0 +1,314 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{8}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l*3{|c}}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 18
+		& \punkte / 14
+		& \punkte / 32
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Das Morse-Potential eines diatomischen Moleküls               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Das Morse-Potential eines diatomischen Moleküls}
+\label 1
+
+\subsection{Energieabstand der Schwingungsniveaus}
+
+Die gegebene Formel kann von den Einheiten nicht stimmen:
+\begin{align*}
+	U(r) &\neq \mu \omega^2 \del{r - r_0} / 2 \\
+	\si\joule &\neq \si{\kilogram \per\second\squared \meter} \\
+	\si{\kilogram\meter\squared\per\second\squared} &\neq \si{\kilogram \per\second\squared \meter}
+\end{align*}
+
+Laut \cite[Folie 12]{kubis/physik421} ist diese eigentlich:
+\[
+	\frac \mu2 \omega_0^2 \del{r-r_0}^2
+\]
+
+Die Energieeigenwerte sind dann:
+\[
+	E_\nu = \hbar \omega \del{\nu + \half}
+\]
+
+Der Abstand der Energien ist $\hbar \omega$.
+
+\subsection{Obertöne}
+
+Sind die Obertöne die, die sich durch die Korrektur ergeben?
+
+\subsection{Plot und Größen}
+
+Für verschiedene $l$ ist das Morse-Potential in Abbildung \ref{fig:1/c/Plot}
+dargestellt.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[scale=1.5]
+		\draw[->] (0, 0) -- ++(7, 0) node[right] {$r$};
+		\draw[->] (0, -1.5) -- ++(0, 4) node[above] {$V(r)$};
+		\draw (1, -.1) -- ++(0, .2) node[above] {$r_0$};
+		\draw (.1, -1) -- ++(-.2, 0) node[left] {$E_0$};
+		\draw[domain=0:7, samples=100, color=blue] plot (\x,{(exp(-(\x-1)) - 1)^2 - 1});
+		\draw[domain=0:7, samples=100, color=MidnightBlue] plot (\x,{(exp(-(\x-1)/2) - 1)^2 - 1});
+		\draw[domain=0:7, samples=100, color=ForestGreen] plot (\x,{(exp(-(\x-1)/3) - 1)^2 - 1});
+	\end{tikzpicture}
+	\caption{%
+		In \textcolor{blue}{blau} das Morse-Potential für $l = 1r_0$. In
+		\textcolor{MidnightBlue}{mitternachtsblau} den Fall $l = 2r_0$. Sowie
+		in \textcolor{ForestGreen}{waldgrün} $l = 3r_0$.
+	}
+	\label{fig:1/c/Plot}
+\end{figure}
+
+Die Rolle von $l$ scheint eine Art charakteristische Länge zu sein. Je größer
+$l$ ist, desto länger reicht das Potential. Beim Wasserstoff ist dies ähnlich,
+da die zugeordneten Laguerrefunktionen mit zunehmendem $l$ auch
+langreichweitiger werden. Daher ist auch der Quantendefekt bei größeren $l$
+kleiner, weil sich die Elektronen nicht mehr so häufig am Kern aufhalten.
+
+\subsection{Schwingungsfrequenz}
+
+Ich bilde die Taylorentwicklung des Potentials $U_\text M(r)$ um den Punkt $r =
+r_0$:
+\[
+	U_\text M(r) = - E_0 + \frac{2E_o}{l^2} \del{r-r_0}^2
+\]
+
+Die Krümmung ist das Potential des harmonischen Oszillators. Dieses ist laut
+\cite[Folie 12]{kubis/physik421}:
+\[
+	\frac \mu2 \omega_0^2 \del{r-r_0}^2
+\]
+
+Durch Umstellen erhalte ich:
+\[
+	\omega_0^2 = \frac{4E_0}{l^2\mu}
+\]
+
+\subsection{Dissoziationsenergie}
+
+Wie beim Wasserstoff auch, muss so viel Arbeit $W_\text{Diss}$ aufgebracht
+werden, dass die Gesamtenergie gleich null ist. Dabei gehe ich davon aus, dass
+vom Minimum des Potentials gerechnet wird.
+\[
+	W_\text{Diss} = - E_0 + \hbar \frac{4E_0}{l^2\mu} \del{\nu + \half}
+\]
+
+Je kleiner das $n$ ist, desto mehr zusätzliche Energie wird gebraucht. Je nach
+$l$ kann der Grundzustand schon ungebunden sein.
+
+\subsection{Energiespektrum}
+
+\begin{align*}
+	\Deltaup E_\text{vib}
+	&= \hbar \omega \del{\nu + 1 + \half} \del{1 - \del{\nu + 1 + \half} \frac{\hbar \omega}{4 E_0}} -
+	\hbar \omega \del{\nu + \half} \del{1 - \del{\nu + \half} \frac{\hbar \omega}{4 E_0}} \\
+	&= \hbar \omega + \del{\nu + 1} \frac{\hbar^2 \omega^2}{2 E}
+\end{align*}
+
+Es kommt noch ein Summand 
+\[
+	\del{\nu + 1} \frac{\hbar^2 \omega^2}{2 E}
+\]
+dazu. Um einen Summanden $\Deltaup E_\text{vib}^{} - \Deltaup E_\text{vib}^\text{HO}$ zu bekommen, muss dann ein Faktor
+\[
+	\frac{\Deltaup E_\text{vib}^{} - \Deltaup E_\text{vib}^\text{HO}}{\Deltaup E_\text{vib}^\text{HO}}
+\]
+eingebracht werden.
+
+Je schwerer, und damit träger, das Gesamtsystem wird (größere $\mu$), desto
+weniger sollte es vom harmonischen Oszillator abweichen, da nur kleinere
+Auslenkungen erreicht werden. Bei höheren Anregungsniveaus $\nu$ wird, wie am
+Plot zu sehen, das harmonische Potential eine immer schlechtere Idealisierung.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Fouriertransformationsinfrarotspektroskopie (FTIR)              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Fouriertransformationsinfrarotspektroskopie (FTIR)}
+\label 2
+
+\subsection{Skizze}
+
+Eine Skizze der Apparatur ist in Abbildung \ref{fig:2/a/Strahlteiler}.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (-.2, 2) -- ++(0, -1);
+		\draw[->] (.2, 2) -- ++(0, -1) node[midway, right] {einfallendes Licht};
+
+		\node[draw] at (4, 0) {Detektor};
+
+		\draw (-2, .5) rectangle (-1.8, -.5);
+		\draw[|-|] (-1.9, .7) -- ++(-1, 0) node[midway, above] {$l$};
+
+		\draw (.5, -2) rectangle (-.5, -1.8);
+
+		\draw (-140:1) -- (50:1) -- (40:1) -- (-130:1) node[midway, below, sloped] {Strahlteiler} -- cycle;
+	\end{tikzpicture}
+	\caption{%
+		Michelsoninterferometer für die
+		Fouriertransformationsinfrarotspektroskopie. Die beiden unbeschrifteten
+		Rechtecke sind Spiegel, der eine davon beweglich. Seine Position wird
+		durch $l$ gegeben.
+	}
+	\label{fig:2/a/Strahlteiler}
+\end{figure}
+
+\subsection{Art der Strahlungsquelle}
+
+Es könnte vielleicht einen Laser geben, der im Infrarotbereich strahlt. Eine
+LED wird wahrscheinlich kein Licht in diesem Spektralbereich abgeben, sie
+strahlen ja auch meistens kaltes Licht aus. Wobei es auch IR-LEDs gibt, zum
+Beispiel für Fernbedienungen (Dank an Lino). Eine Glühlampe eigentlich sich
+wunderbar dafür. Schließlich hat die EU ja die normalen Glühlampen verboten,
+weil sie zu viel Wärme abstrahlen, und nicht genug Licht.
+
+Der Infrarotbereich befindet sich zwischen Wellenlängen von
+\SI{780}{\nano\meter} bis \SI{1}{\milli\meter}.
+\cite{wikipedia/Infrarotstrahlung}
+
+Die ziemlich warme Raumtemperatur von $\SI{300}{\kelvin}$ lässt sich mit dem
+Wien'schen Verschiebungsgesetz in eine Maximalwellenlänge umrechnen:
+\[
+	T \lambda_\text{max} = \SI{2897.8}{\micro\meter\kelvin}
+	\implies
+	\lambda_\text{max} = \SI{9.659}{\micro\meter}
+\]
+
+\subsection{}
+
+Es kommen zwei gleiche Strahlen zur Interferenz, beide mit $I_0/2$. Dabei ist
+\[
+	\tau = \frac{2l}c
+\]
+die Zeit, die das Licht auf dem einen Arm des Interferometers mehr unterwegs
+ist. Das Feld sei linear polarisiert, so dass $E(t)$ eine skalare Größe ist.
+Die Amplitude, die beim Detektor ankommt, ist dann die Differenz der beiden
+Felder, da ein Strahl beim Durchgang durch den Strahlteiler so reflektiert
+wird, dass seine Amplitude gespiegelt wird.
+\begin{align*}
+	\bar E(t)
+	&= \half \del{E(t) - E(t-\tau)} \\
+	\intertext{%
+		Die Energiedichte $\varrho_{W_\text{Feld}}$ ist
+		\[
+			\varrho = \half \varepsilon_0 E^2(t),
+		\]
+		wobei der Strahlungsfluss $I$ gerade $\varrho c$ ist.
+	}
+	I(t)
+	&= \half \varepsilon_0 c \del{\half \del{E(t) - E(t-\tau)}}^2 \\
+	&= \frac{\varepsilon_0 c}4 \del{E^2(t) - 2 E(t) E(t-\tau) +  E^2(t-\tau)} \\
+	\intertext{%
+		Die Intensität muss allerdings über eine ganze Periode gemittelt
+		werden, damit die mittlere Intensität herauskommt:
+	}
+	I
+	&= \frac 1T \int_{\frac T2}^{\frac T2} \dif t \, \frac{\varepsilon_0 c}4 \del{E^2(t) - 2 E(t) E(t-\tau) +  E^2(t-\tau)} \\
+	\intertext{%
+		Mit einer Transformation $t' := t - \tau$ wird der letzte Summand wie
+		der erste zu $\mathcal C(0)$, also $I_0$.
+	}
+	&= \half I_0 - \frac 1T \int_{\frac T2}^{\frac T2} \dif t \, \frac{\varepsilon_0 c}2 E(t) E(t-\tau) \\
+	\intertext{%
+		Damit auch Licht eines schwarzen Körpers benutzt werden kann, muss die
+		Periode unendlich lang sein.
+	}
+	&= \half I_0 - \lim_{T \to \infty} \frac 1T \int_{\frac T2}^{\frac T2} \dif t \, \frac{\varepsilon_0 c}2 E(t) E(t-\tau) \\
+	\intertext{%
+		Das ist die gesuchte Relation.
+	}
+	&= \half I_0 - \half \mathcal C(\tau) \\
+\end{align*}
+
+\subsection{Auflösungsvermögen}
+
+Es gelten:
+\[
+	\omega k = c
+	\eqnsep
+	\omega = \frac kc
+	\eqnsep
+	\Deltaup \omega = \frac{\Deltaup k}c
+\]
+
+Bei einer Diskreten Fouriertransformation (DFT oder FFT) erhalte ich mit $N$
+Messpunkten $N$ Frequenzen. (Oder $N-1$?) Um zwei Frequenzen mit
+Wellenzahlunterschied von $\Deltaup k = \SI{.1}{\per\centi\meter}$
+unterscheiden zu können, brauche ich:
+\[
+	N = \frac{k}{\Deltaup k} = \num{40000}
+\]
+
+Der Spiegel sollte sich soweit bewegen, dass mindestens eine komplette Periode
+abgedeckt ist, also $I$ maximal und minimal geworden ist. Die Spiegelbewegung
+muss also abdecken:
+\[
+	\lambda = \frac{2\piup}{k} = \SI{15708}{\nano\meter} =: N \Deltaup l
+\]
+
+Der Bruchteil $\Deltaup l$ muss dann sein:
+\[
+	\Deltaup l = \SI{3.92}{\nano\meter}
+\]
+
+So klein, wie die Werte allerdings sind, sind die Längen auch vielleicht um den
+Faktor $N$ größer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
