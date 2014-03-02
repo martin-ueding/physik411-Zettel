@@ -1,0 +1,267 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      7621,        258]
+NotebookOptionsPosition[      6636,        217]
+NotebookOutlinePosition[      6992,        233]
+CellTagsIndexPosition[      6949,        230]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"42", "*", "13.6", "*", 
+  RowBox[{"3", "/", "4"}]}]], "Input",
+ CellChangeTimes->{{3.5806560252593184`*^9, 3.580656029749342*^9}}],
+
+Cell[BoxData["428.4`"], "Output",
+ CellChangeTimes->{3.580656030229948*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"5.63*^-10", ",", "\"\<Meter\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.580654481585341*^9, 3.580654525541978*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.63`*^-10"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"m\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: meters"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Meters\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.5806545268074417`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"t", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"ArcSin", "[", 
+     RowBox[{"lambda", " ", 
+      RowBox[{"n", "/", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", "a"}], ")"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "1", ",", "4"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"lambda", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Quantity", "[", 
+         RowBox[{"0.711", ",", "\"\<Angstrom\>\""}], "]"}], ",", 
+        RowBox[{"Quantity", "[", 
+         RowBox[{".631", ",", "\"\<Angstrom\>\""}], "]"}]}], "}"}]}], "}"}]}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.58065439618579*^9, 3.580654465514332*^9}, {
+  3.5806545498088207`*^9, 3.580654564082828*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.06318590824610684`", ",", "0.05606844855125233`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.12662586185228236`", ",", "0.11231413431321685`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0.19058324954163317`", ",", "0.1689194015534253`"}], "}"}], ",", 
+   
+   RowBox[{"{", 
+    RowBox[{"0.2553411253735278`", ",", "0.22607722545497516`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.5806544754507*^9, {3.580654529051167*^9, 3.58065456485493*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"t", "/", "Degree"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5806545663694553`*^9, 3.580654580216391*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"3.6202858672027878`", "3.2124854658331534`"},
+     {"7.255127461342393`", "6.435125875812786`"},
+     {"10.919615844624161`", "9.678368786886871`"},
+     {"14.62996882002396`", "12.953270862597659`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.5806545680691223`*^9, 3.580654580557869*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"lambda", " ", 
+    RowBox[{"2", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", 
+       RowBox[{"Sin", "[", "theta", "]"}]}], ")"}]}]}], "/.", 
+   RowBox[{"lambda", "->", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{".631", ",", "\"\<Angstrom\>\""}], "]"}]}]}], "/.", 
+  RowBox[{"theta", "\[Rule]", 
+   RowBox[{"6.42", "Degree"}]}]}]], "Input",
+ CellChangeTimes->{{3.5806547063139257`*^9, 3.580654763691358*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.643208835815859`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"\[CapitalARing]\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: \[ARing]ngstr\[ODoubleDot]ms"]& ),
+  
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Angstroms\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.580654757946994*^9, 3.580654764808331*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"lambda", " ", 
+    RowBox[{"2", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", 
+       RowBox[{"Sin", "[", "theta", "]"}]}], ")"}]}]}], "/.", 
+   RowBox[{"lambda", "->", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{".711", ",", "\"\<Angstrom\>\""}], "]"}]}]}], "/.", 
+  RowBox[{"theta", "\[Rule]", 
+   RowBox[{"7.24", "Degree"}]}]}]], "Input",
+ CellChangeTimes->{{3.5806547776803207`*^9, 3.580654793786056*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.6417006081617105`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"\[CapitalARing]\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: \[ARing]ngstr\[ODoubleDot]ms"]& ),
+  
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Angstroms\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.580654794410495*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"lambda", " ", 
+    RowBox[{"4", "/", 
+     RowBox[{"(", 
+      RowBox[{"2", 
+       RowBox[{"Sin", "[", "theta", "]"}]}], ")"}]}]}], "/.", 
+   RowBox[{"lambda", "->", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{".631", ",", "\"\<Angstrom\>\""}], "]"}]}]}], "/.", 
+  RowBox[{"theta", "\[Rule]", 
+   RowBox[{"12.93", "Degree"}]}]}]], "Input",
+ CellChangeTimes->{{3.580654815123275*^9, 3.580654825171754*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"5.6399595727447265`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"\[CapitalARing]\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: \[ARing]ngstr\[ODoubleDot]ms"]& ),
+  
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Angstroms\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.580654825657127*^9}]
+}, Open  ]]
+},
+WindowSize->{679, 706},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 154, 3, 32, "Input"],
+Cell[736, 27, 75, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[848, 33, 194, 4, 32, "Input"],
+Cell[1045, 39, 397, 10, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1479, 54, 736, 21, 77, "Input"],
+Cell[2218, 77, 534, 14, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2789, 96, 159, 3, 32, "Input"],
+Cell[2951, 101, 827, 20, 94, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3815, 126, 454, 13, 55, "Input"],
+Cell[4272, 141, 469, 11, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4778, 157, 454, 13, 55, "Input"],
+Cell[5235, 172, 446, 11, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5718, 188, 453, 13, 55, "Input"],
+Cell[6174, 203, 446, 11, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
