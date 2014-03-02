@@ -1,0 +1,286 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{tikz}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{4}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{Form}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \TextField[name=aufgabe1, width=1cm]{} / 3
+		& \TextField[name=aufgabe2, width=1cm]{} / 5
+		& \TextField[name=aufgabe3, width=1cm]{} / 15
+		& \TextField[name=ergebnis, width=1cm]{} / 23
+	\end{tabular}
+\end{table}
+\end{Form}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                         Separation von Koordinaten                          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Separation von Koordinaten}
+\label 1
+
+Zeitunabhängige Schrödingergleichung:
+\[
+	E \ket\psi = \hat H \ket \psi
+	\eqnsep
+	\hat H = \frac{\hat p^2}{2m} + \frac\kappa r
+	\eqnsep
+	\hat p^2 = - \hbar^2 \laplace
+\]
+
+In Kugelkoordinaten:
+\[
+	\laplace = \frac1{r^2} \dpd{}r r^2 \dpd{}r + \frac{1}{r^2 \sin\del\theta} \dpd{}\theta \sin\del\theta \dpd{}\theta + \frac1{r^2\sin^2\del\theta} \dpd[2]{}\phi
+\]
+
+Mit dem Separationsansatz $\psi(\vec x) = R(r) \Theta(\theta) \Phi(\phi)$ kann
+ich die Variable $r$ separieren:
+\[
+	r^2 E - \kappa r - \dpd{}r r^2 R'(r) = \frac1{\sin\del\theta} \dpd{}\theta \sin\del\theta \Theta'(\theta) + \frac1{\sin^2\del\theta} \Phi''(\phi)
+\]
+
+Und als letzten Schritt noch $\theta$ und $\phi$:
+\[
+	\sin\del\theta \dpd{}\theta \sin\del\theta \Theta'(\theta) = - \Phi''(\phi)
+\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           Kugelflächenfunktionen                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Kugelflächenfunktionen}
+\label 2
+
+Diese Aufgabe lasse ich aus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                           Zirkulare Rydberg-Atome                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zirkulare Rydberg-Atome}
+\label 3
+
+\subsection{Effektives Potential und Kreisbahn}
+
+In der Vorlesung wurde folgende Formel gegeben:
+\[
+	V_\text{eff}(r, l) = \frac{\hbar^2 l(l+1)}{2mr^2} + V_\text{Coul}(r)
+\]
+
+Dies setze ich ein:
+\[
+	V_\text{eff}(r, l) = \frac{\hbar^2 l(l+1)}{2m} \frac1{r^2} - \frac{e^2}{4\piup\varepsilon_0} \frac 1r
+\]
+
+Mit $E_\text{Ryd} = e^2 / (8 \piup \varepsilon_0 a_0)$ vereinfacht sich dies
+zu:
+\[
+	V_\text{eff}(r, l) = E_\text{Ryd} \del{l(l+1) \frac{a_0^2}{r^2} - 2 \frac{a_0}r}
+\]
+
+Für einige $l$ ist dies in Abbildung \ref{fig:1} dargestellt. Für $r \to 0$
+divergiert das Potential gegen $\infty$, für $r \to \infty$ konvergiert das
+Potential von unten gegen 0.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{3-Potential.pdf}
+	\caption{$V_\text{eff}(r, l)$ für $n = 1, \ldots, 10$ und $l = n - 1$}
+	\label{fig:1}
+\end{figure}
+
+Eine Kreisbahn ist dann erreicht, wenn das Gesamtenergie (im Diagramm eine
+horizontale Linie) sich nur einmal mit dem Potential schneidet, also das
+Teilchen nur die minimale Energie hat. Dazu bestimme ich das Minimum des
+Potentials:
+\[
+	r = l(l+1) a_0
+\]
+
+Dies löse ich nach $l$ auf und setze es in $V_\text{eff}(r, l)$ ein, um die
+Ortskurve der Minima zu erhalten. Diese Ortskurve ist in Abbildung \ref{fig:2}
+geplottet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{3-Ortskurve.pdf}
+	\caption{%
+		In blau: $V_\text{eff}(r)$ für $n = 1, \ldots, 5$ und $l = n - 1$. In
+		violett: Ortskurve der Minima.
+	}
+	\label{fig:2}
+\end{figure}
+
+\subsection{Große $n$}
+
+Mit $l = n - 1$ ergibt sich $l(l+1) \approx n^2$. Der Radius ist also $n^2 a_0$, wie schon oben hergeleitet.
+
+Die Energie ist dann:
+\[
+	V_\text{eff}\del{r_\text{zirk}(n)}
+	\approx - E_\text{Ryd} \del{\half \frac1{n^2} - \frac1{n^2}}
+	= - \half E_\text{Ryd} \frac1{n^2}
+\]
+
+\subsection{Überlagerung}
+
+Für die Überlagerung betrachte ich zwei Zustände mit einer relativen Amplitude
+von $1/\sqrt2$. Die Energie im Zustand $n$, $E_n$, war in der Vorlesung
+angegeben mit $-E_\text{Ryd}/n^2$. Die Zeitabhängigkeit ist gerade
+$\exp\del{-\ii Et/\hbar}$, durch die Separation der Zeit mit Eigenwert $E$.
+\[
+	\frac1{\sqrt2} \exp\del{\ii (n-1) \phi} \exp\del{\ii \frac{E_\text{Ryd}}{\hbar n^2} t}
+	+
+	\frac1{\sqrt2} \exp\del{\ii (n-2) \phi} \exp\del{\ii \frac{E_\text{Ryd}}{\hbar (n-1)^2} t}
+\]
+
+Die Wahrscheinlichkeitsdichte dazu ist:
+\[
+	\varrho(\phi, t)
+	= 1 + \cos\del{\phi + \frac{E}\hbar \del{\frac1{n^2} - \frac1{(n-1)^2}}t}
+\]
+
+Diese hat die Wellenzahl $k = 1$ und hat somit genau eine Mode. Da dieser
+Zustand dadurch entstanden sind, dass zwei Wellen, die sich durch eine Periode
+mehr unterschieden haben, überlagert worden ist, entsteht eine Schwebung mit
+der Differenz der Frequenzen. Diese Differenz ist allerdings gerade eine
+Periode.
+
+Die Kreisfrequenz ist:
+\begin{align*}
+	\omega
+	&= - \frac{E_\text{Ryd}}\hbar \del{\frac1{n^2} - \frac1{(n-1)^2}} \\
+	&= - \frac{E_\text{Ryd}}\hbar \del{\frac1{n^2} - \frac1{n^2 - 2n + 1}} \\
+	&= - \frac{E_\text{Ryd}}\hbar \frac{-2n + 1}{n^2 \del{n^2 - 2n + 1}} \\
+	&\approx \frac{2E_\text{Ryd}}\hbar {n^3}
+\end{align*}
+
+Klassisch wende ich wieder „Coulombanziehung wirkt als Zentripetalkraft“ an:
+\[
+	\frac{1}{4\piup \varepsilon_0} \frac{r^2}{r^2} = m \omega^2 r
+\]
+
+Mit $r = a_0 n^2$:
+\begin{align*}
+	\omega &= \sqrt{\frac{1}{4\piup \varepsilon_0} \frac{e^2}{a_0^3 n^6 m}} \\
+					   &= \sqrt{\frac{E_\text{Ryd}}{2a_0^2m}} \frac{1}{n^3}
+\end{align*}
+
+Es kommt also die gleiche Abhängigkeit von $n$ heraus, allerdings ist der
+Vorfaktor ein anderer. Von den Einheiten kommt allerdings in beiden Fällen
+als Einheit \si{\radian\per\second} heraus.
+
+\subsection{Empfindlichkeit}
+
+In hohen $n$-Zuständen sind die Atome sehr empfindlich, weil die Energie von
+$1/n^2$ abhängt und so bei hohen $n$ die Zustände sehr nah beieinander liegen.
+So sollten kleine $E$-Felder ausreichen, damit das Energieniveau geändert
+werden kann.
+
+Ein homogenes elektrisches Feld, das überlagert wird, bedeutet ein lineares Potential, das überlagert wird. Dies ist in Abbildung \ref{fig:3} gezeigt.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{3-Ueberlagerung.pdf}
+	\caption{%
+		Überlagerung aus dem effektiven Potential und einem linearen Potential.
+		Dabei wurde die $r$-Achse so gelegt, dass sie entlang dem überlagerten
+		elektrischen Feld zeigt.
+	}
+	\label{fig:3}
+\end{figure}
+
+Damit das Atom ionisiert werden kann, muss das Elektron aus seiner
+Potentialmulde herausfallen können, es darf also kein lokales Minimum mehr
+geben. Ich betrachte also das Potential:
+\[
+	V(r, l) = E_\text{Ryd} \del{l(l+1) \frac{a_0^2}{r^2} - 2 \frac{a_0}r} + E_\text{Feld} e r
+\]
+
+Als nächstes würde ich die Nullstellen der Ableitung bestimmen. Wenn es für $r
+< 0$ keine Nullstellen mehr gibt, gibt es dort auch keine lokalen Minima mehr,
+das Elektron fällt also aus seiner Bahn heraus. Ich erhalte allerdings ein Polynom dritter Ordnung, bei dem die Nullstellenbestimmung nicht so einfach ist.
+
+Diese Indikatorfunktion, bei deren Nullstellen lokale Extremstellen im Potential aufstreten, habe ich für mehrere $l$ pro Bild und für drei Verschiedene Feldstärken in Abbildungen \ref{fig:5}, \ref{fig:6} und \ref{fig:7} geplottet. Es ist zu sehen, dass ein starkes externen Feld diese Indikatorfunktion so weit herunterziehen kann, dass keine Nullstelle mehr auftaucht. Somit 
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-000.pdf}
+		\caption{$E_\text{Feld} = 0$}
+		\label{fig:5}
+\end{figure}
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-018.pdf}
+		\caption{$E_\text{Feld} = 18$}
+		\label{fig:6}
+\end{figure}
+
+\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{3-Indikator-058.pdf}
+		\caption{$E_\text{Feld} = 58$}
+		\label{fig:7}
+\end{figure}
+
+Der Quelltext für diese Plots:
+\begin{verbatim}
+	gradient[r_, l_, a0_, eryd_, efeld_, e_] := 
+		eryd (-2 l (l + 1) a0^2 + 2 a0 Abs[r]) + efeld e r^3
+
+	Manipulate[Plot[Evaluate[Table[gradient[r, n - 1, 1, 13.6, efeld, 1],
+		{n, 1, 5}]], {r, -30, 10},
+		AxesLabel -> {"Radius in a_0", "Indikatorfunktion"}], {efeld, 0, 1}]
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	%\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
