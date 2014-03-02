@@ -33,30 +33,28 @@
 	\ccbysadetitle
 \end{center}
 
-\begin{Form}
-	\begin{table}[h]
-		\centering
-		\begin{tabular}{l|c|c|c|c|c|c|c}
-			Aufgabe
-			& \ref 1
-			& \ref 2
-			& \ref 3
-			& \ref 4
-			& \ref 5
-			& \ref 6
-			& $\sum$   \\
-			\hline
-			Punkte
-			& \TextField[name=aufgabe1, width=1cm]{} / 3
-			& \TextField[name=aufgabe2, width=1cm]{} / 4
-			& \TextField[name=aufgabe3, width=1cm]{} / 5
-			& \TextField[name=aufgabe4, width=1cm]{} / 4
-			& \TextField[name=aufgabe5, width=1cm]{} / 7
-			& \TextField[name=aufgabe6, width=1cm]{} / 5
-			& \TextField[name=ergebnis, width=1cm]{} / 28
-		\end{tabular}
-	\end{table}
-\end{Form}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& \ref 4
+		& \ref 5
+		& \ref 6
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 3
+		& \punkte / 4
+		& \punkte / 5
+		& \punkte / 4
+		& \punkte / 7
+		& \punkte / 5
+		& \punkte / 28
+	\end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                 Präzession                                 %
@@ -69,8 +67,8 @@ Mit der Larmorfrequenz
 \[
 	\omega_\text L = \frac{g_\text L \mu_\text B B_z}\hbar
 \]
-und den gegeben Werten erhalte ich $\omega_\text L =
-\SI{4.39515e6}{\radian\per\second}$. Mit den anderen Werten erhalte ich
+$g_\text L = 2$ und den gegeben Werten erhalte ich $\omega_\text L =
+\SI{8.7903e6}{\radian\per\second}$. Mit den anderen Werten erhalte ich
 $\omega_\text L = \SI{13405.7}{\radian\per\second}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -100,7 +98,7 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 \section{Spektroskopische Notation}
 \label 3
 
-\subsection{In Notation schreiben}
+\subsection{Notation schreiben}
 
 \[
 	n = 3
@@ -109,7 +107,7 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 	\eqnsep
 	j = \frac 52
 	\iff
-	3 \mathrm D_{5/2}
+	3 \mathrm F_{5/2}
 \]
 \[
 	n = 2
@@ -118,7 +116,7 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 	\eqnsep
 	j = \frac 32
 	\iff
-	2 \mathrm P_{3/2}
+	2 \mathrm D_{3/2}
 \]
 
 \subsection{Notation lesen}
@@ -128,7 +126,7 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 	\iff
 	n = 6
 	\eqnsep
-	l = 2
+	l = 1
 	\eqnsep
 	s = \frac 12
 	\eqnsep
@@ -139,7 +137,7 @@ größeren Magnetfeldern ist der Übergang zum Paschen-Back-Effekt.
 	\iff
 	n = 6
 	\eqnsep
-	l = 1
+	l = 0
 	\eqnsep
 	s = \half
 	\eqnsep
@@ -186,15 +184,15 @@ Die erlaubten Übergänge sind in Abbildung \ref{fig:termschema}.
 \begin{tabular}{ccS}
 	{$n$} & {$l$} & {$E_{n,l}/\si\electronvolt$} \\
 	\hline
-	1 & s & 944.84 \\
-	1 & p & 99.3842 \\
-	1 & d & 13.8819 \\
-	2 & s & 10.8464 \\
-	2 & p & 34.2799 \\
-	2 & d & 3.43569 \\
-	3 & s & 3.02725 \\
-	3 & p & 5.12089 \\
+	3 & s & 5.12089 \\
+	3 & p & 3.02725 \\
 	3 & d & 1.52187 \\
+	4 & s & 1.96702 \\
+	4 & p & 1.39769 \\
+	4 & d & 0.854624 \\
+	5 & s & 1.03254 \\
+	5 & p & 0.801542 \\
+	5 & d & 0.546411 \\
 \end{tabular}
 
 Die Natrium-D-Linie ist der Übergang von 3p nach 3s. Die Wellenlänge dazu ist
@@ -244,16 +242,17 @@ Die Maximale Intensität ist bei $\omega = \omega_0$. Die halbe Intensität ergi
 	\del{\omega - \omega_0}^2 = \frac{\Gamma^2}4,
 \]
 
-Also bei $\abs{\omega_0 - \omega} = \Gamma / \sqrt 2$. Die volle Halbwertsbreite ist somit:
+Also bei $\abs{\omega_0 - \omega} = \Gamma / 2$. Die volle Halbwertsbreite ist
+somit:
 \[
-	\Deltaup \omega_\text{FWHM} = \sqrt 2 \Gamma
+	\Deltaup \omega_\text{FWHM} = \Gamma
 \]
 
 \subsection{Cäsium}
 
 Bei Cäsium ist $\tau = \SI{30}{\nano\second}$, $\Gamma = 1/\tau$.
 \[
-	\Deltaup\nu = \frac{\piup}{\sqrt 2 \tau} = \SI{7.40e7}\hertz
+	\Deltaup\nu = \frac{1}{2 \piup\tau} = \SI{5.3}{\mega\hertz}
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
