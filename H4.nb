@@ -1,0 +1,558 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     17731,        549]
+NotebookOptionsPosition[     16038,        484]
+NotebookOutlinePosition[     16373,        499]
+CellTagsIndexPosition[     16330,        496]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ekin", "[", "r_", "]"}], "=", 
+  RowBox[{
+   RowBox[{"1", "/", 
+    RowBox[{"(", 
+     RowBox[{"8", "Pi", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<VacuumPermittivity\>\""}], "]"}]}], ")"}]}], 
+   " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{"1", ",", "\"\<ElectronCharge\>\""}], "]"}], "^", "2"}], "/", 
+    "r"}]}]}]], "Input",
+ CellChangeTimes->{{3.5754519142806597`*^9, 3.575451957567602*^9}, {
+  3.57545313845581*^9, 3.575453212112335*^9}, {3.575453511377047*^9, 
+  3.575453521067464*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  TemplateBox[{FractionBox["1", 
+     RowBox[{"8", " ", "\[Pi]"}]]},
+   "QuantityUnit",
+   DisplayFunction->(TooltipBox[
+     StyleBox[
+      RowBox[{#, 
+        StyleBox[
+         RowBox[{
+           SuperscriptBox[
+            StyleBox["\"e\"", Italic, StripOnInput -> False], "2"], 
+           "\[NegativeMediumSpace]", "\"/\"", "\[InvisibleSpace]", 
+           SubscriptBox["\"\[CurlyEpsilon]\"", "0"]}], 
+         "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+     "Unit: elementary charges squared per electric constant"]& ),
+   InterpretationFunction->(RowBox[{"Quantity", "[", 
+      RowBox[{#, ",", 
+        FractionBox[
+         SuperscriptBox["\"ElementaryCharge\"", "2"], 
+         "\"ElectricConstant\""]}], "]"}]& )], "r"]], "Output",
+ CellChangeTimes->{{3.575451949554091*^9, 3.575451975856687*^9}, 
+   3.575453174938727*^9, 3.575453213483699*^9, 3.575453521553054*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"epot", "[", "r_", "]"}], "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "1"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", "Pi", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<VacuumPermittivity\>\""}], "]"}]}], ")"}]}], 
+   " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Quantity", "[", 
+      RowBox[{"1", ",", "\"\<ElectronCharge\>\""}], "]"}], "^", "2"}], "/", 
+    "r"}]}]}]], "Input",
+ CellChangeTimes->{{3.5754520284045343`*^9, 3.5754520436520987`*^9}, {
+  3.5754532249927063`*^9, 3.5754532312461157`*^9}, {3.575453523855419*^9, 
+  3.575453531748247*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  TemplateBox[{RowBox[{"-", 
+      FractionBox["1", 
+       RowBox[{"4", " ", "\[Pi]"}]]}]},
+   "QuantityUnit",
+   DisplayFunction->(TooltipBox[
+     StyleBox[
+      RowBox[{#, 
+        StyleBox[
+         RowBox[{
+           SuperscriptBox[
+            StyleBox["\"e\"", Italic, StripOnInput -> False], "2"], 
+           "\[NegativeMediumSpace]", "\"/\"", "\[InvisibleSpace]", 
+           SubscriptBox["\"\[CurlyEpsilon]\"", "0"]}], 
+         "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+     "Unit: elementary charges squared per electric constant"]& ),
+   InterpretationFunction->(RowBox[{"Quantity", "[", 
+      RowBox[{#, ",", 
+        FractionBox[
+         SuperscriptBox["\"ElementaryCharge\"", "2"], 
+         "\"ElectricConstant\""]}], "]"}]& )], "r"]], "Output",
+ CellChangeTimes->{3.575452044269061*^9, 3.575453240297296*^9, 
+  3.575453532484673*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"e", "[", "r_", "]"}], "=", 
+  RowBox[{
+   RowBox[{"ekin", "[", "r", "]"}], "+", 
+   RowBox[{"epot", "[", "r", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.575452799393252*^9, 3.575452812240747*^9}, {
+  3.575453226296067*^9, 3.575453237028859*^9}, {3.5754535428244267`*^9, 
+  3.57545354681214*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox[
+   TemplateBox[{RowBox[{"-", 
+       FractionBox["1", 
+        RowBox[{"4", " ", "\[Pi]"}]]}]},
+    "QuantityUnit",
+    DisplayFunction->(TooltipBox[
+      StyleBox[
+       RowBox[{#, 
+         StyleBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["\"e\"", Italic, StripOnInput -> False], "2"], 
+            "\[NegativeMediumSpace]", "\"/\"", "\[InvisibleSpace]", 
+            SubscriptBox["\"\[CurlyEpsilon]\"", "0"]}], 
+          "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+      "Unit: elementary charges squared per electric constant"]& ),
+    InterpretationFunction->(RowBox[{"Quantity", "[", 
+       RowBox[{#, ",", 
+         FractionBox[
+          SuperscriptBox["\"ElementaryCharge\"", "2"], 
+          "\"ElectricConstant\""]}], "]"}]& )], "r"], "+", 
+  FractionBox[
+   TemplateBox[{FractionBox["1", 
+      RowBox[{"8", " ", "\[Pi]"}]]},
+    "QuantityUnit",
+    DisplayFunction->(TooltipBox[
+      StyleBox[
+       RowBox[{#, 
+         StyleBox[
+          RowBox[{
+            SuperscriptBox[
+             StyleBox["\"e\"", Italic, StripOnInput -> False], "2"], 
+            "\[NegativeMediumSpace]", "\"/\"", "\[InvisibleSpace]", 
+            SubscriptBox["\"\[CurlyEpsilon]\"", "0"]}], 
+          "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+      "Unit: elementary charges squared per electric constant"]& ),
+    InterpretationFunction->(RowBox[{"Quantity", "[", 
+       RowBox[{#, ",", 
+         FractionBox[
+          SuperscriptBox["\"ElementaryCharge\"", "2"], 
+          "\"ElectricConstant\""]}], "]"}]& )], "r"]}]], "Output",
+ CellChangeTimes->{3.57545281272948*^9, 3.575453237656084*^9, 
+  3.575453547506015*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"Simplify", "[", 
+   RowBox[{
+    RowBox[{"e", "[", "r", "]"}], "*", "r"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.575453259254179*^9, 3.575453299319612*^9}, {
+  3.575453370894023*^9, 3.575453378133937*^9}, {3.575453568294491*^9, 
+  3.57545357361277*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  RowBox[{"-", "1.15353867618530793028723019117`7.058582339353241*^-28"}]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"kg\"", "\[ThinSpace]", 
+          SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", 
+          SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], 
+    "Unit: kilogram meters cubed per second squared"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox[
+        RowBox[{"\"Kilograms\"", " ", 
+          SuperscriptBox["\"Meters\"", "3"]}], 
+        SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5754532815087013`*^9, 3.5754533001506033`*^9}, {
+  3.5754533714587383`*^9, 3.575453378919118*^9}, {3.57545355424496*^9, 
+  3.575453574140983*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s1", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"e", "[", "r", "]"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"-", "13.6"}], ",", "\"\<ElectronVolt\>\""}], "]"}]}], ",", 
+    "r"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.5754528730624*^9, 3.5754528898145027`*^9}, {
+  3.57545339967162*^9, 3.575453424378545*^9}, {3.575453780837137*^9, 
+  3.575453784125339*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ratnz"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Solve was unable to solve the system with inexact \
+coefficients. The answer was obtained by solving a corresponding exact system \
+and numericizing the result. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Solve\\\", ButtonNote -> \
+\\\"Solve::ratnz\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.575452890327971*^9, {3.575453395160177*^9, 3.57545342582904*^9}, {
+   3.575453782780459*^9, 3.575453785045169*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"r", "\[Rule]", 
+    TemplateBox[{"5.293987077369543`*^-11"},
+     "QuantityUnit",
+     DisplayFunction->(TooltipBox[
+       StyleBox[
+        RowBox[{#, 
+          StyleBox["\"m\"", "QuantityUnitTraditionalLabel"]}], 
+        ShowStringCharacters -> False], "Unit: meters"]& ),
+     InterpretationFunction->(RowBox[{"Quantity", "[", 
+        RowBox[{#, ",", "\"Meters\""}], "]"}]& )]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.575452890329323*^9, {3.5754533953385468`*^9, 3.5754534258421164`*^9}, {
+   3.5754537827973022`*^9, 3.575453785062499*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s2", "=", 
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ekin", "[", 
+      RowBox[{"r", "/.", "s1"}], "]"}], "\[Equal]", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], 
+      RowBox[{"Quantity", "[", "\"\<ElectronMass\>\"", "]"}], 
+      RowBox[{"v", "^", "2"}]}]}], ",", "v"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575453730140046*^9, 3.575453821894248*^9}, {
+  3.575458904037682*^9, 3.575458905142606*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"v", "\[Rule]", 
+     TemplateBox[{RowBox[{"-", "2.187233557540019`*^6"}]},
+      "QuantityUnit",
+      DisplayFunction->(TooltipBox[
+        StyleBox[
+         RowBox[{#, 
+           StyleBox[
+            
+            RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+              "\[InvisibleSpace]", "\"s\""}], 
+            "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False],
+         "Unit: meters per second"]& ),
+      InterpretationFunction->(RowBox[{"Quantity", "[", 
+         RowBox[{#, ",", 
+           FractionBox["\"Meters\"", "\"Seconds\""]}], "]"}]& )]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"v", "\[Rule]", 
+     TemplateBox[{"2.187233557540019`*^6"},
+      "QuantityUnit",
+      DisplayFunction->(TooltipBox[
+        StyleBox[
+         RowBox[{#, 
+           StyleBox[
+            
+            RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", 
+              "\[InvisibleSpace]", "\"s\""}], 
+            "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False],
+         "Unit: meters per second"]& ),
+      InterpretationFunction->(RowBox[{"Quantity", "[", 
+         RowBox[{#, ",", 
+           FractionBox["\"Meters\"", "\"Seconds\""]}], "]"}]& )]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.575453756668213*^9, {3.575453794089625*^9, 3.575453822888093*^9}, 
+   3.5754589064853153`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"beta", "=", 
+  RowBox[{
+   RowBox[{"v", "/", 
+    RowBox[{"Quantity", "[", "\"\<SpeedOfLight\>\"", "]"}]}], "/.", 
+   RowBox[{"s2", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.575458910079692*^9, 3.575458928754994*^9}, {
+  3.575459103348897*^9, 3.575459114888914*^9}}],
+
+Cell[BoxData["0.007295825826078716`"], "Output",
+ CellChangeTimes->{
+  3.575458929387176*^9, {3.5754591047102327`*^9, 3.575459115353249*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gamma", "=", 
+  RowBox[{"1", "/", 
+   RowBox[{"Sqrt", "[", 
+    RowBox[{"1", "-", 
+     RowBox[{"beta", "^", "2"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.575458931369849*^9, 3.575458938199277*^9}}],
+
+Cell[BoxData["1.0000266155997897`"], "Output",
+ CellChangeTimes->{3.575458938905595*^9, 3.575459117619483*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"deltaE", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Quantity", "[", "\"\<ElectronCharge\>\"", "]"}], "^", "2"}], " ", 
+   RowBox[{"beta", "^", "3"}], " ", 
+   RowBox[{
+    RowBox[{"gamma", "^", "4"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Quantity", "[", "\"\<VacuumPermittivity\>\"", "]"}], "*", "3", 
+      "*", 
+      RowBox[{"(", 
+       RowBox[{"r", "/.", "s1"}], ")"}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.5754589812231617`*^9, 3.5754590431811657`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  TemplateBox[{"2445.4876634899647`"},
+   "QuantityUnit",
+   DisplayFunction->(TooltipBox[
+     StyleBox[
+      RowBox[{#, 
+        StyleBox[
+         RowBox[{
+           SuperscriptBox[
+            StyleBox["\"e\"", Italic, StripOnInput -> False], "2"], 
+           "\[NegativeMediumSpace]", "\"/(\"", "\[InvisibleSpace]", "\"m\"", 
+           "\[ThinSpace]", 
+           SubscriptBox["\"\[CurlyEpsilon]\"", "0"], "\[InvisibleSpace]", 
+           "\")\""}], "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+      False], "Unit: elementary charges squared per meter electric constant"]& \
+),
+   InterpretationFunction->(RowBox[{"Quantity", "[", 
+      RowBox[{#, ",", 
+        FractionBox[
+         SuperscriptBox["\"ElementaryCharge\"", "2"], 
+         RowBox[{"\"ElectricConstant\"", " ", "\"Meters\""}]]}], "]"}]& )], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.575459045538319*^9, 3.57545911925298*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", "deltaE", "]"}]], "Input",
+ CellChangeTimes->{{3.575459126194331*^9, 3.575459130266189*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  TemplateBox[{"7.089857335667931`*^-24"},
+   "QuantityUnit",
+   DisplayFunction->(TooltipBox[
+     StyleBox[
+      RowBox[{#, 
+        StyleBox[
+         RowBox[{"\"kg\"", "\[ThinSpace]", 
+           SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+           "\[InvisibleSpace]", 
+           SuperscriptBox["\"s\"", "2"]}], "QuantityUnitTraditionalLabel"]}], 
+      ShowStringCharacters -> False], 
+     "Unit: kilogram meters squared per second squared"]& ),
+   InterpretationFunction->(RowBox[{"Quantity", "[", 
+      RowBox[{#, ",", 
+        FractionBox[
+         RowBox[{"\"Kilograms\"", " ", 
+           SuperscriptBox["\"Meters\"", "2"]}], 
+         SuperscriptBox["\"Seconds\"", "2"]]}], "]"}]& )], "}"}]], "Output",
+ CellChangeTimes->{3.575459130777824*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"energie", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"-", "13.6"}], ",", "\"\<ElectronVolt\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.575459310893857*^9, 3.575459323819015*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{RowBox[{"-", "13.6`"}]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"eV\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: electronvolts"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Electronvolts\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.575459325076271*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"umlaeufe", "=", 
+  RowBox[{"energie", "/", "deltaE"}]}]], "Input",
+ CellChangeTimes->{{3.575459327986738*^9, 3.5754593335705223`*^9}, {
+  3.575459526836275*^9, 3.575459533741589*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"-", "307334.8341493421`"}], "}"}]], "Output",
+ CellChangeTimes->{3.575459334201223*^9, 3.575459534363593*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"t", "=", 
+  RowBox[{"2", " ", "Pi", " ", "umlaeufe", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"r", "/.", "s1"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"v", "/.", 
+      RowBox[{"s2", "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.575459521852058*^9, 3.575459569021442*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  TemplateBox[{"4.673899523069203`*^-11"},
+   "QuantityUnit",
+   DisplayFunction->(TooltipBox[
+     StyleBox[
+      RowBox[{#, 
+        StyleBox["\"s\"", "QuantityUnitTraditionalLabel"]}], 
+      ShowStringCharacters -> False], "Unit: seconds"]& ),
+   InterpretationFunction->(RowBox[{"Quantity", "[", 
+      RowBox[{#, ",", "\"Seconds\""}], "]"}]& )], "}"}]], "Output",
+ CellChangeTimes->{{3.575459556544694*^9, 3.575459569447995*^9}}]
+}, Open  ]]
+},
+WindowSize->{956, 556},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 586, 17, 32, "Input"],
+Cell[1168, 41, 934, 22, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2139, 68, 613, 18, 32, "Input"],
+Cell[2755, 88, 911, 23, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3703, 116, 330, 8, 32, "Input"],
+Cell[4036, 126, 1743, 44, 60, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5816, 175, 316, 7, 32, "Input"],
+Cell[6135, 184, 947, 22, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7119, 211, 447, 12, 32, "Input"],
+Cell[7569, 225, 621, 13, 43, "Message"],
+Cell[8193, 240, 615, 15, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8845, 260, 454, 12, 32, "Input"],
+Cell[9302, 274, 1416, 39, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10755, 318, 326, 8, 32, "Input"],
+Cell[11084, 328, 141, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11262, 335, 228, 6, 32, "Input"],
+Cell[11493, 343, 110, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11640, 349, 508, 14, 55, "Input"],
+Cell[12151, 365, 944, 23, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13132, 393, 135, 2, 32, "Input"],
+Cell[13270, 397, 813, 20, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14120, 422, 222, 5, 32, "Input"],
+Cell[14345, 429, 420, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14802, 444, 207, 4, 32, "Input"],
+Cell[15012, 450, 149, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15198, 458, 356, 10, 32, "Input"],
+Cell[15557, 470, 465, 11, 37, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

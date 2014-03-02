@@ -1,0 +1,136 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3361,        127]
+NotebookOptionsPosition[      2625,         95]
+NotebookOutlinePosition[      2963,        110]
+CellTagsIndexPosition[      2920,        107]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"<<", "PhysicalConstants`"}]], "Input",
+ CellChangeTimes->{{3.575450108037341*^9, 3.575450112271332*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"General", "::", "obspkg"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\\"PhysicalConstants`\\\"\\)\[NoBreak] is \
+now obsolete. The legacy version being loaded may conflict with current \
+Mathematica functionality. See the Compatibility Guide for updating \
+information.\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.575450112717033*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"n", "=", 
+  RowBox[{"S", " ", "PlanckConstant", " ", 
+   RowBox[{"SpeedOfLight", "/", 
+    RowBox[{"(", 
+     RowBox[{"ElectronCharge", " ", "lambda"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.575449270230401*^9, 3.575449292211289*^9}, {
+  3.575450119136106*^9, 3.575450132701866*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"1.2398418754199976`*^-6", " ", "Joule", " ", "Meter", " ", "S"}], 
+  RowBox[{"Coulomb", " ", "lambda"}]]], "Output",
+ CellChangeTimes->{3.575450135302668*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"S", "=", 
+  RowBox[{"0.62", 
+   RowBox[{"Ampere", "/", "Watt"}]}]}]], "Input",
+ CellChangeTimes->{{3.575450140213265*^9, 3.5754501480514507`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"0.62`", " ", "Ampere"}], "Watt"]], "Output",
+ CellChangeTimes->{3.575450149152403*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"lambda", "=", 
+  RowBox[{"850*^-9", "Meter"}]}]], "Input",
+ CellChangeTimes->{{3.575450151689164*^9, 3.575450159357628*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"17", " ", "Meter"}], "20000000"]], "Output",
+ CellChangeTimes->{3.575450159835984*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["n"], "Input",
+ CellChangeTimes->{3.575450162743166*^9}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"0.9043552503063512`", " ", "Ampere", " ", "Joule"}], 
+  RowBox[{"Coulomb", " ", "Watt"}]]], "Output",
+ CellChangeTimes->{3.575450163283621*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 867},
+WindowMargins->{{150, Automatic}, {Automatic, 52}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 128, 2, 32, "Input"],
+Cell[710, 26, 409, 9, 62, "Message"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1156, 40, 314, 7, 32, "Input"],
+Cell[1473, 49, 197, 4, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1707, 58, 170, 4, 32, "Input"],
+Cell[1880, 64, 125, 3, 49, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2042, 72, 148, 3, 32, "Input"],
+Cell[2193, 77, 125, 3, 49, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2355, 85, 69, 1, 32, "Input"],
+Cell[2427, 88, 182, 4, 49, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

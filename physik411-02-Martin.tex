@@ -1,0 +1,329 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{2}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l|c|c|c|c|c}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& \ref 4
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 4
+		& \punkte / 4
+		& \punkte / 11
+		& \punkte / 10
+		& \punkte / 29
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Quanteneffizienz einer Photodiode                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quanteneffizienz einer Photodiode}
+\label 1
+
+Mit der Photonenzahl $m$ und der Elektronenzahl $n$:
+\[
+	S_\lambda
+	= \frac{I}{P}
+	= \frac{I \lambda t}{m h c}
+	= \frac{Q \lambda}{m h c}
+	= \frac{n e \lambda}{m h c}
+	\iff
+	\frac nm = \frac{S_\lambda h c}{e \lambda}
+	\implies
+	\frac nm = \num{0.904}
+\]
+
+Also \SI{90.4}{\percent} der eintreffenden Photonen lösen ein Elektron aus.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                    Unschärferelation im Kastenpotential                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Unschärferelation im Kastenpotential}
+\label 2
+
+\[
+	\Deltaup x \Deltaup p \geq \frac{\hbar}{2}
+	\iff
+	\Deltaup p \geq \frac{\hbar}{2a}
+	\iff
+	\Deltaup v \geq \frac{\hbar}{2am}
+	\iff
+	\del{\Deltaup v}^2 \geq \frac{\hbar^2}{4a^2m^2}
+	\iff
+	\Deltaup E = \half m \del{\Deltaup v}^2 \geq \frac{\hbar^2}{8a^2m}
+\]
+
+Auf dem vorherigen Aufgabenblatt habe ich die Energie nicht richtig bestimmt, daher benutze ich die Formel aus der Vorlesung \cite[Seite 6]{meschede-physik441-2013-04-18}:
+\[
+	E_l = \frac{\hbar^2 \piup^2}{8 a^2 m} (l+1)^2
+\]
+
+Für den Grundzustand $l = 0$ unterscheidet sich dies um einen Faktor $\piup^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Quasiklassische Zustände im harmonischen Oszillator             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quasiklassische Zustände im harmonischen Oszillator}
+\label 3
+
+\subsection{Aufenthaltswahrscheinlichkeit}
+
+Die Aufenthaltswahrscheinlichkeit ist:
+\begin{align*}
+	\abs{\Psi(x, t)}^2 &= \frac{1}{x_0 2^n n!} \frac{1}{\sqrt \piup} H_n^2\del{\frac x{x_0}} \exp\del{-\frac{x^2}{x_0^2}}
+\end{align*}
+
+Allerdings hängt dies nicht mehr von der Zeit $t$ sondern nur noch vom Ort $x$
+ab. Somit ist die Aufenthaltswahrscheinlichkeit als Funktion der Zeit $t$ nur
+eine konstante Funktion. Und dies kann es wohl nicht sein, oder?
+
+Für verschiedene $n$ ist $\abs{\Psi_n(x,t)}^2$ in Abbildung \ref{fig:n}
+geplottet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{H3-n.pdf}
+	\caption{Plot von $\abs{\Psi_n(x,t)}^2$ für $n = 0, \ldots, 3$. Horizontale Achse ist $x$, vertikale Achse ist die Wahrscheinlichkeitsdichte.}
+	\label{fig:n}
+\end{figure}
+
+\subsection{Überlagerungszustand}
+
+Zuerst schaue ich, ob die Wellenfunktion $\Psi_0$ schon normiert ist:
+\begin{align*}
+	\braket{\Psi_0}{\Psi_0}
+	&= \int_{-\infty}^\infty \dif x \, \frac{1}{x_0} \frac{1}{\sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \frac{1}{x_0} \frac{1}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \exp\del{-\frac{x^2}{x_0^2}} \\
+	&= \frac{1}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, \exp\del{-x'^2} \\
+	&= 1
+\end{align*}
+
+$\Psi_0$ ist also schon normiert. Ich gehe davon aus, das die restlichen
+$\Psi_n$ auch schon normiert sind.
+
+Nun betrachte ich die Überlagerung:
+\[
+	\ket{\Phi} = \ket{\Psi_0} + \epsilon \ket{\Psi_1}
+\]
+
+Für den Zustand $\ket\Phi$ bestimme ich nun die Wahrscheinlichkeitsdichte:
+\begin{align*}
+	\abs{\Phi(x, t)}^2
+	&= \Phi^*(x, t) \Phi(x, t) \\
+	&= \del{\Psi_0^*(x, t) + \epsilon \Psi_1^*(x, t)} \del{\Psi_0(x, t) + \epsilon \Psi_1(x, t)} \\
+	&= \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_1^*(x, t) \Psi_1(x, t) + \mathcal O\del{\epsilon^2} \\
+	&= \Psi_0^*(x, t) \Psi_0(x, t) + \epsilon \Psi_1^*(x, t) \Psi_0(x, t) + \epsilon \Psi_0^*(x, t) \Psi_1(x, t) + \mathcal O\del{\epsilon^2} \\
+	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{2x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \del{\exp\del{-\ii (0-1)\omega t} + \exp\del{-\ii (1-0)\omega t}} \\
+	&= \frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
+	\bracket x
+	&= \int_{-\infty}^\infty \dif x \, x \del{\frac{1}{x_0 \sqrt\piup} \exp\del{-\frac{x^2}{x_0^2}} + \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}}} \cos\del{\omega t} \\
+	\intertext{%
+		Der erste Summand ist einer ungerade Funktion, somit verschwindet das
+		Integral. Es bleibt der zweite Summand.
+	}
+	&= \int_{-\infty}^\infty \dif x \, x \frac{\epsilon}{x_0\sqrt\piup} \frac{4x}{x_0} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
+	&= \frac{4\epsilon}{\sqrt\piup} \int_{-\infty}^\infty \dif x \, \frac{x^2}{x_0^2} \exp\del{-\frac{x^2}{x_0^2}} \cos\del{\omega t} \\
+	\intertext{%
+		Substituiere $x' := x/x_0$.
+	}
+	&= \frac{4\epsilon x_0}{\sqrt\piup} \int_{-\infty}^\infty \dif x' \, x'^2 \exp\del{-x'^2} \cos\del{\omega t} \\
+	\intertext{%
+		Wende das gegebene Integral an.
+	}
+	&= 2 \epsilon x_0 \cos\del{\omega t}
+\end{align*}
+
+Die Teilchenposition verschiebt sich nun periodisch etwas zur Seite, wie auch
+in Abbildung \ref{fig:1} zu sehen ist.
+
+\subsection{Plot}
+
+In den Abbildungen \ref{fig:0}, \ref{fig:1} und \ref{fig:3} ist die
+Zeitentwicklung von $\rho_i(x, t) := \abs{\Phi_i(x, t)}^2$ geplottet, auf der
+horizontalen Achse $x$ und auf der vertikalen Achse $t$. Die Farbe gibt $\rho$
+an.
+
+In Abbildung \ref{fig:0} ist $\ket{\Phi_0} = \ket{\Psi_0}$, in Abbildung
+\ref{fig:1} ist $\ket{\Phi_1} = \ket{\Psi_0} + \num{0.1} \ket{\Psi_1}$
+geplottet. Und in Abbildung \ref{fig:3} $\ket{\Psi_3} := \ket{\Psi_0} +
+\num{0.1} \ket{\Psi_1} + \num{0.1} \ket{\Psi_2} + \num{0.1} \ket{\Psi_3}$.
+
+\begin{figure}
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-0.pdf}
+		\caption{Dichte $\rho_0$}
+		\label{fig:0}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-1.pdf}
+		\caption{Dichte $\rho_1$}
+		\label{fig:1}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\linewidth}
+		\includegraphics[width=\textwidth]{H3-3.pdf}
+		\caption{Dichte $\rho_3$}
+		\label{fig:3}
+	\end{minipage}
+\end{figure}
+
+Die Plots habe ich mit folgendem Mathematica Code erzeugt:
+
+\begin{verbatim}
+x0 := Sqrt[h/(m omega)]
+m := 1
+h := 1
+omega := 1
+
+psi[x_, t_, n_] := 1/Sqrt[x0 2^n Factorial[n]] Pi^(-1/4) HermiteH[n, x/x0]
+	Exp[-x^2/(2 x0^2)] Exp[-I (n + 1/2) omega t] Plot[Abs[psi[x, 0, 0]]^2,
+	{x, -2 x0, 2 x0}]
+
+Plot[Evaluate[Table[Abs[psi[x, 0, n]]^2, {n, 0, 4}]], {x, -2 x0, 2 x0},
+	Filling -> Axis]
+
+Manipulate[DensityPlot[Abs[psi[x, t, 0] + eps1 psi[x, t, 1]
+	+ eps2 psi[x, t, 2] + eps3 psi[x, t, 3]]^2, {x, -2 x0, 2 x0}, {t, 0, 10},
+	AxesLabel -> {"x", "t", "rho"}, PerformanceGoal -> Quality],
+	{eps1, 0, 0.1}, {eps2, 0, 0.1}, {eps3, 0, 0.1}]
+\end{verbatim}
+
+Dieses Teilchen verhält sich wie mehrere Teilchen, die zusammen eine Schwebung
+erzeugen. Das Maximum wandert schon fast chaotisch in Abbildung \ref{fig:3}.
+Ein klassischer harmonischer Oszillator hat nur eine Eigenfrequenz und kann
+sich nicht derart überlagern. Erst, wenn mehrere Massen eingebracht werden,
+kann es zu Schwebungen kommen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Das Wasserstoffatom, klassisch betrachtet                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Das Wasserstoffatom, klassisch betrachtet}
+\label 4
+
+\subsection{kinetische, potentielle und gesamte Energie}
+
+Vom statischen Bezugssystem aus gesehen muss für eine Kreisbahn die benötigte
+Zentripetalkraft durch die elektrische Anziehung geliefert werden:
+\begin{align*}
+	\frac{1}{4 \piup \varepsilon_0} \frac{e^2}{r^2} &= m_e \frac{v^2}{r} \\
+	\half m_e v^2
+	&= \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{kin}(r)
+	&= \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{kin}(r)
+	&= \SI{1.154e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+Die potentielle Energie ist für $\lim_{r \to \infty} E_\text{pot}(r) = 0$:
+\begin{align*}
+	E_\text{pot}(r) &= - \frac{1}{4 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E_\text{pot}(r) &= \SI{-2.307e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+Zusammen ist die Energie:
+\begin{align*}
+	E(r) &= - \frac{1}{8 \piup \varepsilon_0} \frac{e^2}{r} \\
+	E(r) &= \SI{-1.154e-28}{\joule\meter} \cdot \frac 1r
+\end{align*}
+
+\subsection{Umlaufradius und Bahngeschwindigkeit}
+
+\[
+	E(r) = \SI{-13.6}{\electronvolt}
+	\implies
+	r = \SI{5.29e-11}{\meter}
+\]
+
+Dies deckt sich gut mit dem Atomdurchmesser von $\SI{e-10}{\meter}$.
+
+Die Bahngeschwindigkeit erhalte ich mit:
+\[
+	E_\text{kin}(r) = 1/2 m_e v^2
+	\implies
+	v = \SI{2.19e6}{\meter\per\second}
+\]
+
+\subsection{Abgestrahlte Energie}
+
+\[
+	\beta = \num{0.00730}
+	\eqnsep
+	\gamma = \num{1.00003}
+	\eqnsep
+	\Deltaup E = \num{2446} \frac{e^2}{\varepsilon_0 m_e} = \SI{7.090e-24}\joule
+\]
+
+Mit einer Energie von $\abs E = \SI{13.6}\electronvolt$ gibt es $n =
+\num{307000}$ Umläufe, bevor die komplette Energie verbraucht ist. Die Zeit
+$t$, die für diese $n$ Umläufe gebraucht wird, ist:
+\[
+	t = \frac{2 n \piup r}v = \SI{4.67e-11}\second
+\]
+
+Also auf einer sehr kleinen Zeitskala, im Vergleich zum Alter der Erde, würden
+die Elektronen ihre komplette Energie abstrahlen und auf den Kern fallen. Die
+Atome würden dann eventuell zu puren Neutronen fusionieren und die Erde würde
+erstmal zu einem Neutronenstern. Jedenfalls stimmt dies absolut nicht mit der
+Beobachtung überein.
+
+\subsection{Dilemma}
+
+Die Lösung, die zur Quantenmechanik geführt hat, ist der Vorschlag, dass
+Elektronen auf ihren Bahnen um das Atom einfach keine Bremsstrahlung abgeben.
+
+Es könnte auch sein, dass die Elektronen im thermischen Gleichgewicht mit allen
+anderen Atomen stehen und sich so der Strahlungsverlust ausgleicht. Allerdings
+sind wohl im Universum auch einzelne Atome, so dass diese vielleicht
+kollabieren. Keine wirkliche Lösung.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
