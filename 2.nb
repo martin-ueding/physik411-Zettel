@@ -1,0 +1,154 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4176,        145]
+NotebookOptionsPosition[      3439,        113]
+NotebookOutlinePosition[      3774,        128]
+CellTagsIndexPosition[      3731,        125]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"2897.8", "/", "300"}]], "Input",
+ CellChangeTimes->{{3.579708191100144*^9, 3.579708195359529*^9}}],
+
+Cell[BoxData["9.659333333333334`"], "Output",
+ CellChangeTimes->{
+  3.579708196224824*^9, {3.57984306017423*^9, 3.579843071014193*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"2", 
+  RowBox[{"Pi", "/", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"4000", ",", "\"\<1/CentiMeter\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.579843010178296*^9, 3.579843019789618*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FractionBox["\[Pi]", "2000"]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"cm\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: centimeters"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Centimeters\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.579843026783907*^9, {3.579843060250705*^9, 3.5798430710783043`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "N"}]], "Input",
+ CellChangeTimes->{{3.579843029390728*^9, 3.579843032276775*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"0.0015707963267948967`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"cm\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: centimeters"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Centimeters\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.579843032704534*^9, 3.579843071103257*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{"Quantity", "[", "\"\<NanoMeter\>\"", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.5798430344203663`*^9, 3.579843067366454*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"15707.963267948966`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"nm\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: nanometers"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Nanometers\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.579843037867852*^9, 3.579843071541747*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "/", "4000"}]], "Input",
+ CellChangeTimes->{{3.57984310369514*^9, 3.579843106317202*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"3.9269908169872414`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"nm\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: nanometers"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Nanometers\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.5798431069337063`*^9}]
+}, Open  ]]
+},
+WindowSize->{679, 706},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 122, 2, 32, "Input"],
+Cell[704, 26, 135, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[876, 33, 217, 5, 32, "Input"],
+Cell[1096, 40, 473, 11, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1606, 56, 116, 2, 32, "Input"],
+Cell[1725, 60, 442, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2204, 75, 207, 4, 32, "Input"],
+Cell[2414, 81, 437, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2888, 96, 117, 2, 32, "Input"],
+Cell[3008, 100, 415, 10, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
