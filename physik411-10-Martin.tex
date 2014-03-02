@@ -1,0 +1,314 @@
+% Copyright © 2013 Martin Ueding <dev@martin-ueding.de>
+%
+\input{header.tex}
+
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{cleveref}
+\usetikzlibrary{calc}
+
+\newcommand{\themodul}{physik411}
+\newcommand{\thegruppe}{Gruppe 2 -- Florian Seidler}
+\newcommand{\theuebung}{10}
+
+\ifoot{\footnotesize{Martin Ueding}}
+\ihead{\themodul{} -- Übung \theuebung}
+\ofoot{\footnotesize{\thegruppe}}
+
+\def\thesubsection{\thesection\alph{subsection}}
+
+\title{\themodul{} -- Übung \theuebung}
+\subtitle{\thegruppe}
+\author{
+	Martin Ueding \footnote{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
+}
+
+\hypersetup{
+	pdftitle={\themodul {} - Übung \theuebung},
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+	\ccbysadetitle
+\end{center}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l*4{|c}}
+		Aufgabe
+		& \ref 1
+		& \ref 2
+		& \ref 3
+		& $\sum$   \\
+		\hline
+		Punkte
+		& \punkte / 14
+		& \punkte / 10
+		& \punkte / 16
+		& \punkte / 40
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             Die Brillouin-Zone                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Die Brillouin-Zone}
+\label 1
+
+\subsection{Definition}
+
+Die erste Brillouin-Zone ist die primitive Wigner-Seitz-Zelle im reziproken
+Raum. \cite{wikipedia/Brillouin-Zone} \cite[Kapitel~3.1,
+Seite~33]{Keyling/ab-initio}
+
+\subsection{Konstruktion}
+
+Im reziproken Gitter:
+
+\begin{itemize}
+	\item Punkt aussuchen
+	\item Verbindung zu nächsten Nachbarn einzeichnen
+	\item Mittelsenkrechten in die Verbindungen einzeichnen.
+	\item Umschlossene Fläche ist erste Zone.
+\end{itemize}
+
+\subsection{Symmetrie}
+
+Die Bragg-Reflexion tritt immer auf, wenn $\Deltaup \vec k = \vec g$, also ein
+beliebiger reziproker Gittervektor, ist. Der Bloch-Satz besagt, dass in der
+Welle ein Phasenfaktor auftritt: \cite[Vorlesung~16,
+Folie~7]{meschede/physik441}
+\[
+	\exp\del{\ii \inner{\vec k}{\vec t_n}}
+	\eqnsep
+	\inner{\vec t_n}{\vec g_m} = 2\piup n
+\]
+
+Wenn also eine Transformation $\vec k' := \vec k + \vec g$ durchgeführt wird,
+ändert sich die Phase gerade nicht. Somit sind die Zonen zueinander äquivalent.
+
+\subsection{Äquivalente Zonen}
+
+Die Zonen habe ich per Hand in die gegebene Abbildung gemalt, siehe nächste
+Seite.
+
+Dabei habe ich jedoch nur $6+6+6=18$ Maschen eingezeichnet. Die Sechsecke sind
+allerdings komplett belegt. Wo ist da der Fehler?
+
+\includepdf[pages=2]{gitter.pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Edelmetalle                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Edelmetalle}
+\label 2
+
+\subsection{Bravaisgitter}
+
+Kupfer ist „cubic-close-packed“, also ccp.
+\cite{webelements/copper/crystal_structure} Laut \cite{wikipedia/Copper} ist es
+fcc.
+
+\subsection{Erste 3D Zone}
+
+Die erste Zone von einem fcc Gitter ist ein Oktaederdrittelstumpf.
+\cite{akopian/brillouin-zones}
+
+Einige der  Hochsymmetriepunkte habe in in \cref{fig:okt} eingezeichnet.
+\cite[Kapitel~3.1, Seite~33]{Keyling/ab-initio}
+
+Alle Punkte sind in \cref{fig:fcc2}, das ich später auch noch gefunden habe.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Permutohedron-Zeichnung.pdf}
+	\caption{%
+		Hochsymmetriepunkte. Die Hintergrundzeichnung stammt aus
+		\cite{Mate2code/permutohedron}
+	}
+	\label{fig:okt}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Brillouin-Zone.pdf}
+	\caption{%
+		Alle Hochsymmetriepunkte der ersten Brillouinzone des fcc Gitters.
+		\cite{Inductiveload/fcc}
+	}
+	\label{fig:fcc2}
+\end{figure}
+
+\subsection{Hybridisierungstypen}
+
+\fehlt
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  Optische Gitter und Tight-Binding-Methode                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Optische Gitter und Tight-Binding-Methode}
+\label 3
+
+\subsection{Oszillatorfrequenz}
+
+Gegeben ist das Potential:
+\[
+	\hat V(x) = \frac{U_0}2 \del{1-\cos\del{\frac{2\piup}a x}}
+\]
+
+Ein Minimum ist bei $x = 0$. Darum entwickele ich die Funktion und erhalte:
+\[
+	\hat V(x) = U_0 \frac{\piup^2}{a^2} x^2 + \mathcal O(x^3)
+\]
+
+Ein Koeffizientenvergleich mit $U(x) = m \omega^2 x^2/2$ liefert:
+\[
+	\omega^2 = 2 U_0 \frac{\piup^2}{a^2m}
+\]
+
+\subsection{Bedingung an Potentialtiefe}
+
+Das $\Deltaup x$ sieht nach dem FWHM für die Wellenfunktion des Zustandes $\ket 0$ des harmonischen Oszillators aus. Nach \cite[Übersichtsfolie 17]{kubis/physik421} ist das:
+\[
+	\psi_0(x) = \del{\frac{m \omega}{\piup \hbar}}^{\frac 14} \exp\del{-\frac{m\omega}{2\hbar} x^2}
+\]
+
+Die halbe Höhe ist erreicht, wenn:
+\[
+	x = \pm \sqrt{\frac{2\hbar \ln(2)}{m\omega}}
+\]
+
+Somit ist
+\[
+	\Deltaup x = 2 \sqrt{\frac{2\hbar \ln(2)}{m\omega}}
+\]
+
+Dies soll jetzt deutlich kleiner als $a$ sein. Nach drei Umformungen und dem
+Einsetzen des gefundenen $\omega$ erhalte ich:
+\[
+	32 \frac{\hbar^2 \ln^2(2) a^2 m}{\piup^2} \ll U_0
+\]
+
+\subsection{Diagonalisieren}
+
+Gegeben ist:
+\[
+	\hat H = \begin{pmatrix}
+		E & J \\ J & E
+	\end{pmatrix}
+\]
+
+Ich suche die Eigenvektoren, diese sind:
+\[
+	\vec e_1 = \begin{pmatrix}
+		-1 \\ 1
+	\end{pmatrix}
+	\eqnsep
+	\vec e_2 = \begin{pmatrix}
+		1 \\ 1
+	\end{pmatrix}
+\]
+
+Somit kann ich die Eigenzustände schreiben als:
+\[
+	\ket{e_1} = \frac{1}{\sqrt{2}} \vec e_2 \\
+	\ket{e_2} = \frac{1}{\sqrt{2}} \vec e_1 \\
+\]
+
+\subsection{Skizze}
+
+Die Skizze der komplizierten Formel, deren Herleitung gar nicht so wichtig ist,
+ist in \cref{fig:J}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{3d.pdf}
+	\caption{}
+	\label{fig:J}
+\end{figure}
+
+\subsection{Tunnelrate durch Barriere}
+
+\fehlt
+
+\subsection{Translationsinvariate Matrixform}
+
+Die Funktion $\psi_k$ erfüllt das Bloch-Theorem. Der reziproke
+Gitterbasisvektor ist $g = 2\piup/a$. Eine Translation im $k$-Raum um $k
+\mapsto k + g$ führt in der Exponentialfunktion zur Addition von $2\piup \ii$,
+so dass nichts verändert wird.
+
+$\psi_0$ ist die Wellenfunktion vom Oszillator an der Position 0. Die Funktion $\psi_k$ kann in der Basis der $\psi_n$ dargestellt werden als:
+\[
+	\psi_k =
+	\begin{pmatrix}
+		\vdots \\
+		\exp(-2 \ii k a) \\
+		\exp(- \ii k a) \\
+		1 \\
+		\exp(\ii k a) \\
+		\exp(2 \ii k a) \\
+		\vdots \\
+	\end{pmatrix}
+\]
+
+Wenn ich nun den Hamilonoperator darauf anwende, erhalte ich:
+\[
+	\begin{pmatrix}
+		\vdots \\
+		J \exp(-2\ii ka) + E_0 \exp(-\ii ka) + J \\
+		J \exp(-\ii ka) + E_0 + J \exp(\ii ka) \\
+		J + E_0 \exp(\ii ka) + J \exp(2\ii ka) \\
+		\vdots \\
+	\end{pmatrix}
+	=
+	\del{J \exp(\ii ka) + E_0 + J \exp(-\ii ka)}
+	\begin{pmatrix}
+		\vdots \\
+		\exp(-2 \ii k a) \\
+		\exp(- \ii k a) \\
+		1 \\
+		\exp(\ii k a) \\
+		\exp(2 \ii k a) \\
+		\vdots \\
+	\end{pmatrix}
+\]
+
+Somit ist der Energieeigenwert:
+\[
+	J \exp(\ii ka) + E_0 + J \exp(-\ii ka)
+	=
+	E_0 + 2 J \cos(ka)
+\]
+
+\subsection{Effektive Masse}
+
+Gegeben ist in der vorherigen Aufgabe:
+\[
+	E = E_0 + 2 J \cos(ka)
+\]
+
+Dies leite ich zweimal nach $k$ ab, invertiere es und erhalte:
+\[
+	m_\text{eff} = - \frac{\hbar}{2Ja^2}
+\]
+
+Da $J$ negativ ist (siehe \cref{fig:J}), ist die Masse auch positiv.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                    Ende                                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\IfFileExists{\bibliographyfile}{
+	\bibliography{\bibliographyfile}
+}{}
+
+\end{document}
+
+% vim: spell spelllang=de
