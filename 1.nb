@@ -1,0 +1,465 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     13874,        456]
+NotebookOptionsPosition[     12027,        384]
+NotebookOutlinePosition[     12536,        406]
+CellTagsIndexPosition[     12451,        401]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"int", "=", 
+  RowBox[{"4", "Pi", " ", 
+   RowBox[{"Integrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"r", "^", "2"}], " ", 
+      RowBox[{"Exp", "[", 
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "r", " ", 
+        RowBox[{"z", "/", "a0"}]}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "0", ",", "rp"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.577620478343319*^9, 3.577620505195985*^9}, {
+  3.577620545784505*^9, 3.577620592473716*^9}, {3.577622630360775*^9, 
+  3.5776226318272743`*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"a0", " ", "\[Pi]", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SuperscriptBox["a0", "2"], "-", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"2", " ", "rp", " ", "z"}], "a0"]}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["a0", "2"], "+", 
+        RowBox[{"2", " ", "a0", " ", "rp", " ", "z"}], "+", 
+        RowBox[{"2", " ", 
+         SuperscriptBox["rp", "2"], " ", 
+         SuperscriptBox["z", "2"]}]}], ")"}]}]}], ")"}]}], 
+  SuperscriptBox["z", "3"]]], "Output",
+ CellChangeTimes->{
+  3.577620507999275*^9, {3.5776205884806767`*^9, 3.57762059306504*^9}, 
+   3.577622632442606*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"innen", "=", 
+  RowBox[{
+   RowBox[{"int", "/.", 
+    RowBox[{"rp", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"0.8", ",", "\"\<FemtoMeter\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"a0", "\[Rule]", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{
+      RowBox[{"1", "/", "180"}], ",", "\"\<BohrRadius\>\""}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.577620597062449*^9, 3.577620633336122*^9}, {
+  3.57762178524551*^9, 3.577621786579166*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.1359255235743366`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SuperscriptBox["\"fm\"", "3"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: femtometers cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"Femtometers\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5776206100275507`*^9, 3.577620639229591*^9}, 
+   3.577621787406348*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"alles", "=", 
+  RowBox[{
+   RowBox[{"int", "/.", 
+    RowBox[{"rp", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"Infinity", ",", "\"\<FemtoMeter\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"a0", "\[Rule]", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{
+      RowBox[{"1", "/", "180"}], ",", "\"\<BohrRadius\>\""}], 
+     "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.577620789246393*^9, 3.5776208024767647`*^9}, {
+  3.577621791303348*^9, 3.577621791987344*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FractionBox["\[Pi]", "5832000"]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SubsuperscriptBox[
+           StyleBox["\"a\"", Italic, StripOnInput -> False], "0", "3"]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Bohr radii cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"BohrRadius\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5776207908436403`*^9, 3.577620803723333*^9}, 
+   3.577621792758216*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", "innen", "]"}]], "Input",
+ CellChangeTimes->{{3.5776223394767*^9, 3.577622341857882*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.135925523574337`*^-45"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SuperscriptBox["\"m\"", "3"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: meters cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"Meters\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.5776223422685747`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", "alles", "]"}]], "Input",
+ CellChangeTimes->{{3.57762233087367*^9, 3.577622334357573*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "7.982441717766400273745866463007197485585`8.71500096121235*^-38"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SuperscriptBox["\"m\"", "3"]}], "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: meters cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"Meters\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.577622334895184*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"innen", "/", "alles"}], "]"}]], "Input",
+ CellChangeTimes->{{3.57762081716171*^9, 3.577620819751318*^9}, {
+  3.577621795396311*^9, 3.577621797356188*^9}}],
+
+Cell[BoxData["2.6757796662898766`*^-8"], "Output",
+ CellChangeTimes->{3.577620820149135*^9, 3.577621797870832*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"innen", "=", 
+  RowBox[{
+   RowBox[{"int", "/.", 
+    RowBox[{"rp", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"0.8", ",", "\"\<FemtoMeter\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"a0", "\[Rule]", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<BohrRadius\>\""}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.577620597062449*^9, 3.577620633336122*^9}, {
+   3.57762178524551*^9, 3.577621786579166*^9}, 3.577622559610992*^9}],
+
+Cell[BoxData[
+ TemplateBox[{"1.430026084183539`*^-14"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SubsuperscriptBox[
+           StyleBox["\"a\"", Italic, StripOnInput -> False], "0", "3"]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Bohr radii cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"BohrRadius\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5776206100275507`*^9, 3.577620639229591*^9}, 
+   3.577621787406348*^9, 3.577622575761362*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"alles", "=", 
+  RowBox[{
+   RowBox[{"int", "/.", 
+    RowBox[{"rp", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"Infinity", ",", "\"\<FemtoMeter\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"a0", "\[Rule]", 
+    RowBox[{"Quantity", "[", 
+     RowBox[{"1", ",", "\"\<BohrRadius\>\""}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.577620789246393*^9, 3.5776208024767647`*^9}, {
+   3.577621791303348*^9, 3.577621791987344*^9}, 3.577622564869932*^9, {
+   3.5776226368071613`*^9, 3.577622638787362*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"\[Pi]"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SubsuperscriptBox[
+           StyleBox["\"a\"", Italic, StripOnInput -> False], "0", "3"]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Bohr radii cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"BohrRadius\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5776207908436403`*^9, 3.577620803723333*^9}, 
+   3.577621792758216*^9, 3.5776225769459143`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"innen", "/", "alles"}], "]"}]], "Input"],
+
+Cell[BoxData["4.551914400963142`*^-15"], "Output",
+ CellChangeTimes->{3.577622578208363*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Sqrt"}]], "Input",
+ CellChangeTimes->{{3.5776227718795547`*^9, 3.5776227726748257`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Sqrt\\\", \\\"[\\\", StyleBox[\\\"z\\\", \
+\\\"TI\\\"], \\\"]\\\"}]\\) or \\!\\(\\*SqrtBox[StyleBox[\\\"z\\\", \
+\\\"TI\\\"]]\\) gives the square root of \\!\\(\\*StyleBox[\\\"z\\\", \
+\\\"TI\\\"]\\). \"\>", "MSG"], "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Sqrt"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.5776227734193897`*^9},
+ CellTags->"Info3577629973-4705266"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"innen", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"int", "/.", 
+     RowBox[{"rp", "\[Rule]", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"1.3", " ", 
+         RowBox[{"238", "^", 
+          RowBox[{"(", 
+           RowBox[{"1", "/", "3"}], ")"}]}]}], ",", "\"\<FemtoMeter\>\""}], 
+       "]"}]}]}], "/.", 
+    RowBox[{"a0", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"1", "/", "92"}], ",", "\"\<BohrRadius\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"z", "\[Rule]", "92"}]}]}]], "Input",
+ CellChangeTimes->{{3.577622648298998*^9, 3.577622651345419*^9}, {
+  3.5776227030156937`*^9, 3.5776227034955187`*^9}, {3.57762274774586*^9, 
+  3.577622794727639*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"2.4652752023300784`*^-12"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SubsuperscriptBox[
+           StyleBox["\"a\"", Italic, StripOnInput -> False], "0", "3"]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Bohr radii cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"BohrRadius\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.577622658538353*^9, {3.577622709499016*^9, 3.577622713400364*^9}, 
+   3.577622797019149*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"alles", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"int", "/.", 
+     RowBox[{"rp", "\[Rule]", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"Infinity", ",", "\"\<FemtoMeter\>\""}], "]"}]}]}], "/.", 
+    RowBox[{"a0", "\[Rule]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"1", "/", "92"}], ",", "\"\<BohrRadius\>\""}], "]"}]}]}], "/.", 
+   RowBox[{"z", "\[Rule]", "92"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.577622655226652*^9, {3.577622705432933*^9, 3.577622705895938*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FractionBox["\[Pi]", "606355001344"]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+          SubsuperscriptBox[
+           StyleBox["\"a\"", Italic, StripOnInput -> False], "0", "3"]}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Bohr radii cubed"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       SuperscriptBox["\"BohrRadius\"", "3"]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.577622656593472*^9, {3.57762270692739*^9, 3.577622713785343*^9}, 
+   3.577622798405983*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"innen", "/", "alles"}], "]"}]], "Input"],
+
+Cell[BoxData["0.4758197874298216`"], "Output",
+ CellChangeTimes->{
+  3.5776226602541924`*^9, {3.5776227108860493`*^9, 3.577622713856571*^9}, 
+   3.577622799787969*^9}]
+}, Open  ]]
+},
+WindowSize->{956, 556},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3577629973-4705266"->{
+  Cell[8552, 275, 533, 12, 52, "Print",
+   CellTags->"Info3577629973-4705266"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3577629973-4705266", 12347, 395}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 551, 15, 32, "Input"],
+Cell[1133, 39, 714, 21, 71, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1884, 65, 480, 13, 32, "Input"],
+Cell[2367, 80, 553, 14, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2957, 99, 488, 13, 32, "Input"],
+Cell[3448, 114, 629, 16, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4114, 135, 132, 2, 32, "Input"],
+Cell[4249, 139, 496, 13, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4782, 157, 133, 2, 32, "Input"],
+Cell[4918, 161, 537, 14, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5492, 180, 209, 4, 32, "Input"],
+Cell[5704, 186, 114, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5855, 192, 468, 11, 32, "Input"],
+Cell[6326, 205, 645, 16, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7008, 226, 528, 12, 32, "Input"],
+Cell[7539, 240, 629, 16, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8205, 261, 95, 2, 32, "Input"],
+Cell[8303, 265, 92, 1, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8432, 271, 117, 2, 32, "Input"],
+Cell[8552, 275, 533, 12, 52, "Print",
+ CellTags->"Info3577629973-4705266"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9122, 292, 722, 20, 77, "Input"],
+Cell[9847, 314, 647, 17, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10531, 336, 519, 14, 55, "Input"],
+Cell[11053, 352, 656, 17, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11746, 374, 95, 2, 32, "Input"],
+Cell[11844, 378, 167, 3, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
