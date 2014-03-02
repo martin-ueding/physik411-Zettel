@@ -1,0 +1,198 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      5566,        189]
+NotebookOptionsPosition[      4714,        153]
+NotebookOutlinePosition[      5051,        168]
+CellTagsIndexPosition[      5008,        165]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"mub", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"9.27*^-24", ",", "\"\<Joule/Tesla\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.578577169246606*^9, 3.57857720840093*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"9.27`*^-24"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{
+         "\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+          "\"T\""}], "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> 
+     False], "Unit: joules per tesla"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["\"Joules\"", "\"Teslas\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.578577217508163*^9, 3.578729968615234*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"b", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"50", ",", "\"\<MicroTesla\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.57857722178318*^9, 3.578577236320044*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"50"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox["\"\[Mu]T\"", "QuantityUnitTraditionalLabel"]}], 
+     ShowStringCharacters -> False], "Unit: microteslas"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"Microteslas\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.57857723711012*^9, 3.5787299691739073`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"hbar", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", "\"\<PlanckConstant\>\"", "]"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"2", "Pi"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.5785772500969057`*^9, 3.578577263856695*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FractionBox["1", 
+    RowBox[{"2", " ", "\[Pi]"}]]},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        StyleBox["\"h\"", Italic, StripOnInput -> False], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: Planck constants"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", "\"PlanckConstant\""}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.578577265798757*^9, 3.57872996919226*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gl", "=", "2"}]], "Input",
+ CellChangeTimes->{{3.578577269978251*^9, 3.578577272093045*^9}, {
+  3.578729955988596*^9, 3.578729956098042*^9}}],
+
+Cell[BoxData["2"], "Output",
+ CellChangeTimes->{
+  3.5785772756430273`*^9, {3.578729956912589*^9, 3.578729969196472*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gl", " ", "mub", " ", 
+   RowBox[{"b", "/", "hbar"}]}], "//", "UnitConvert"}]], "Input",
+ CellChangeTimes->{{3.578577278179881*^9, 3.578577285876317*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"8.790298257848622`*^6"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"per \"", "\[InvisibleSpace]", "\"second\""}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: reciprocal seconds"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["1", "\"Seconds\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.5785772866723747`*^9, 3.5787299695453253`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"5.6", " ", 
+   RowBox[{"mub", "/", "1836"}], " ", 
+   RowBox[{"b", "/", "hbar"}]}], "//", "UnitConvert"}]], "Input",
+ CellChangeTimes->{{3.5785773993823967`*^9, 3.578577411377042*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{"13405.683617634066`"},
+  "QuantityUnit",
+  DisplayFunction->(TooltipBox[
+    StyleBox[
+     RowBox[{#, 
+       StyleBox[
+        RowBox[{"\"per \"", "\[InvisibleSpace]", "\"second\""}], 
+        "QuantityUnitTraditionalLabel"]}], ShowStringCharacters -> False], 
+    "Unit: reciprocal seconds"]& ),
+  InterpretationFunction->(RowBox[{"Quantity", "[", 
+     RowBox[{#, ",", 
+       FractionBox["1", "\"Seconds\""]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.578577412923243*^9, 3.5787299698731337`*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 706},
+WindowMargins->{{146, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 201, 4, 32, "Input"],
+Cell[783, 28, 562, 14, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1382, 47, 191, 4, 32, "Input"],
+Cell[1576, 53, 425, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2038, 68, 245, 6, 32, "Input"],
+Cell[2286, 76, 530, 13, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2853, 94, 165, 3, 32, "Input"],
+Cell[3021, 99, 121, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3179, 106, 189, 4, 32, "Input"],
+Cell[3371, 112, 536, 13, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3944, 130, 219, 5, 32, "Input"],
+Cell[4166, 137, 532, 13, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
